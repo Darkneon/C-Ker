@@ -5,8 +5,8 @@ The C-ker(seeker from Team C), is a simplified version of a Vessel Monitoring Sy
 
 Team
 =====
-Ashwath  George
-Nicholas Gignac
-Robert   Jakubowicz
-Caroline Labbe
-Brian    Lam
+Ashwath George<br />
+Nicholas Gignac<br />
+Robert Jakubowicz<br />
+Caroline Labbe<br />
+Brian Lam<br/>
