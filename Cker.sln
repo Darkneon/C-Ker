@@ -5,7 +5,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CkerServer", "Src\Server\Ck
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CkerTests", "Tests\CKerTests\CkerTests.csproj", "{8187639E-97BA-473A-9BDE-36FE66D82BEE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CkerGUI", "Src\CkerGUI\CkerGUI.csproj", "{2D54471A-0D5A-42C1-9ECA-129AA46DB281}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CkerGUI", "Src\CkerGUI\CkerGUI.csproj", "{78260A47-9BD1-410D-978A-F96573187671}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,10 +21,10 @@ Global
 		{8187639E-97BA-473A-9BDE-36FE66D82BEE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8187639E-97BA-473A-9BDE-36FE66D82BEE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8187639E-97BA-473A-9BDE-36FE66D82BEE}.Release|Any CPU.Build.0 = Release|Any CPU
-		{2D54471A-0D5A-42C1-9ECA-129AA46DB281}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{2D54471A-0D5A-42C1-9ECA-129AA46DB281}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{2D54471A-0D5A-42C1-9ECA-129AA46DB281}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{2D54471A-0D5A-42C1-9ECA-129AA46DB281}.Release|Any CPU.Build.0 = Release|Any CPU
+		{78260A47-9BD1-410D-978A-F96573187671}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{78260A47-9BD1-410D-978A-F96573187671}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{78260A47-9BD1-410D-978A-F96573187671}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{78260A47-9BD1-410D-978A-F96573187671}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
