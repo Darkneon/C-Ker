@@ -2,7 +2,63 @@
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Title="CKer" Width="1024" Height="768">
-    <Grid>
+    
+    <!-- Grid based design -->
+    <Grid Background="WhiteSmoke">
+        <!-- Define number of rows and columns-->
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <!-- Top area display vessel radar map -->
+        <Canvas Name="radarCanvas" 
+                Margin="100, 0, 100, 0"
+                Grid.Row="0" Grid.ColumnSpan="6" 
+                Background="AliceBlue">
+            <!-- Vessel object display to be done in code -->
+        </Canvas>
+
+        <!-- Bottom left area display vessel information -->
+        <Grid Grid.Row="1" Grid.ColumnSpan="5">
+            <ListView Name="vesselsListView">
+                <ListView.View>
+                    <GridView>
+                        <GridViewColumn Header="Vessel ID" Width="128" DisplayMemberBinding="{Binding Path=ID}"/>
+                        <GridViewColumn Header="Type" Width="128" DisplayMemberBinding="{Binding Path=Type}"/>
+                        <GridViewColumn Header="X Pos" Width="64" DisplayMemberBinding="{Binding Path=X}"/>
+                        <GridViewColumn Header="Y Pos" Width="64" DisplayMemberBinding="{Binding Path=Y}"/>
+                        <GridViewColumn Header="Speed" Width="124" DisplayMemberBinding="{Binding Path=VX_0}"/>
+                        <GridViewColumn Header="Course Distance" Width="124" DisplayMemberBinding="{Binding Path=VY_0}"/>
+                        <GridViewColumn Header="Update Time" Width="124" DisplayMemberBinding="{Binding Path=StartTime}"/>
+                    </GridView>
+                </ListView.View>
+                <!-- Actual items to be filled in code -->
+            </ListView>
+        </Grid>
+        
+        <!-- Bottom right corner display filtering options -->
+        <StackPanel Grid.Row="1" Grid.Column="6" Margin="15,0">
+            <Label FontWeight="SemiBold"> Show Vessel Types </Label>
+            
+            <!-- Toggle all box -->
+            <CheckBox IsThreeState="True" 
+                      Name="checkShowAllVesselTypes"
+                      IsChecked="True"
+                      Click="OnCheckboxToggle">Show All</CheckBox>
+            
+            <!-- Individual toggles to be added in code under this panel-->
+            <StackPanel Name="individualVesselCheckboxes" Margin="10,5">
+            </StackPanel>
+        </StackPanel>
         
     </Grid>
 </Window>

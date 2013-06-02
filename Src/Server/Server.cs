@@ -16,7 +16,7 @@ namespace Cker
         const string Time = "TIME";
         const string Range = "RANGE";
         
-        enum TargetType
+        public enum TargetType
         {
             Human = 1,
             SpeedBoat,
@@ -25,7 +25,7 @@ namespace Cker
             PassengerVessel                        
         }
 
-        class Simulator 
+        public class Simulator 
         {
             static public int StartTime { get; set; }
             static public int TimeStep { get; set; }
@@ -33,7 +33,7 @@ namespace Cker
             static public int Range { get; set; }
         }
 
-        class TargetRecord 
+        public class TargetRecord 
         {
             public int ID { get; set; }
             public TargetType Type { get; set; }
@@ -61,7 +61,7 @@ namespace Cker
             }
         }
 
-        static List<TargetRecord> Parse(string path, string filename)
+        public static List<TargetRecord> Parse(string path, string filename)
         {
             List<TargetRecord> result = new List<TargetRecord>();
             string filepath = Path.Combine(path, filename);
