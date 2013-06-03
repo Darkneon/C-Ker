@@ -30,7 +30,7 @@ namespace CKerTests
         }
 
         [Test]
-        public void ParseText_EmptyText_ReturnEmptyList()
+        public void ParseText_EmptyText_ReturnsEmptyList()
         {
             string text = "\n";
             List<Server.TargetRecord> actual = Server.ParseText(text);
@@ -40,7 +40,7 @@ namespace CKerTests
         }
 
         [Test]
-        public void ParseText_ValidLine_ReturnListWithOneTargetRecordObject() 
+        public void ParseText_ValidLine_ReturnsListWithOneTargetRecordObject() 
         {
             string text = "NEWT	 001	  		1			4990           		0        		0.1			   	    0.1  		 10\n";
             List<Server.TargetRecord> actual = Server.ParseText(text);
