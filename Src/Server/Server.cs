@@ -68,35 +68,59 @@ namespace Cker
 
             foreach (string line in File.ReadLines(filepath)) 
             {
+                result.AddRange(ParseText(line));                
+            }
 
-                if ( !string.IsNullOrWhiteSpace(line) && !line.TrimStart().StartsWith(Comment) ) 
+            return result;
+        }
+
+        public static List<TargetRecord> ParseText(string text) 
+        {
+            List<TargetRecord> result = new List<TargetRecord>();
+
+            foreach (string line in text.Split('\n'))
+            {
+                TargetRecord record = ParseLine(line);
+                if (record != null)
                 {
-                    char[] delimiterChars = {' ', '\t'};
-                    string[] fields = line.Split(delimiterChars);
-                    fields = fields.Where(x => !string.IsNullOrEmpty(x)).ToArray();
-
-                    switch (fields[0]) 
-                    {
-                        case StartTime:
-                            Simulator.StartTime = Convert.ToInt32(fields[1]);
-                            break;
-                        case TimeStep:
-                            Simulator.TimeStep = Convert.ToInt32(fields[1]);
-                            break;
-                        case Time:
-                            Simulator.Time = Convert.ToInt32(fields[1]);
-                            break;
-                        case Range:
-                            Simulator.Range = Convert.ToInt32(fields[1]);
-                            break;
-                        case NewTarget:
-                            result.Add(new TargetRecord(fields));
-                            break;
-                        default:                           
-                            break;
-                    }                    
+                    result.Add(record);
                 }
 
+            }
+
+            return result;
+        }
+
+        private static TargetRecord ParseLine(string line) 
+        {
+            TargetRecord result = null;
+
+            if (!string.IsNullOrWhiteSpace(line) && !line.TrimStart().StartsWith(Comment))
+            {
+                char[] delimiterChars = { ' ', '\t' };
+                string[] fields = line.Split(delimiterChars);
+                fields = fields.Where(x => !string.IsNullOrEmpty(x)).ToArray();
+
+                switch (fields[0])
+                {
+                    case StartTime:
+                        Simulator.StartTime = Convert.ToInt32(fields[1]);
+                        break;
+                    case TimeStep:
+                        Simulator.TimeStep = Convert.ToInt32(fields[1]);
+                        break;
+                    case Time:
+                        Simulator.Time = Convert.ToInt32(fields[1]);
+                        break;
+                    case Range:
+                        Simulator.Range = Convert.ToInt32(fields[1]);
+                        break;
+                    case NewTarget:
+                        result = new TargetRecord(fields);
+                        break;
+                    default:
+                        break;
+                }
             }
 
             return result;
