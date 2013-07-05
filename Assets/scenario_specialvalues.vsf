@@ -1,0 +1,34 @@
+// Scenario where the variable values are slightly unconventional.
+
+VSF	0240
+
+STARTTIME  0.1
+TIMESTEP  0.5
+TIME   0500
+
+RANGE  50
+
+// Vessel Type Definitions
+// 1 - Human (swimmer)
+// 2 - Speed Boat
+// 3 - Fishing Boat
+// 4 - Cargo Vessel
+// 5 - Passenger Vessel
+
+//	  ID  Type  X [m]  Y [m]  Vx_0[m/s]  Vy_0[m/s]  Start Time[sec]
+NEWT  001  1    0.0    0.0    0.01       0.2        0.0
+NEWT  002  3    -10.2  20.3   5.0        5.0        0.0
+NEWT  003  2    0      100    6.0        0.0        0.0
+NEWT  004  4    50     50    6.0         -8.2        0.0
+NEWT  005  5    -50    -50    -6.1       1.0        0.0
+
+// swimming party
+NEWT  010  1    0.0    0.0    0.1       0.2        10.0
+NEWT  011  1    0.0    0.0    0.1       -0.2        10.0
+NEWT  012  1    0.0    0.0    -0.1       0.2        10.5
+NEWT  013  1    0.0    0.0    -0.1       -0.2        11.2
+NEWT  014  1    0.0    0.0    0.3       -0.05        10.5
+NEWT  015  1    0.0    0.0    0.3       0.2        11.2
+NEWT  016  1    0.0    0.0    -0.15       -0.11        11.6
+NEWT  017  1    0.0    0.0    0.08       0.22        13.2
+NEWT  018  1    0.0    0.0    -0.35       0.24        13.2
