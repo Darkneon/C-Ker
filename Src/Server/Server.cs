@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Timers;
 using System.IO;
 
 namespace Cker
@@ -59,6 +60,39 @@ namespace Cker
             {
                 return String.Format("{0} - {5} - ({1},{2}), ({3}, {4})", ID, X, Y, VX_0, VY_0, Type.ToString());
             }
+        }
+
+        private static Timer timer = new Timer();
+        private static int m_currentTime = 0;
+
+        private static int TimeRemaining() 
+        {            
+            return Simulator.Time - m_currentTime;
+        }
+
+        public static void timer_Elapsed(object sender, EventArgs e)
+        {
+            m_currentTime += Simulator.TimeStep;
+
+            if (TimeRemaining() <= 0)
+            {
+                Stop();
+            }
+        }
+
+        public static void Start() 
+        {
+            m_currentTime = Simulator.StartTime;
+            
+            timer.Elapsed += new System.Timers.ElapsedEventHandler(timer_Elapsed);
+            timer.Interval = Simulator.TimeStep * 1000; //To milliseconds            
+            timer.Enabled = true;
+            timer.Start();
+        }
+
+        public static void Stop() 
+        {
+            timer.Enabled = false;
         }
 
         public static List<TargetRecord> Parse(string path, string filename)

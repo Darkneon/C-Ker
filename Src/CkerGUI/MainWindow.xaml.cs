@@ -38,6 +38,7 @@ namespace CkerGUI
             InitializeFilteringOptions();
             InitializeVesselListDisplay();
             InitializeRadarDisplay();
+            Cker.Server.Start();
         }
 
         private void InitializeFilteringOptions()
