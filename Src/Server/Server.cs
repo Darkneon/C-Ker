@@ -96,9 +96,9 @@ namespace Cker
             timer.Enabled = false;
         }
 
-        public static List<TargetRecord> Parse(string path, string filename)
+        public static List<Vessel> Parse(string path, string filename)
         {
-            List<TargetRecord> result = new List<TargetRecord>();
+            List<Vessel> result = new List<Vessel>();
             string filepath = Path.Combine(path, filename);
 
             foreach (string line in File.ReadLines(filepath)) 
@@ -109,16 +109,17 @@ namespace Cker
             return result;
         }
 
-        public static List<TargetRecord> ParseText(string text) 
+        public static List<Vessel> ParseText(string text) 
         {
-            List<TargetRecord> result = new List<TargetRecord>();
+            List<Vessel> result = new List<Vessel>();
 
             foreach (string line in text.Split('\n'))
             {
-                TargetRecord record = ParseLine(line);
+                TargetRecord record = ParseLine(line);               
                 if (record != null)
                 {
-                    result.Add(record);
+                    Vessel vessel = new Vessel(record.ID, (Vessel.TargetType)record.Type, record.X, record.Y, record.VX_0, record.VY_0, record.StartTime);
+                    result.Add(vessel);
                 }
 
             }

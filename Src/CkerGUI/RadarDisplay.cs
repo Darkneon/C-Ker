@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.Windows.Controls;
 using System.Windows.Media;
 using System.Windows.Shapes;
+using Cker.Models;
 
 namespace CkerGUI
 {
@@ -33,7 +34,7 @@ namespace CkerGUI
         private Canvas canvas;
 
         // Current vessels being drawn.
-        private IEnumerable<Cker.Server.TargetRecord> currentVessels;
+        private IEnumerable<Vessel> currentVessels;
 
         /// <summary>
         /// Must specify the canvas to draw to on instantiation.
@@ -65,7 +66,7 @@ namespace CkerGUI
         /// Each call will wipe the canvas and update with the new specified vessels.
         /// </summary>
         /// <param name="vessels"></param>
-        public void DrawVessels(IEnumerable<Cker.Server.TargetRecord> vessels)
+        public void DrawVessels(IEnumerable<Vessel> vessels)
         {
             if (vessels != null)
             {

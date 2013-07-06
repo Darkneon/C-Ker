@@ -14,6 +14,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Cker.Models;
 
 namespace CkerGUI
 {
@@ -23,8 +24,8 @@ namespace CkerGUI
     public partial class MainWindow : Window
     {
         // List of vessels
-        private List<Cker.Server.TargetRecord> allVessels;
-        private ObservableCollection<Cker.Server.TargetRecord> filteredVessels;
+        private List<Vessel> allVessels;
+        private ObservableCollection<Vessel> filteredVessels;
 
         // Radar.
         private RadarDisplay radarDisplay;
@@ -45,7 +46,7 @@ namespace CkerGUI
         {
             vesselFilterCheckboxes = new List<CheckBox>();
             // Add one checkbox for each vessel type.
-            foreach (var vesselType in Enum.GetValues(typeof(Cker.Server.TargetType)))
+            foreach (var vesselType in Enum.GetValues(typeof(Cker.Models.Vessel.TargetType)))
             {
                 // Make checkbox.
                 CheckBox checkbox = new CheckBox();
@@ -68,7 +69,7 @@ namespace CkerGUI
             allVessels = Cker.Server.Parse("Assets/", "comp354_vessel.vsf");
 
             // Start by displaying them all.
-            filteredVessels = new ObservableCollection<Cker.Server.TargetRecord>();
+            filteredVessels = new ObservableCollection<Vessel>();
             foreach (var vessel in allVessels)
             {
                 filteredVessels.Add(vessel);

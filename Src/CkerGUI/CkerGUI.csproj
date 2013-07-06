@@ -110,6 +110,10 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\CkerModels\CkerModels.csproj">
+      <Project>{074f1716-d51f-48e3-937c-9f0898071374}</Project>
+      <Name>CkerModels</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Server\CkerServer.csproj">
       <Project>{609df8eb-0705-43ec-b847-b0e2272f6da2}</Project>
       <Name>CkerServer</Name>
