@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Timers;
 using System.IO;
+using Cker.Models;
 
 namespace Cker
 {
@@ -17,21 +18,21 @@ namespace Cker
         const string Time = "TIME";
         const string Range = "RANGE";
         
-        public enum TargetType
-        {
-            Human = 1,
-            SpeedBoat,
-            FishingBoat,
-            CargoVessel,
-            PassengerVessel                        
-        }
-
         public class Simulator 
         {
             static public int StartTime { get; set; }
             static public int TimeStep { get; set; }
             static public int Time { get; set; }
             static public int Range { get; set; }
+        }
+
+        public enum TargetType
+        {
+            Human = 1,
+            SpeedBoat,
+            FishingBoat,
+            CargoVessel,
+            PassengerVessel
         }
 
         public class TargetRecord 
