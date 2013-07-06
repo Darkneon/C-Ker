@@ -43,8 +43,8 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\CkerModels\CkerModels.csproj">
-      <Project>{074f1716-d51f-48e3-937c-9f0898071374}</Project>
+    <ProjectReference Include="..\CkerModels\CkerModels.csproj">
+      <Project>{b246d76f-f1fb-4f4c-9710-6c8d93374414}</Project>
       <Name>CkerModels</Name>
     </ProjectReference>
   </ItemGroup>
