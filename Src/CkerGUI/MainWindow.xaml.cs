@@ -39,7 +39,7 @@ namespace CkerGUI
             InitializeFilteringOptions();
             InitializeVesselListDisplay();
             InitializeRadarDisplay();
-            Cker.Server.Start();
+            Cker.Server.Start("Assets/", "comp354_vessel.vsf");
         }
 
         private void InitializeFilteringOptions()
