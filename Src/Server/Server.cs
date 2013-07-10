@@ -72,6 +72,9 @@ namespace Cker
             get { return m_vesselsList; }
         }
 
+        public delegate void AfterUpdateEventHandler();
+        public static event AfterUpdateEventHandler AfterUpdate;
+
 
         //-------------------------------------------------------------------
         // Public Methods
@@ -179,6 +182,11 @@ namespace Cker
             foreach (Vessel v in m_vesselsList)
             {
                 v.X += 1;
+            }
+
+            if (AfterUpdate != null)
+            {
+                AfterUpdate();
             }
 
             if (TimeRemaining() <= 0)
