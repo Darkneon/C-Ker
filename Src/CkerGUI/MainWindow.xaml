@@ -2,6 +2,23 @@
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Title="CKer" Width="1024" Height="768">
+
+    <!-- Resources shared in this window -->
+    <Window.Resources>
+        <!-- Arrows to visualize sorted columns. -->
+        <DataTemplate x:Key="ColumnHeaderArrowUp">
+            <DockPanel LastChildFill="False" Width="{Binding ActualWidth, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type GridViewColumnHeader}}}">
+                <Path x:Name="arrowUp" StrokeThickness="1" Fill="Gray" Data="M 5,10 L 15,10 L 10,5" DockPanel.Dock="Right" Width="20" HorizontalAlignment="Right" Margin="5,0,5,0" SnapsToDevicePixels="True"/>
+                <TextBlock Text="{Binding }" />
+            </DockPanel>
+        </DataTemplate>
+        <DataTemplate x:Key="ColumnHeaderArrowDown">
+            <DockPanel LastChildFill="False" Width="{Binding ActualWidth, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type GridViewColumnHeader}}}">
+                <Path x:Name="arrowDown" StrokeThickness="1" Fill="Gray"  Data="M 5,5 L 10,10 L 15,5" DockPanel.Dock="Right" Width="20" HorizontalAlignment="Right" Margin="5,0,5,0" SnapsToDevicePixels="True"/>
+                <TextBlock Text="{Binding }" />
+            </DockPanel>
+        </DataTemplate>
+    </Window.Resources>
     
     <!-- Grid based design -->
     <Grid Background="WhiteSmoke">
@@ -27,33 +44,61 @@
             <!-- Vessel object display to be done in code -->
         </Canvas>
 
-        <!-- Bottom left area display vessel information -->
-        <Grid Grid.Row="1" Grid.ColumnSpan="5">
-            <ListView Name="vesselsListView">
+        <!-- Bottom area display vessel information -->
+        <Grid Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="5">
+            <ListView Name="vesselsListView" GridViewColumnHeader.Click="OnColumnHeaderClick">
                 <ListView.View>
                     <GridView>
-                        <GridViewColumn Header="Vessel ID" Width="128" DisplayMemberBinding="{Binding Path=ID}"/>
-                        <GridViewColumn Header="Type" Width="128" DisplayMemberBinding="{Binding Path=Type}"/>
-                        <GridViewColumn Header="X Pos" Width="64" DisplayMemberBinding="{Binding Path=X}"/>
-                        <GridViewColumn Header="Y Pos" Width="64" DisplayMemberBinding="{Binding Path=Y}"/>
-                        <GridViewColumn Header="Speed" Width="124" DisplayMemberBinding="{Binding Path=VX_0}"/>
-                        <GridViewColumn Header="Course Distance" Width="124" DisplayMemberBinding="{Binding Path=VY_0}"/>
-                        <GridViewColumn Header="Update Time" Width="124" DisplayMemberBinding="{Binding Path=StartTime}"/>
+                        <GridViewColumn DisplayMemberBinding="{Binding Path=ID}">
+                            <GridViewColumn.Header>
+                                <GridViewColumnHeader Content="Vessel ID" MinWidth="128" HorizontalContentAlignment="Left" Padding="5,0,0,0" />
+                            </GridViewColumn.Header>
+                        </GridViewColumn>
+                        <GridViewColumn DisplayMemberBinding="{Binding Path=Type}">
+                            <GridViewColumn.Header>
+                                <GridViewColumnHeader Content="Type" MinWidth="128" HorizontalContentAlignment="Left" Padding="5,0,0,0" />
+                            </GridViewColumn.Header>
+                        </GridViewColumn>
+                        <GridViewColumn DisplayMemberBinding="{Binding Path=X}">
+                            <GridViewColumn.Header>
+                                <GridViewColumnHeader Content="X Pos" MinWidth="64" HorizontalContentAlignment="Left" Padding="5,0,0,0" />
+                            </GridViewColumn.Header>
+                        </GridViewColumn>
+                        <GridViewColumn DisplayMemberBinding="{Binding Path=Y}">
+                            <GridViewColumn.Header>
+                                <GridViewColumnHeader Content="Y Pos" MinWidth="64" HorizontalContentAlignment="Left" Padding="5,0,0,0" />
+                            </GridViewColumn.Header>
+                        </GridViewColumn>
+                        <GridViewColumn DisplayMemberBinding="{Binding Path=VX_0}">
+                            <GridViewColumn.Header>
+                                <GridViewColumnHeader Content="Speed" MinWidth="128" HorizontalContentAlignment="Left" Padding="5,0,0,0" />
+                            </GridViewColumn.Header>
+                        </GridViewColumn>
+                        <GridViewColumn DisplayMemberBinding="{Binding Path=VY_0}">
+                            <GridViewColumn.Header>
+                                <GridViewColumnHeader Content="Course Distance" MinWidth="128" HorizontalContentAlignment="Left" Padding="5,0,0,0" />
+                            </GridViewColumn.Header>
+                        </GridViewColumn>
+                        <GridViewColumn DisplayMemberBinding="{Binding Path=StartTime}">
+                            <GridViewColumn.Header>
+                                <GridViewColumnHeader Content="Update Time" MinWidth="128" HorizontalContentAlignment="Left" Padding="5,0,0,0" />
+                            </GridViewColumn.Header>
+                        </GridViewColumn>
                     </GridView>
                 </ListView.View>
                 <!-- Actual items to be filled in code -->
             </ListView>
         </Grid>
         
-        <!-- Bottom right corner display filtering options -->
-        <StackPanel Grid.Row="1" Grid.Column="6" Margin="15,0">
+        <!-- Bottom corner display filtering options -->
+        <StackPanel Grid.Row="1" Grid.Column="0" Margin="15,0">
             <Label FontWeight="SemiBold"> Show Vessel Types </Label>
             
             <!-- Toggle all box -->
             <CheckBox IsThreeState="True" 
                       Name="checkShowAllVesselTypes"
                       IsChecked="True"
-                      Click="OnCheckboxToggle">Show All</CheckBox>
+                      Click="OnCheckboxClick">Show All</CheckBox>
             
             <!-- Individual toggles to be added in code under this panel-->
             <StackPanel Name="individualVesselCheckboxes" Margin="10,5">
