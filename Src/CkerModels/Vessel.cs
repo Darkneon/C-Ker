@@ -36,6 +36,17 @@ namespace Cker.Models
             StartTime = startTime;
         }
 
+        public Vessel(string[] parameters)
+        {
+            ID = Convert.ToInt32(parameters[1]);
+            Type = (TargetType)Enum.Parse(typeof(TargetType), parameters[2]);
+            X = Convert.ToInt32(parameters[3]);
+            Y = Convert.ToInt32(parameters[4]);
+            VX_0 = Convert.ToSingle(parameters[5]);
+            VY_0 = Convert.ToSingle(parameters[6]);
+            StartTime = Convert.ToInt32(parameters[7]);
+        }
+
         public override string ToString()
         {
             return String.Format("{0} - {5} - ({1},{2}), ({3}, {4})", ID, X, Y, VX_0, VY_0, Type.ToString());

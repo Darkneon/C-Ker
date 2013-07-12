@@ -43,10 +43,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ServerTest.cs" />
+    <Compile Include="ParserTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\Src\CkerModels\CkerModels.csproj">
+      <Project>{b246d76f-f1fb-4f4c-9710-6c8d93374414}</Project>
+      <Name>CkerModels</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\Src\Server\CkerServer.csproj">
       <Project>{609df8eb-0705-43ec-b847-b0e2272f6da2}</Project>
       <Name>CkerServer</Name>

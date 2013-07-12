@@ -88,7 +88,7 @@ namespace CkerGUI
         {
             Debug.Assert(allVessels != null, "Vessels not initialized yet.");
 
-            radarDisplay = new RadarDisplay(radarCanvas, Cker.Server.Simulator.Range, 0.95);
+            radarDisplay = new RadarDisplay(radarCanvas, Cker.Simulator.Range, 0.95);
         }
 
         // Called when a checkbox is clicked
