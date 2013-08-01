@@ -1,7 +1,12 @@
 ﻿<Window x:Class="CkerGUI.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="CKer" Width="1024" Height="768">
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+		xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+		xmlns:wpfsl="http://schemas.softarcs.com/wpfsmartlibrary"
+		mc:Ignorable="d" wpfsl:WindowKeysHandling.EscapeClosesWindow="True"
+		WindowStartupLocation="CenterScreen" SizeToContent="WidthAndHeight" Background="#FF16499A"
+        Title="C-Ker Vessel Monitoring System (Created by C-Lab 2013)" MinWidth="1024" MinHeight="768">
 
     <!-- Resources shared in this window -->
     <Window.Resources>
@@ -105,5 +110,19 @@
             </StackPanel>
         </StackPanel>
         
+        <!-- Login Screen Overlay -->
+        <wpfsl:SmartLoginOverlay x:Name="CKerLoginOverlayControl"
+										 FullSpan="On"
+										 IsUserOptionAvailable="True"
+										 UserName="{Binding UserName}"
+										 Password="{Binding Password}"
+										 UserImageSource="{Binding UserImageSource}"
+										 AdditionalSystemInfo="Locked"
+										 Command="{Binding SubmitCommand}"
+										 CommandParameter="{Binding RelativeSource={RelativeSource Self} }" />
+
+        <Label Grid.RowSpan="3" Grid.ColumnSpan="3" FontSize="9"
+				 HorizontalAlignment="Center" VerticalAlignment="Bottom" Foreground="LightSkyBlue"
+				 Content="Login Information  =>  User: admin * Password: fullaccess   /   User: operator * Password: gimpedaccess" />
     </Grid>
 </Window>

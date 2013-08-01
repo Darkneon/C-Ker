@@ -17,6 +17,7 @@ using System.Windows.Shapes;
 using System.Windows.Threading;
 using System.ComponentModel;
 using Cker.Models;
+using CkerGUI.ViewModels;
 
 namespace CkerGUI
 {
@@ -39,8 +40,26 @@ namespace CkerGUI
         private GridViewColumnHeader currentSortHeader;
         private ListSortDirection currentSortDirection;
 
+        /*~~~~ For LoginOverlay ~~~~*/
+        #region Fields
+
+        public LoginViewModel ViewModel;
+
+        #endregion
+
+        #region Constructor
+        /*~~~~ For LoginOverlay ~~~~*/
+
         public MainWindow()
         {
+            /*~~~~ For LoginOverlay ~~~~*/
+            // Initialize Login Screen
+            InitializeComponent();
+
+            this.ViewModel = new LoginViewModel();
+            this.DataContext = this.ViewModel;
+            /*~~~~ For LoginOverlay ~~~~*/
+
             Cker.Server.Start("Assets/", "comp354_vessel.vsf");
             Cker.Server.AfterUpdate += OnServerUpdate;
 
@@ -208,5 +227,18 @@ namespace CkerGUI
             }
             return toggledDirection;
         }
+
+        /*~~~~ For LoginOverlay ~~~~*/
+        #endregion
+
+        #region Event handler
+
+        private void btnLock_Click(object sender, RoutedEventArgs e)
+        {
+            this.CKerLoginOverlayControl.Lock();
+        }
+
+        #endregion
+        /*~~~~ For LoginOverlay ~~~~*/
     }
 }
