@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Windows.Input;
-using CkerGUI.Models;
+using CkerModels.Models;
 using SoftArcs.WPFSmartLibrary.MVVMCommands;
 using SoftArcs.WPFSmartLibrary.MVVMCore;
 using SoftArcs.WPFSmartLibrary.SmartUserControls;
@@ -16,6 +16,7 @@ namespace CkerGUI.ViewModels
         #region Fields
 
         List<User> userList;
+
         private readonly string userImagesPath = @"\Images";
 
         #endregion
