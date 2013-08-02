@@ -1,13 +1,13 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CkerServer", "Src\Server\CkerServer.csproj", "{609DF8EB-0705-43EC-B847-B0E2272F6DA2}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CkerTests", "Tests\CKerTests\CkerTests.csproj", "{8187639E-97BA-473A-9BDE-36FE66D82BEE}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CkerGUI", "Src\CkerGUI\CkerGUI.csproj", "{78260A47-9BD1-410D-978A-F96573187671}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CkerServer", "Src\Server\CkerServer.csproj", "{609DF8EB-0705-43EC-B847-B0E2272F6DA2}"
+EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CkerModels", "Src\CkerModels\CkerModels.csproj", "{B246D76F-F1FB-4F4C-9710-6C8D93374414}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CkerTests", "Tests\CKerTests\CkerTests.csproj", "{8187639E-97BA-473A-9BDE-36FE66D82BEE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

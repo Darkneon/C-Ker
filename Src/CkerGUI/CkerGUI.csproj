@@ -73,6 +73,7 @@
     </ApplicationDefinition>
     <Compile Include="Models\User.cs" />
     <Compile Include="RadarDisplay.cs" />
+    <Compile Include="VesselPresenter.cs" />
     <Compile Include="ViewModels\LoginViewModel.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -148,8 +149,8 @@
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
-    <PostBuildEvent>mkdir $(TargetDir)\Assets\
-copy $(SolutionDir)Assets\ $(TargetDir)\Assets\ /Y</PostBuildEvent>
+    <PostBuildEvent>mkdir "$(TargetDir)Assets\"
+copy "$(SolutionDir)Assets\" "$(TargetDir)Assets\" /Y</PostBuildEvent>
   </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

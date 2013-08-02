@@ -6,7 +6,8 @@
 		xmlns:wpfsl="http://schemas.softarcs.com/wpfsmartlibrary"
 		mc:Ignorable="d" wpfsl:WindowKeysHandling.EscapeClosesWindow="True"
 		WindowStartupLocation="CenterScreen" SizeToContent="WidthAndHeight" Background="#FF16499A"
-        Title="C-Ker Vessel Monitoring System (Created by C-Lab 2013)" MinWidth="1024" MinHeight="768">
+        Title="C-Ker Vessel Monitoring System (Created by C-Lab 2013)" MinWidth="1024" MinHeight="768"
+        Loaded="OnWindowLoaded">
 
     <!-- Resources shared in this window -->
     <Window.Resources>

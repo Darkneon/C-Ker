@@ -26,9 +26,8 @@ namespace CkerGUI
     /// </summary>
     public partial class MainWindow : Window
     {
-        // List of vessels
-        private List<Vessel> allVessels;
-        private ObservableCollection<Vessel> filteredVessels;
+        // List of vessels to link with list view
+        private ObservableCollection<Vessel> displayedVessels;
 
         // Radar.
         private RadarDisplay radarDisplay;
@@ -36,9 +35,11 @@ namespace CkerGUI
         // Checkboxes allow user to filter list of vessels.
         private List<CheckBox> vesselFilterCheckboxes;
 
-        // Tracks the current attribute to sort list by, and the sorting direction.
+        // Tracks the current header clicked to know where to display the sorting arrow.
         private GridViewColumnHeader currentSortHeader;
-        private ListSortDirection currentSortDirection;
+
+        // Vessel presenter to get information from simulation.
+        private VesselPresenter vesselPresenter;
 
         /*~~~~ For LoginOverlay ~~~~*/
         #region Fields
@@ -54,17 +55,15 @@ namespace CkerGUI
         {
             /*~~~~ For LoginOverlay ~~~~*/
             // Initialize Login Screen
-            InitializeComponent();
-
             this.ViewModel = new LoginViewModel();
             this.DataContext = this.ViewModel;
             /*~~~~ For LoginOverlay ~~~~*/
 
-            Cker.Server.Start("Assets/", "comp354_vessel.vsf");
-            Cker.Server.AfterUpdate += OnServerUpdate;
+            vesselPresenter = new VesselPresenter();
+            vesselPresenter.AddUpdateAction(OnServerUpdate);
 
             InitializeComponent();
-            InitializeFilteringOptions();
+            InitializeFilteringCheckboxes();
             InitializeVesselListDisplay();
             InitializeRadarDisplay();
 
@@ -72,7 +71,7 @@ namespace CkerGUI
             UpdateVessels();
         }
 
-        private void InitializeFilteringOptions()
+        private void InitializeFilteringCheckboxes()
         {
             vesselFilterCheckboxes = new List<CheckBox>();
             // Add one checkbox for each vessel type.
@@ -95,18 +94,13 @@ namespace CkerGUI
 
         private void InitializeVesselListDisplay()
         {
-            // Populate vessels
-            allVessels = Cker.Server.Vessels;
-
             // Link the list view with the filtered vessels list.
-            filteredVessels = new ObservableCollection<Vessel>();
-            vesselsListView.ItemsSource = filteredVessels;
+            displayedVessels = new ObservableCollection<Vessel>();
+            vesselsListView.ItemsSource = displayedVessels;
         }
 
         private void InitializeRadarDisplay()
         {
-            Debug.Assert(allVessels != null, "Vessels not initialized yet.");
-
             radarDisplay = new RadarDisplay(radarCanvas, Cker.Simulator.Range, 0.95);
         }
 
@@ -143,6 +137,17 @@ namespace CkerGUI
                 checkShowAllVesselTypes.IsChecked = isAllChecked == isAllUnchecked ? (bool?)null : isAllChecked;
             }
 
+            // See which checkboxes are checked finally to perform filtering.
+            List<Vessel.TargetType> wantedTypes = new List<Vessel.TargetType>();
+            foreach (var checkbox in vesselFilterCheckboxes)
+            {
+                if (checkbox.IsChecked == true)
+                {
+                    wantedTypes.Add( (Vessel.TargetType)Enum.Parse(typeof(Vessel.TargetType), checkbox.Name) );
+                }
+            }
+            vesselPresenter.FilterVessels(wantedTypes);
+
             // Update vessels now that filtering changed.
             UpdateVessels();
         }
@@ -158,24 +163,12 @@ namespace CkerGUI
                 return;
             }
 
-            // Determine sort direction.
-            // If the clicked attribute is the same as the current one, toggle direction. Otherwise just assume one.
-            if (headerClicked == currentSortHeader)
-            {
-                currentSortDirection = GetToggledSortDirection(currentSortDirection);
-            }
-            else
-            {
-                currentSortDirection = ListSortDirection.Descending;
-            }
-
             // Retrieve name of the attritube associated to the column header just clicked.
             var dataBinding = (Binding)headerClicked.Column.DisplayMemberBinding;
             var currentSortAttribute = dataBinding.Path.Path;
 
-            // Apply the sorting on the list.
-            vesselsListView.Items.SortDescriptions.Clear();
-            vesselsListView.Items.SortDescriptions.Add(new SortDescription(currentSortAttribute, currentSortDirection));
+            // Apply the sorting.
+            vesselPresenter.SortVessels(currentSortAttribute);
             UpdateVessels();
 
             // Change the look of the current column header to reflect sorting
@@ -184,7 +177,7 @@ namespace CkerGUI
             {
                 currentSortHeader.Column.HeaderTemplate = null;
             }
-            var columnHeaderTemplate = currentSortDirection == ListSortDirection.Ascending ? Resources["ColumnHeaderArrowUp"] : Resources["ColumnHeaderArrowDown"];
+            var columnHeaderTemplate = vesselPresenter.CurrentSortDirection == VesselPresenter.SortDirection.Ascending ? Resources["ColumnHeaderArrowUp"] : Resources["ColumnHeaderArrowDown"];
             headerClicked.Column.HeaderTemplate = columnHeaderTemplate as DataTemplate;
 
             // Save the current sort by attribute for next time.
@@ -199,33 +192,15 @@ namespace CkerGUI
 
         private void UpdateVessels()
         {
-            // Update list of vessels according to current filters
-            filteredVessels.Clear();
-            foreach (var checkbox in vesselFilterCheckboxes)
+            // Grab the latest list of vessels to be displayed.
+            displayedVessels.Clear();
+            foreach (var vessel in vesselPresenter.DisplayedVessels)
             {
-                if (checkbox.IsChecked == true)
-                {
-                    var matchingVessels = allVessels.FindAll(vessel => vessel.Type.ToString() == checkbox.Name);
-                    foreach (var match in matchingVessels)
-                    {
-                        filteredVessels.Add(match);
-                    }
-                }
+                displayedVessels.Add(vessel);
             }
 
             // Update vessel map display.
-            radarDisplay.DrawVessels(filteredVessels);
-        }
-
-        // Returns the toggled direction from the specified direction.
-        private ListSortDirection GetToggledSortDirection(ListSortDirection direction)
-        {
-            ListSortDirection toggledDirection = ListSortDirection.Ascending;
-            if (direction == ListSortDirection.Ascending)
-            {
-                toggledDirection = ListSortDirection.Descending;
-            }
-            return toggledDirection;
+            radarDisplay.DrawVessels(displayedVessels);
         }
 
         /*~~~~ For LoginOverlay ~~~~*/
@@ -240,5 +215,11 @@ namespace CkerGUI
 
         #endregion
         /*~~~~ For LoginOverlay ~~~~*/
+
+        private void OnWindowLoaded(object sender, RoutedEventArgs e)
+        {
+            // Prevent stuff from resizing themselves.
+            this.SizeToContent = SizeToContent.Manual;
+        }
     }
 }
