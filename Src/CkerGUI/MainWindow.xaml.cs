@@ -18,6 +18,7 @@ using System.Windows.Threading;
 using System.ComponentModel;
 using Cker.Models;
 using CkerGUI.ViewModels;
+using Cker.Presenters;
 
 namespace CkerGUI
 {

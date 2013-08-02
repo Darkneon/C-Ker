@@ -73,7 +73,6 @@
     </ApplicationDefinition>
     <Compile Include="Models\User.cs" />
     <Compile Include="RadarDisplay.cs" />
-    <Compile Include="VesselPresenter.cs" />
     <Compile Include="ViewModels\LoginViewModel.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -119,6 +118,10 @@
     <ProjectReference Include="..\CkerModels\CkerModels.csproj">
       <Project>{b246d76f-f1fb-4f4c-9710-6c8d93374414}</Project>
       <Name>CkerModels</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CkerPresenters\CkerPresenters.csproj">
+      <Project>{199e1fd0-5463-476f-b9eb-267d006f9cf0}</Project>
+      <Name>CkerPresenters</Name>
     </ProjectReference>
     <ProjectReference Include="..\Server\CkerServer.csproj">
       <Project>{609df8eb-0705-43ec-b847-b0e2272f6da2}</Project>
