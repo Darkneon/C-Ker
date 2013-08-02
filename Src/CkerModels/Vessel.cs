@@ -36,6 +36,13 @@ namespace Cker.Models
             StartTime = startTime;
         }
 
+        public void UpdatePositions(int currentTime)
+        {
+            float timespan = currentTime - StartTime;
+            X = X + VX_0 * timespan;
+            Y = Y + VX_0 * timespan;
+        }
+
         public Vessel(string[] parameters)
         {
             ID = Convert.ToInt32(parameters[1]);
