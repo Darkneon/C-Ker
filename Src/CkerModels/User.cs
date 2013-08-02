@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace CkerGUI.Models
+namespace CkerModels.Models
 {
     public class User
     {

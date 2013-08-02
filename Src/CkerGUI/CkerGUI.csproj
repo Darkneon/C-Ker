@@ -62,8 +62,9 @@
     <Reference Include="WindowsBase" />
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
-    <Reference Include="WPFSmartLibraryLight35">
-      <HintPath>ExternalDLL\WPFSmartLibraryLight35.dll</HintPath>
+    <Reference Include="WPFSmartLibraryLight35, Version=0.1.41.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Lib\ExternalDLL\WPFSmartLibraryLight35.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
@@ -71,7 +72,6 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Models\User.cs" />
     <Compile Include="RadarDisplay.cs" />
     <Compile Include="ViewModels\LoginViewModel.cs" />
     <Page Include="MainWindow.xaml">
@@ -145,7 +145,6 @@
       <Install>false</Install>
     </BootstrapperPackage>
   </ItemGroup>
-  <ItemGroup />
   <ItemGroup>
     <Resource Include="Images\admin.png" />
     <Resource Include="Images\operator.png" />
