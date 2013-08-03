@@ -1,22 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.Diagnostics;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
+﻿using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
+using System.Windows.Controls.Primitives;
 using System.Windows.Input;
 using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
-using System.Windows.Threading;
-using System.ComponentModel;
-using CkerGUI.ViewModels;
+using CkerModels.Models;
 
 namespace CkerGUI
 {
@@ -25,30 +12,38 @@ namespace CkerGUI
     /// </summary>
     public partial class MainWindow : Window
     {
-        /*~~~~ For LoginOverlay ~~~~*/
-        #region Fields
-
-        public LoginViewModel ViewModel;
-
-        #endregion
-        /*~~~~ For LoginOverlay ~~~~*/
-
         private VesselView vesselView;
 
         public MainWindow()
         {
-            /*~~~~ For LoginOverlay ~~~~*/
-            // Initialize Login Screen
-            this.ViewModel = new LoginViewModel();
-            this.DataContext = this.ViewModel;
-            /*~~~~ For LoginOverlay ~~~~*/
-
             InitializeComponent();
 
             vesselView = new VesselView();
             vesselView.SetupTableWidget(vesselsListView, (DataTemplate)Resources["ColumnHeaderArrowUp"], (DataTemplate)Resources["ColumnHeaderArrowDown"]);
             vesselView.SetupRadarWidget(radarCanvas);
             vesselView.SetupFilteringCheckboxes(toggleAllVesselCheckbox, individualVesselCheckboxes);
+
+            // Get the current user to check it's priviledges.
+            User currentUser = Application.Current.Properties["CurrentUser"] as User;
+            if (currentUser.Type == UserType.Operator)
+            {
+                // Remove filtering and sorting abilities.
+                filteringOptionsPanel.Visibility = Visibility.Hidden;
+                vesselsTableGrid.Margin = new Thickness(-Application.Current.MainWindow.Width/6.0, 0.0, 0.0, 0.0);
+                vesselsListView.AddHandler(GridViewColumnHeader.PreviewMouseLeftButtonDownEvent, new RoutedEventHandler(OnOperatorMouseDown));
+            }
+        }
+
+        private void OnOperatorMouseDown(object sender, RoutedEventArgs e)
+        {
+            // Skip the mouse down on the column to prevent sorting from operator.
+            // But don't skip the scroll bar to still allow scrolling.
+            var sourceElement = e.OriginalSource as DependencyObject;
+            var sourceElementType = sourceElement.GetType();
+            if (sourceElementType.Name != "ScrollChrome")
+            {
+                e.Handled = true;
+            }
         }
 
         private void OnWindowLoaded(object sender, RoutedEventArgs e)
@@ -57,16 +52,5 @@ namespace CkerGUI
             // In particular, this is intended to prevent the table from growing when there are lots of items.
             this.SizeToContent = SizeToContent.Manual;
         }
-
-        /*~~~~ For LoginOverlay ~~~~*/
-        #region Event handler
-
-        private void btnLock_Click(object sender, RoutedEventArgs e)
-        {
-            this.CKerLoginOverlayControl.Lock();
-        }
-
-        #endregion
-        /*~~~~ For LoginOverlay ~~~~*/
     }
 }

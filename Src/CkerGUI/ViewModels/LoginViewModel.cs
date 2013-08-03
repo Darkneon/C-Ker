@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
+using System.Windows;
 using System.Windows.Input;
 using CkerModels.Models;
 using SoftArcs.WPFSmartLibrary.MVVMCommands;
@@ -80,6 +82,12 @@ namespace CkerGUI.ViewModels
                 if (this.validateUser(this.UserName, this.Password) == true)
                 {
                     accessControlSystem.Unlock();
+
+                    // Store the current user so we can check the type later.
+                    var currentUser = findUser(this.UserName, this.Password);
+                    Debug.Assert(currentUser != null, "Logged in a null user.");
+
+                    Application.Current.Properties["CurrentUser"] = currentUser;
                 }
                 else
                 {
@@ -109,19 +117,24 @@ namespace CkerGUI.ViewModels
             // Currently, the app utilizes a local collection.
             this.userList = new List<User>()
 								 {
-									new User() { UserName="admin", Password="fullaccess",
-													 ImageSourcePath = Path.Combine( userImagesPath, "admin.png") },
-									new User() { UserName="operator", Password="gimpedaccess",
-													 ImageSourcePath = Path.Combine( userImagesPath, "operator.png") },
+									new User() { Type = UserType.Administrator, UserName="admin", Password="fullaccess",
+											     ImageSourcePath = Path.Combine( userImagesPath, "admin.png") },
+									new User() { Type = UserType.Operator, UserName="operator", Password="gimpedaccess",
+												 ImageSourcePath = Path.Combine( userImagesPath, "operator.png") },
 								 };
         }
 
         private bool validateUser(string username, string password)
         {
             // Place for implementation of code for credentials validation.
-            User validatedUser = this.userList.FirstOrDefault(user => user.UserName.Equals(username) &&
-                                                                                user.Password.Equals(password));
+            User validatedUser = findUser(username, password);
             return validatedUser != null;
+        }
+
+        private User findUser(string username, string password)
+        {
+            return this.userList.FirstOrDefault(user => user.UserName.Equals(username) &&
+                                                        user.Password.Equals(password));
         }
 
         private string getUserImagePath()

@@ -3,8 +3,6 @@ using System.Diagnostics;
 using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
-using System.Text;
-using System.Threading.Tasks;
 using Cker.Models;
 
 namespace Cker.Presenters
@@ -40,10 +38,14 @@ namespace Cker.Presenters
         // Track current attribute to sort by.
         private string currentSortByAttribute;
 
-        public VesselPresenter()
+        /// <summary>
+        /// Must specify the scenario file to use, simply the filename "name.vsf" without the directory.
+        /// </summary>
+        /// <param name="scenarioFile"></param>
+        public VesselPresenter(string scenarioFile)
         {
             // Starts the simulation here.
-            Cker.Simulator.Start("Assets/", "scenario_20vessels.vsf");
+            Cker.Simulator.Start("Assets/", scenarioFile);
 
             // Register event handlers.
             Cker.Simulator.AfterUpdate += OnSimulationUpdateEvent;

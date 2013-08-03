@@ -51,7 +51,7 @@
         </Canvas>
 
         <!-- Bottom area display vessel information -->
-        <Grid Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="5">
+        <Grid Name="vesselsTableGrid" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="5">
             <ListView Name="vesselsListView">
                 <ListView.View>
                     <GridView>
@@ -104,7 +104,7 @@
         </Grid>
         
         <!-- Bottom corner display filtering options -->
-        <StackPanel Grid.Row="1" Grid.Column="0" Margin="15,0">
+        <StackPanel Name="filteringOptionsPanel" Grid.Row="1" Grid.Column="0" Margin="15,0">
             <Label FontWeight="SemiBold"> Show Vessel Types </Label>
             
             <!-- Toggle all box -->
@@ -116,20 +116,5 @@
             <StackPanel Name="individualVesselCheckboxes" Margin="10,5">
             </StackPanel>
         </StackPanel>
-        
-        <!-- Login Screen Overlay -->
-        <wpfsl:SmartLoginOverlay x:Name="CKerLoginOverlayControl"
-										 FullSpan="On"
-										 IsUserOptionAvailable="True"
-										 UserName="{Binding UserName}"
-										 Password="{Binding Password}"
-										 UserImageSource="{Binding UserImageSource}"
-										 AdditionalSystemInfo="Locked"
-										 Command="{Binding SubmitCommand}"
-										 CommandParameter="{Binding RelativeSource={RelativeSource Self} }" />
-
-        <Label Grid.RowSpan="3" Grid.ColumnSpan="3" FontSize="9"
-				 HorizontalAlignment="Center" VerticalAlignment="Bottom" Foreground="LightSkyBlue"
-				 Content="Login Information  =>  User: admin * Password: fullaccess   /   User: operator * Password: gimpedaccess" />
     </Grid>
 </Window>
