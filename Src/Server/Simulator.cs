@@ -125,11 +125,11 @@ namespace Cker
                     {
                         double distance = first.GetDistanceBetween(second);
                      
-                        if (distance < ALARM_HIGH_DISTANCE) 
+                        if (distance <= ALARM_HIGH_DISTANCE) 
                         {
                             OnAlarm(new OnAlarmEventArgs(AlarmType.High, first, second)); 
                         }
-                        else if (distance < ALARM_LOW_DISTANCE) 
+                        else if (distance <= ALARM_LOW_DISTANCE) 
                         {
                             OnAlarm(new OnAlarmEventArgs(AlarmType.Low, first, second)); 
                         }
