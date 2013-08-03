@@ -36,11 +36,10 @@ namespace Cker.Models
             StartTime = startTime;
         }
 
-        public void UpdatePositions(int currentTime)
-        {
-            float timespan = currentTime - StartTime;
-            X = X + VX_0 * timespan;
-            Y = Y + VY_0 * timespan;
+        public void UpdatePositions(int deltaTime)
+        {            
+            X = X + VX_0 * deltaTime;
+            Y = Y + VY_0 * deltaTime;
         }
 
         public Vessel(string[] parameters)

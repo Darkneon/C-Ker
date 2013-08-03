@@ -59,7 +59,7 @@ namespace Cker
 
             foreach (Vessel v in m_vesselsList)
             {
-                v.UpdatePositions(m_currentTime);
+                v.UpdatePositions(Simulator.TimeStep);
             }
 
             if (AfterUpdate != null)
