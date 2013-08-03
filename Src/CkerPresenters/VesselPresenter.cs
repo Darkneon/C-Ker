@@ -38,10 +38,10 @@ namespace Cker.Presenters
         public VesselPresenter()
         {
             // Starts the simulation here.
-            Cker.Server.Start("Assets/", "scenario_20vessels.vsf");
+            Cker.Simulator.Start("Assets/", "scenario_20vessels.vsf");
 
             // Display all vessels at first.
-            DisplayedVessels = Cker.Server.Vessels;
+            DisplayedVessels = Cker.Simulator.Vessels;
 
             currentSortByAttribute = null;
             CurrentSortDirection = SortDirection.Descending;
@@ -52,9 +52,9 @@ namespace Cker.Presenters
         /// Meant to allow the view to know when the update occurs.
         /// </summary>
         /// <param name="action"></param>
-        public void AddUpdateAction(Cker.Server.AfterUpdateEventHandler action)
+        public void AddUpdateAction(Cker.Simulator.AfterUpdateEventHandler action)
         {
-            Cker.Server.AfterUpdate += action;
+            Cker.Simulator.AfterUpdate += action;
         }
 
         /// <summary>
@@ -65,7 +65,7 @@ namespace Cker.Presenters
         public void FilterVessels(List<Vessel.TargetType> wantedTypes)
         {
             // Get all vessels that correspond to one of the wanted types.
-            DisplayedVessels = Cker.Server.Vessels.FindAll(vessel => wantedTypes.Contains(vessel.Type));
+            DisplayedVessels = Cker.Simulator.Vessels.FindAll(vessel => wantedTypes.Contains(vessel.Type));
 
             // Make sure these retain sorted order if they were sorted before.
             if (currentSortByAttribute != null)

@@ -47,9 +47,9 @@
       <Project>{b246d76f-f1fb-4f4c-9710-6c8d93374414}</Project>
       <Name>CkerModels</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Server\CkerServer.csproj">
+    <ProjectReference Include="..\Server\CkerSimulation.csproj">
       <Project>{609df8eb-0705-43ec-b847-b0e2272f6da2}</Project>
-      <Name>CkerServer</Name>
+      <Name>CkerSimulation</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
