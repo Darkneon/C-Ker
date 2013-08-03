@@ -128,7 +128,19 @@ namespace CkerGUI
                         item.Background = (i & 1) == 0 ? Brushes.White : Brushes.AliceBlue;
 
                         // Change colour if there is associated alarm with this vessel.
-
+                        var alarmMatch = vesselPresenter.CurrentAlarms.Find(alarm => alarm.first == vessel || alarm.second == vessel);
+                        if (alarmMatch.first != null && alarmMatch.second != null)
+                        {
+                            // Red if high risk, yellow if low risk
+                            if (alarmMatch.type == Cker.Simulator.AlarmType.Low)
+                            {
+                                item.Background = Brushes.Yellow;
+                            }
+                            else if (alarmMatch.type == Cker.Simulator.AlarmType.High)
+                            {
+                                item.Background = Brushes.Red;
+                            }
+                        }
                     }
                     ++i;
                 }

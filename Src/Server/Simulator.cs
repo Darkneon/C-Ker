@@ -37,9 +37,9 @@ namespace Cker
 
         public struct OnAlarmEventArgs 
         { 
-            AlarmType type;
-            Vessel first;
-            Vessel second;
+            public AlarmType type;
+            public Vessel first;
+            public Vessel second;
 
             public OnAlarmEventArgs(AlarmType type, Vessel first, Vessel second) 
             {

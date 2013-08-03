@@ -23,6 +23,11 @@ namespace Cker.Presenters
         public List<Vessel> DisplayedVessels { get; private set; }
 
         /// <summary>
+        /// Accesses the list of active alarms.
+        /// </summary>
+        public List<Cker.Simulator.OnAlarmEventArgs> CurrentAlarms { get; private set; }
+
+        /// <summary>
         /// Accesses the current sort direction.
         /// </summary>
         public SortDirection CurrentSortDirection { get; private set; }
@@ -40,11 +45,17 @@ namespace Cker.Presenters
             // Starts the simulation here.
             Cker.Simulator.Start("Assets/", "scenario_20vessels.vsf");
 
+            // Register event handlers.
+            Cker.Simulator.AfterUpdate += OnSimulationUpdateEvent;
+            Cker.Simulator.OnAlarm += OnSimulationAlarmEvent;
+
             // Display all vessels at first.
             DisplayedVessels = Cker.Simulator.Vessels;
 
             currentSortByAttribute = null;
             CurrentSortDirection = SortDirection.Descending;
+
+            CurrentAlarms = new List<Simulator.OnAlarmEventArgs>();
         }
 
         /// <summary>
@@ -55,6 +66,15 @@ namespace Cker.Presenters
         public void AddUpdateAction(Cker.Simulator.AfterUpdateEventHandler action)
         {
             Cker.Simulator.AfterUpdate += action;
+        }
+
+        /// <summary>
+        /// Registers a function to be called when an alarm occurs.
+        /// </summary>
+        /// <param name="action"></param>
+        public void AddUpdateAction(Cker.Simulator.OnAlarmEventHandler action)
+        {
+            Cker.Simulator.OnAlarm += action;
         }
 
         /// <summary>
@@ -150,6 +170,17 @@ namespace Cker.Presenters
                     DisplayedVessels.Reverse();
                 }
             }
+        }
+
+        private void OnSimulationUpdateEvent()
+        {
+            // Clear current alarms every update.
+            CurrentAlarms.Clear();
+        }
+
+        private void OnSimulationAlarmEvent(Cker.Simulator.OnAlarmEventArgs alarm)
+        {
+            CurrentAlarms.Add(alarm);
         }
 
         // helper to get the name of a variable; 

@@ -87,8 +87,34 @@ namespace CkerGUI
                         vesselVisual.Height = 10;
 
                         canvas.Children.Add(vesselVisual);
-                        Canvas.SetLeft(vesselVisual, ToPixelX(vessel.X));
-                        Canvas.SetTop(vesselVisual, ToPixelY(vessel.Y));
+                        Canvas.SetLeft(vesselVisual, ToPixelX(vessel.X) - 5);
+                        Canvas.SetTop(vesselVisual, ToPixelY(vessel.Y) - 5);
+
+
+                        // Make an overlay for the alarm range for testing purposes.
+                        Ellipse alarmVisual = new Ellipse();
+                        colorBrush = new SolidColorBrush();
+                        colorBrush.Color = Color.FromRgb(255, 255, 0);
+                        alarmVisual.Fill = colorBrush;
+                        alarmVisual.Width = ToPixel(200);
+                        alarmVisual.Height = ToPixel(200);
+                        alarmVisual.Opacity = 0.4;
+
+                        canvas.Children.Add(alarmVisual);
+                        Canvas.SetLeft(alarmVisual, ToPixelX(vessel.X) - alarmVisual.Width / 2);
+                        Canvas.SetTop(alarmVisual, ToPixelY(vessel.Y) - alarmVisual.Height / 2);
+
+                        alarmVisual = new Ellipse();
+                        colorBrush = new SolidColorBrush();
+                        colorBrush.Color = Color.FromRgb(255, 0, 0);
+                        alarmVisual.Fill = colorBrush;
+                        alarmVisual.Width = ToPixel(50);
+                        alarmVisual.Height = ToPixel(50);
+                        alarmVisual.Opacity = 0.4;
+
+                        canvas.Children.Add(alarmVisual);
+                        Canvas.SetLeft(alarmVisual, ToPixelX(vessel.X) - alarmVisual.Width / 2);
+                        Canvas.SetTop(alarmVisual, ToPixelY(vessel.Y) - alarmVisual.Height / 2);
                     }
                 }
 
