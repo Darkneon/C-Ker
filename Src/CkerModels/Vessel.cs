@@ -34,13 +34,7 @@ namespace Cker.Models
             VX_0 = vx_0;
             VY_0 = vy_0;
             StartTime = startTime;
-        }
-
-        public void UpdatePositions(int deltaTime)
-        {            
-            X = X + VX_0 * deltaTime;
-            Y = Y + VY_0 * deltaTime;
-        }
+        }        
 
         public Vessel(string[] parameters)
         {
@@ -51,6 +45,20 @@ namespace Cker.Models
             VX_0 = Convert.ToSingle(parameters[5]);
             VY_0 = Convert.ToSingle(parameters[6]);
             StartTime = Convert.ToSingle(parameters[7]);
+        }
+
+        public double GetDistanceBetween(Vessel vessel)
+        {
+            double distance1 = Math.Sqrt(X * X + Y * Y);
+            double distance2 = Math.Sqrt(vessel.X * vessel.X + vessel.Y * vessel.Y);
+
+            return Math.Abs(distance1 - distance2);
+        }
+
+        public void UpdatePositions(int deltaTime)
+        {
+            X = X + VX_0 * deltaTime;
+            Y = Y + VY_0 * deltaTime;
         }
 
         public override string ToString()

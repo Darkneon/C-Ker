@@ -11,6 +11,10 @@ namespace Cker
 {
     public class Simulator
     {
+        
+        static public double ALARM_HIGH_DISTANCE = 50.0;
+        static public double ALARM_LOW_DISTANCE  = 200.0;
+
         static public int StartTime { get; set; }
         static public int TimeStep { get; set; }
         static public int Time { get; set; }
@@ -25,8 +29,31 @@ namespace Cker
             get { return m_vesselsList; }
         }
 
+        public enum AlarmType
+        {
+            Low = 1,            
+            High
+        }
+
+        public struct OnAlarmEventArgs 
+        { 
+            AlarmType type;
+            Vessel first;
+            Vessel second;
+
+            public OnAlarmEventArgs(AlarmType type, Vessel first, Vessel second) 
+            {
+                this.type   = type;
+                this.first  = first;
+                this.second = second;
+            }
+        }
+
         public delegate void AfterUpdateEventHandler();
         public static event AfterUpdateEventHandler AfterUpdate;
+
+        public delegate void OnAlarmEventHandler(OnAlarmEventArgs e);
+        public static event OnAlarmEventHandler OnAlarm;
 
 
         //-------------------------------------------------------------------
@@ -72,11 +99,44 @@ namespace Cker
                 AfterUpdate();
             }
 
+            if (OnAlarm != null)
+            {
+                CheckCollisions();
+            }
+
             if (TimeRemaining() <= 0)
             {
                 Stop();
             }
         }
 
+        //-------------------------------------------------------------------
+        // Private Methods
+        //-------------------------------------------------------------------
+
+        private static void CheckCollisions() 
+        {
+            foreach (Vessel first in Vessels) 
+            {
+                foreach (Vessel second in Vessels)
+                {
+                    
+                    if (first != second) 
+                    {
+                        double distance = first.GetDistanceBetween(second);
+                     
+                        if (distance < ALARM_HIGH_DISTANCE) 
+                        {
+                            OnAlarm(new OnAlarmEventArgs(AlarmType.High, first, second)); 
+                        }
+                        else if (distance < ALARM_LOW_DISTANCE) 
+                        {
+                            OnAlarm(new OnAlarmEventArgs(AlarmType.Low, first, second)); 
+                        }
+                    }
+
+                } //end for
+            } //end for
+        }
     }
 }
