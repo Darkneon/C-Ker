@@ -38,7 +38,7 @@ namespace Cker.Presenters
         public VesselPresenter()
         {
             // Starts the simulation here.
-            Cker.Server.Start("Assets/", "scenario_100vessels.vsf");
+            Cker.Server.Start("Assets/", "scenario_20vessels.vsf");
 
             // Display all vessels at first.
             DisplayedVessels = Cker.Server.Vessels;

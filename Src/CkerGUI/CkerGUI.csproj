@@ -73,6 +73,8 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="RadarDisplay.cs" />
+    <Compile Include="TableWidget.cs" />
+    <Compile Include="VesselView.cs" />
     <Compile Include="ViewModels\LoginViewModel.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>

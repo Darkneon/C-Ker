@@ -40,7 +40,7 @@ namespace Cker.Models
         {
             float timespan = currentTime - StartTime;
             X = X + VX_0 * timespan;
-            Y = Y + VX_0 * timespan;
+            Y = Y + VY_0 * timespan;
         }
 
         public Vessel(string[] parameters)

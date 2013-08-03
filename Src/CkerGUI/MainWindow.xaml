@@ -52,7 +52,7 @@
 
         <!-- Bottom area display vessel information -->
         <Grid Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="5">
-            <ListView Name="vesselsListView" GridViewColumnHeader.Click="OnColumnHeaderClick">
+            <ListView Name="vesselsListView">
                 <ListView.View>
                     <GridView>
                         <GridViewColumn DisplayMemberBinding="{Binding Path=ID}">
@@ -67,12 +67,12 @@
                         </GridViewColumn>
                         <GridViewColumn DisplayMemberBinding="{Binding Path=X}">
                             <GridViewColumn.Header>
-                                <GridViewColumnHeader Content="X Pos" MinWidth="64" HorizontalContentAlignment="Left" Padding="5,0,0,0" />
+                                <GridViewColumnHeader Content="X Pos" MinWidth="128" HorizontalContentAlignment="Left" Padding="5,0,0,0" />
                             </GridViewColumn.Header>
                         </GridViewColumn>
                         <GridViewColumn DisplayMemberBinding="{Binding Path=Y}">
                             <GridViewColumn.Header>
-                                <GridViewColumnHeader Content="Y Pos" MinWidth="64" HorizontalContentAlignment="Left" Padding="5,0,0,0" />
+                                <GridViewColumnHeader Content="Y Pos" MinWidth="128" HorizontalContentAlignment="Left" Padding="5,0,0,0" />
                             </GridViewColumn.Header>
                         </GridViewColumn>
                         <GridViewColumn DisplayMemberBinding="{Binding Path=VX_0}">
@@ -102,9 +102,8 @@
             
             <!-- Toggle all box -->
             <CheckBox IsThreeState="True" 
-                      Name="checkShowAllVesselTypes"
-                      IsChecked="True"
-                      Click="OnCheckboxClick">Show All</CheckBox>
+                      Name="toggleAllVesselCheckbox"
+                      IsChecked="True">Show All</CheckBox>
             
             <!-- Individual toggles to be added in code under this panel-->
             <StackPanel Name="individualVesselCheckboxes" Margin="10,5">
