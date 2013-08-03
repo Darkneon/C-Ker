@@ -7,7 +7,9 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Controls.Primitives;
 using System.Windows.Data;
+using System.Windows.Media;
 using Cker.Models;
 using Cker.Presenters;
 
@@ -20,6 +22,9 @@ namespace CkerGUI
     {
         // List of vessels to link with table list view
         private ObservableCollection<Vessel> displayedVessels;
+
+        // GUI element which contains the list of vessels to be displayed.
+        private ListView vesselListContainer;
 
         // Tracks the current header clicked to know where to display the sorting arrow.
         private GridViewColumnHeader currentSortHeader;
@@ -40,22 +45,24 @@ namespace CkerGUI
         {
             Debug.Assert(presenter != null && tableContainer != null && sortAscendingDisplay != null && sortDescendingDisplay != null, "TableWidget : null arguments");
 
-            // Store template resources
+            // Store arguments
             sortAscendingArrowDisplay = sortAscendingDisplay;
             sortDescendingArrowDisplay = sortDescendingDisplay;
-
-            // Store presenter
             vesselPresenter = presenter;
+            vesselListContainer = tableContainer;
 
             // Link the list view with the filtered vessels list.
             displayedVessels = new ObservableCollection<Vessel>();
-            tableContainer.ItemsSource = displayedVessels;
+            vesselListContainer.ItemsSource = displayedVessels;
 
             // Register callback when a column header is clicked to do sorting.
             tableContainer.AddHandler(GridViewColumnHeader.ClickEvent, new RoutedEventHandler(OnColumnHeaderClick));
 
-            // Register callback when the simulation updates.
+            // Register callback when the simulation updates to refresh our list.
             vesselPresenter.AddUpdateAction(OnSimulationUpdate);
+
+            // Register callback when item container status changes to be able to change style colors for alarms.
+            vesselListContainer.ItemContainerGenerator.StatusChanged += new EventHandler(OnItemContainerStatusChanged);
         }
 
         /// <summary>
@@ -101,6 +108,31 @@ namespace CkerGUI
 
             // Save the current sort by attribute for next time.
             currentSortHeader = headerClicked;
+        }
+
+        private void OnItemContainerStatusChanged(object sender, EventArgs e)
+        {
+            // Item containers (here, it is ListViewItem) are created asynchronously only when needed.
+            // So in order to access container, we need this callback to know when it is created.
+            if (vesselListContainer.ItemContainerGenerator.Status == GeneratorStatus.ContainersGenerated)
+            {
+                // Loop through each item and see if the container is available and modify container styles.
+                int i = 0;
+                foreach (var vessel in vesselListContainer.Items)
+                {
+                    // Try to get container.
+                    var item = vesselListContainer.ItemContainerGenerator.ContainerFromItem(vessel) as ListViewItem;
+                    if (item != null)
+                    {
+                        // Alternate row colours.
+                        item.Background = (i & 1) == 0 ? Brushes.White : Brushes.AliceBlue;
+
+                        // Change colour if there is associated alarm with this vessel.
+
+                    }
+                    ++i;
+                }
+            }
         }
 
         private void OnSimulationUpdate()

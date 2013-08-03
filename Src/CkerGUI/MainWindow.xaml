@@ -93,6 +93,13 @@
                     </GridView>
                 </ListView.View>
                 <!-- Actual items to be filled in code -->
+
+                <!-- Disable row selection because it's distracting -->
+                <ListView.ItemContainerStyle>
+                    <Style TargetType="{x:Type ListViewItem}">
+                        <Setter Property="Focusable" Value="False" />
+                    </Style>
+                </ListView.ItemContainerStyle>
             </ListView>
         </Grid>
         
