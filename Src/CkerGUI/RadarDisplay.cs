@@ -1,9 +1,11 @@
 ﻿using System;
+using System.Windows;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Controls;
+using System.Windows.Controls.Primitives;
 using System.Windows.Media;
 using System.Windows.Shapes;
 using Cker.Models;
@@ -80,6 +82,13 @@ namespace CkerGUI
                     {
                         SolidColorBrush colorBrush = new SolidColorBrush();
 
+                        // Lines to represent Radar Axes
+                        Line radarAxisX = new Line();
+                        Line radarAxisY = new Line();
+
+                        // Circles to denote Radar Range
+
+
                         // Make an overlay for the alarm range for testing purposes.
                         Ellipse alarmVisual = new Ellipse();
                         colorBrush = new SolidColorBrush();
@@ -109,6 +118,7 @@ namespace CkerGUI
                         colorBrush.Color = Color.FromRgb(0, 0, 255);
 
                         // Vessels are assigned different shapes according to their Type. Undefined vessel types are given a default shape.
+                        // Vessel Type: Human
                         if (vessel.Type.ToString() == "Human")
                         {
                             Polygon vesselVisual = new Polygon();
@@ -130,7 +140,26 @@ namespace CkerGUI
                             canvas.Children.Add(vesselVisual);
                             Canvas.SetLeft(vesselVisual, ToPixelX(vessel.X) - 5);
                             Canvas.SetTop(vesselVisual, ToPixelY(vessel.Y) - 5);
+
+                            // Displays a tooltip with vessel information when the mouse is over the corresponding vessel
+                            ToolTip vesselToolTip = new ToolTip();
+                            vesselToolTip.Placement = PlacementMode.Right;
+                            vesselToolTip.PlacementRectangle = new Rect(50, 0, 0, 0);
+                            vesselToolTip.HorizontalOffset = 10;
+                            vesselToolTip.VerticalOffset = 20;
+
+                            //Create BulletDecorator and set it 
+                            //as the tooltip content.
+                            BulletDecorator bdec = new BulletDecorator();
+                            bdec.Bullet = vesselVisual;
+                            TextBlock vesselDesc = new TextBlock();
+                            vesselDesc.Text = "ID: " + vessel.ID + "\nType: " + vessel.Type.ToString() + "\nX-Pos: " + vessel.X + ", Y-Pos: " + vessel.Y;
+                            bdec.Child = vesselDesc;
+                            vesselToolTip.Content = bdec;
+
+                            vesselVisual.ToolTip = vesselToolTip;
                         }
+                        // Vessel Type: SpeedBoat
                         else if (vessel.Type.ToString() == "SpeedBoat")
                         {
                             Ellipse vesselVisual = new Ellipse();
@@ -143,6 +172,7 @@ namespace CkerGUI
                             Canvas.SetLeft(vesselVisual, ToPixelX(vessel.X) - 5);
                             Canvas.SetTop(vesselVisual, ToPixelY(vessel.Y) - 5);
                         }
+                        // Vessel Type: FishingBoat
                         else if (vessel.Type.ToString() == "FishingBoat")
                         {
                             Polygon vesselVisual = new Polygon();
@@ -161,6 +191,7 @@ namespace CkerGUI
                             Canvas.SetLeft(vesselVisual, ToPixelX(vessel.X) - 5);
                             Canvas.SetTop(vesselVisual, ToPixelY(vessel.Y) - 5);
                         }
+                        // Vessel Type: CargoVessel
                         else if (vessel.Type.ToString() == "CargoVessel")
                         {
                             Polyline vesselVisual = new Polyline();
@@ -181,6 +212,7 @@ namespace CkerGUI
                             Canvas.SetLeft(vesselVisual, ToPixelX(vessel.X) - 5);
                             Canvas.SetTop(vesselVisual, ToPixelY(vessel.Y) - 5);
                         }
+                        // Vessel Type: PassengerVessel
                         else if (vessel.Type.ToString() == "PassengerVessel")
                         {
                             Rectangle vesselVisual = new Rectangle();
@@ -193,6 +225,7 @@ namespace CkerGUI
                             Canvas.SetLeft(vesselVisual, ToPixelX(vessel.X) - 5);
                             Canvas.SetTop(vesselVisual, ToPixelY(vessel.Y) - 5);
                         }
+                        // Vessel Type: Undefined/User-defined
                         else
                         {
                             Polyline vesselVisual = new Polyline();
