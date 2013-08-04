@@ -82,13 +82,6 @@ namespace CkerGUI
                     {
                         SolidColorBrush colorBrush = new SolidColorBrush();
 
-                        // Lines to represent Radar Axes
-                        Line radarAxisX = new Line();
-                        Line radarAxisY = new Line();
-
-                        // Circles to denote Radar Range
-
-
                         // Make an overlay for the alarm range for testing purposes.
                         Ellipse alarmVisual = new Ellipse();
                         colorBrush = new SolidColorBrush();
@@ -151,9 +144,8 @@ namespace CkerGUI
                             //Create BulletDecorator and set it 
                             //as the tooltip content.
                             BulletDecorator bdec = new BulletDecorator();
-                            bdec.Bullet = vesselVisual;
                             TextBlock vesselDesc = new TextBlock();
-                            vesselDesc.Text = "ID: " + vessel.ID + "\nType: " + vessel.Type.ToString() + "\nX-Pos: " + vessel.X + ", Y-Pos: " + vessel.Y;
+                            vesselDesc.Text = "Vessel ID: " + vessel.ID + "\nType: " + vessel.Type.ToString() + "\nX-Pos: " + vessel.X + ", Y-Pos: " + vessel.Y;
                             bdec.Child = vesselDesc;
                             vesselToolTip.Content = bdec;
 
@@ -171,6 +163,23 @@ namespace CkerGUI
                             canvas.Children.Add(vesselVisual);
                             Canvas.SetLeft(vesselVisual, ToPixelX(vessel.X) - 5);
                             Canvas.SetTop(vesselVisual, ToPixelY(vessel.Y) - 5);
+
+                            // Displays a tooltip with vessel information when the mouse is over the corresponding vessel
+                            ToolTip vesselToolTip = new ToolTip();
+                            vesselToolTip.Placement = PlacementMode.Right;
+                            vesselToolTip.PlacementRectangle = new Rect(50, 0, 0, 0);
+                            vesselToolTip.HorizontalOffset = 10;
+                            vesselToolTip.VerticalOffset = 20;
+
+                            //Create BulletDecorator and set it 
+                            //as the tooltip content.
+                            BulletDecorator bdec = new BulletDecorator();
+                            TextBlock vesselDesc = new TextBlock();
+                            vesselDesc.Text = "Vessel ID: " + vessel.ID + "\nType: " + vessel.Type.ToString() + "\nX-Pos: " + vessel.X + ", Y-Pos: " + vessel.Y;
+                            bdec.Child = vesselDesc;
+                            vesselToolTip.Content = bdec;
+
+                            vesselVisual.ToolTip = vesselToolTip;
                         }
                         // Vessel Type: FishingBoat
                         else if (vessel.Type.ToString() == "FishingBoat")
@@ -190,6 +199,23 @@ namespace CkerGUI
                             canvas.Children.Add(vesselVisual);
                             Canvas.SetLeft(vesselVisual, ToPixelX(vessel.X) - 5);
                             Canvas.SetTop(vesselVisual, ToPixelY(vessel.Y) - 5);
+
+                            // Displays a tooltip with vessel information when the mouse is over the corresponding vessel
+                            ToolTip vesselToolTip = new ToolTip();
+                            vesselToolTip.Placement = PlacementMode.Right;
+                            vesselToolTip.PlacementRectangle = new Rect(50, 0, 0, 0);
+                            vesselToolTip.HorizontalOffset = 10;
+                            vesselToolTip.VerticalOffset = 20;
+
+                            //Create BulletDecorator and set it 
+                            //as the tooltip content.
+                            BulletDecorator bdec = new BulletDecorator();
+                            TextBlock vesselDesc = new TextBlock();
+                            vesselDesc.Text = "Vessel ID: " + vessel.ID + "\nType: " + vessel.Type.ToString() + "\nX-Pos: " + vessel.X + ", Y-Pos: " + vessel.Y;
+                            bdec.Child = vesselDesc;
+                            vesselToolTip.Content = bdec;
+
+                            vesselVisual.ToolTip = vesselToolTip;
                         }
                         // Vessel Type: CargoVessel
                         else if (vessel.Type.ToString() == "CargoVessel")
@@ -211,6 +237,23 @@ namespace CkerGUI
                             canvas.Children.Add(vesselVisual);
                             Canvas.SetLeft(vesselVisual, ToPixelX(vessel.X) - 5);
                             Canvas.SetTop(vesselVisual, ToPixelY(vessel.Y) - 5);
+
+                            // Displays a tooltip with vessel information when the mouse is over the corresponding vessel
+                            ToolTip vesselToolTip = new ToolTip();
+                            vesselToolTip.Placement = PlacementMode.Right;
+                            vesselToolTip.PlacementRectangle = new Rect(50, 0, 0, 0);
+                            vesselToolTip.HorizontalOffset = 10;
+                            vesselToolTip.VerticalOffset = 20;
+
+                            //Create BulletDecorator and set it 
+                            //as the tooltip content.
+                            BulletDecorator bdec = new BulletDecorator();
+                            TextBlock vesselDesc = new TextBlock();
+                            vesselDesc.Text = "Vessel ID: " + vessel.ID + "\nType: " + vessel.Type.ToString() + "\nX-Pos: " + vessel.X + ", Y-Pos: " + vessel.Y;
+                            bdec.Child = vesselDesc;
+                            vesselToolTip.Content = bdec;
+
+                            vesselVisual.ToolTip = vesselToolTip;
                         }
                         // Vessel Type: PassengerVessel
                         else if (vessel.Type.ToString() == "PassengerVessel")
@@ -224,6 +267,23 @@ namespace CkerGUI
                             canvas.Children.Add(vesselVisual);
                             Canvas.SetLeft(vesselVisual, ToPixelX(vessel.X) - 5);
                             Canvas.SetTop(vesselVisual, ToPixelY(vessel.Y) - 5);
+
+                            // Displays a tooltip with vessel information when the mouse is over the corresponding vessel
+                            ToolTip vesselToolTip = new ToolTip();
+                            vesselToolTip.Placement = PlacementMode.Right;
+                            vesselToolTip.PlacementRectangle = new Rect(50, 0, 0, 0);
+                            vesselToolTip.HorizontalOffset = 10;
+                            vesselToolTip.VerticalOffset = 20;
+
+                            //Create BulletDecorator and set it 
+                            //as the tooltip content.
+                            BulletDecorator bdec = new BulletDecorator();
+                            TextBlock vesselDesc = new TextBlock();
+                            vesselDesc.Text = "Vessel ID: " + vessel.ID + "\nType: " + vessel.Type.ToString() + "\nX-Pos: " + vessel.X + ", Y-Pos: " + vessel.Y;
+                            bdec.Child = vesselDesc;
+                            vesselToolTip.Content = bdec;
+
+                            vesselVisual.ToolTip = vesselToolTip;
                         }
                         // Vessel Type: Undefined/User-defined
                         else
@@ -245,6 +305,23 @@ namespace CkerGUI
                             canvas.Children.Add(vesselVisual);
                             Canvas.SetLeft(vesselVisual, ToPixelX(vessel.X) - 5);
                             Canvas.SetTop(vesselVisual, ToPixelY(vessel.Y) - 5);
+
+                            // Displays a tooltip with vessel information when the mouse is over the corresponding vessel
+                            ToolTip vesselToolTip = new ToolTip();
+                            vesselToolTip.Placement = PlacementMode.Right;
+                            vesselToolTip.PlacementRectangle = new Rect(50, 0, 0, 0);
+                            vesselToolTip.HorizontalOffset = 10;
+                            vesselToolTip.VerticalOffset = 20;
+
+                            //Create BulletDecorator and set it 
+                            //as the tooltip content.
+                            BulletDecorator bdec = new BulletDecorator();
+                            TextBlock vesselDesc = new TextBlock();
+                            vesselDesc.Text = "Vessel ID: " + vessel.ID + "\nType: " + vessel.Type.ToString() + "\nX-Pos: " + vessel.X + ", Y-Pos: " + vessel.Y;
+                            bdec.Child = vesselDesc;
+                            vesselToolTip.Content = bdec;
+
+                            vesselVisual.ToolTip = vesselToolTip;
                         }
                     }
                 }
