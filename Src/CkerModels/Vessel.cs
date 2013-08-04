@@ -19,13 +19,13 @@ namespace Cker.Models
 
         public int ID { get; set; }
         public TargetType Type { get; set; }
-        public float X { get; set; }
-        public float Y { get; set; }
+        public double X { get; set; }
+        public double Y { get; set; }
         public float VX_0 { get; set; }
         public float VY_0 { get; set; }
         public float StartTime { get; set; }
 
-        public Vessel(int id, TargetType type, int x, int y, float vx_0, float vy_0, int startTime)
+        public Vessel(int id, TargetType type, double x, double y, float vx_0, float vy_0, int startTime)
         {
             ID = id;
             Type = type;
@@ -49,10 +49,8 @@ namespace Cker.Models
 
         public double GetDistanceBetween(Vessel vessel)
         {
-            double distance1 = Math.Sqrt(X * X + Y * Y);
-            double distance2 = Math.Sqrt(vessel.X * vessel.X + vessel.Y * vessel.Y);
-
-            return Math.Abs(distance1 - distance2);
+            double distance = Math.Pow(X - vessel.X, 2) + Math.Pow(Y - vessel.Y, 2);                        
+            return Math.Sqrt(distance);
         }
 
         public void UpdatePositions(int deltaTime)
