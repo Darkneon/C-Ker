@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -115,7 +116,9 @@ namespace Cker
         //-------------------------------------------------------------------
 
         private static void CheckCollisions() 
-        {
+        {        
+            Hashtable alarms = new Hashtable();
+
             foreach (Vessel first in Vessels) 
             {
                 foreach (Vessel second in Vessels)
@@ -124,19 +127,31 @@ namespace Cker
                     if (first != second) 
                     {
                         double distance = first.GetDistanceBetween(second);
-                     
-                        if (distance <= ALARM_HIGH_DISTANCE) 
+                        string key = GenerateKey(first, second);
+
+                        if (!alarms.ContainsKey(key) && distance <= ALARM_HIGH_DISTANCE) 
                         {
+                            alarms.Add(GenerateKey(first, second), true);
+                            alarms.Add(GenerateKey(second, first), true);
+
                             OnAlarm(new OnAlarmEventArgs(AlarmType.High, first, second)); 
                         }
-                        else if (distance <= ALARM_LOW_DISTANCE) 
+                        else if (!alarms.ContainsKey(key) && distance <= ALARM_LOW_DISTANCE) 
                         {
+                            alarms.Add(GenerateKey(first, second), true);
+                            alarms.Add(GenerateKey(second, first), true);
+
                             OnAlarm(new OnAlarmEventArgs(AlarmType.Low, first, second)); 
                         }
                     }
 
                 } //end for
             } //end for
+        }
+
+        private static string GenerateKey(Vessel v1, Vessel v2) 
+        {
+            return String.Format("{0} - {1}", v1.ID, v2.ID);
         }
     }
 }
