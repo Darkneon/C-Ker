@@ -78,18 +78,7 @@ namespace CkerGUI
                 {
                     if (IsInRange(vessel.X, vessel.Y))
                     {
-                        // For now just add them all as circles.
-                        Ellipse vesselVisual = new Ellipse();
                         SolidColorBrush colorBrush = new SolidColorBrush();
-                        colorBrush.Color = Color.FromRgb(0, 0, 255);
-                        vesselVisual.Fill = colorBrush;
-                        vesselVisual.Width = 10;
-                        vesselVisual.Height = 10;
-
-                        canvas.Children.Add(vesselVisual);
-                        Canvas.SetLeft(vesselVisual, ToPixelX(vessel.X) - 5);
-                        Canvas.SetTop(vesselVisual, ToPixelY(vessel.Y) - 5);
-
 
                         // Make an overlay for the alarm range for testing purposes.
                         Ellipse alarmVisual = new Ellipse();
@@ -115,6 +104,115 @@ namespace CkerGUI
                         canvas.Children.Add(alarmVisual);
                         Canvas.SetLeft(alarmVisual, ToPixelX(vessel.X) - alarmVisual.Width / 2);
                         Canvas.SetTop(alarmVisual, ToPixelY(vessel.Y) - alarmVisual.Height / 2);
+
+                        colorBrush = new SolidColorBrush();
+                        colorBrush.Color = Color.FromRgb(0, 0, 255);
+
+                        // Vessels are assigned different shapes according to their Type. Undefined vessel types are given a default shape.
+                        if (vessel.Type.ToString() == "Human")
+                        {
+                            Polygon vesselVisual = new Polygon();
+
+                            vesselVisual.Fill = colorBrush;
+                            System.Windows.Point Point1 = new System.Windows.Point(10, 13);
+                            System.Windows.Point Point2 = new System.Windows.Point(5, -2);
+                            System.Windows.Point Point3 = new System.Windows.Point(0, 13);
+                            System.Windows.Point Point4 = new System.Windows.Point(10, -2);
+                            System.Windows.Point Point5 = new System.Windows.Point(0, -2);
+                            PointCollection myPointCollection = new PointCollection();
+                            myPointCollection.Add(Point1);
+                            myPointCollection.Add(Point2);
+                            myPointCollection.Add(Point3);
+                            myPointCollection.Add(Point4);
+                            myPointCollection.Add(Point5);
+                            vesselVisual.Points = myPointCollection;
+
+                            canvas.Children.Add(vesselVisual);
+                            Canvas.SetLeft(vesselVisual, ToPixelX(vessel.X) - 5);
+                            Canvas.SetTop(vesselVisual, ToPixelY(vessel.Y) - 5);
+                        }
+                        else if (vessel.Type.ToString() == "SpeedBoat")
+                        {
+                            Ellipse vesselVisual = new Ellipse();
+
+                            vesselVisual.Fill = colorBrush;
+                            vesselVisual.Width = 10;
+                            vesselVisual.Height = 10;
+
+                            canvas.Children.Add(vesselVisual);
+                            Canvas.SetLeft(vesselVisual, ToPixelX(vessel.X) - 5);
+                            Canvas.SetTop(vesselVisual, ToPixelY(vessel.Y) - 5);
+                        }
+                        else if (vessel.Type.ToString() == "FishingBoat")
+                        {
+                            Polygon vesselVisual = new Polygon();
+
+                            vesselVisual.Fill = colorBrush;
+                            System.Windows.Point Point1 = new System.Windows.Point(12.5, 8);
+                            System.Windows.Point Point2 = new System.Windows.Point(-2.5, 8);
+                            System.Windows.Point Point3 = new System.Windows.Point(5, -2);
+                            PointCollection myPointCollection = new PointCollection();
+                            myPointCollection.Add(Point1);
+                            myPointCollection.Add(Point2);
+                            myPointCollection.Add(Point3);
+                            vesselVisual.Points = myPointCollection;
+
+                            canvas.Children.Add(vesselVisual);
+                            Canvas.SetLeft(vesselVisual, ToPixelX(vessel.X) - 5);
+                            Canvas.SetTop(vesselVisual, ToPixelY(vessel.Y) - 5);
+                        }
+                        else if (vessel.Type.ToString() == "CargoVessel")
+                        {
+                            Polyline vesselVisual = new Polyline();
+
+                            vesselVisual.Fill = colorBrush;
+                            System.Windows.Point Point1 = new System.Windows.Point(12.5, 0);
+                            System.Windows.Point Point2 = new System.Windows.Point(-2.5, 0);
+                            System.Windows.Point Point3 = new System.Windows.Point(12.5, 10);
+                            System.Windows.Point Point4 = new System.Windows.Point(-2.5, 10);
+                            PointCollection myPointCollection = new PointCollection();
+                            myPointCollection.Add(Point1);
+                            myPointCollection.Add(Point2);
+                            myPointCollection.Add(Point3);
+                            myPointCollection.Add(Point4);
+                            vesselVisual.Points = myPointCollection;
+
+                            canvas.Children.Add(vesselVisual);
+                            Canvas.SetLeft(vesselVisual, ToPixelX(vessel.X) - 5);
+                            Canvas.SetTop(vesselVisual, ToPixelY(vessel.Y) - 5);
+                        }
+                        else if (vessel.Type.ToString() == "PassengerVessel")
+                        {
+                            Rectangle vesselVisual = new Rectangle();
+
+                            vesselVisual.Fill = colorBrush;
+                            vesselVisual.Width = 10;
+                            vesselVisual.Height = 10;
+
+                            canvas.Children.Add(vesselVisual);
+                            Canvas.SetLeft(vesselVisual, ToPixelX(vessel.X) - 5);
+                            Canvas.SetTop(vesselVisual, ToPixelY(vessel.Y) - 5);
+                        }
+                        else
+                        {
+                            Polyline vesselVisual = new Polyline();
+
+                            vesselVisual.Fill = colorBrush;
+                            System.Windows.Point Point1 = new System.Windows.Point(0, 12.5);
+                            System.Windows.Point Point2 = new System.Windows.Point(0, -2.5);
+                            System.Windows.Point Point3 = new System.Windows.Point(10, 12.5);
+                            System.Windows.Point Point4 = new System.Windows.Point(10, -2.5);
+                            PointCollection myPointCollection = new PointCollection();
+                            myPointCollection.Add(Point1);
+                            myPointCollection.Add(Point2);
+                            myPointCollection.Add(Point3);
+                            myPointCollection.Add(Point4);
+                            vesselVisual.Points = myPointCollection;
+
+                            canvas.Children.Add(vesselVisual);
+                            Canvas.SetLeft(vesselVisual, ToPixelX(vessel.X) - 5);
+                            Canvas.SetTop(vesselVisual, ToPixelY(vessel.Y) - 5);
+                        }
                     }
                 }
 
