@@ -24,7 +24,7 @@ namespace CKerTests
         }
 
         [Test]
-        public void UpdatePositions_TwoVessels_ReturnsUpdatedCourseDistance()
+        public void UpdatePositions_OneVesselCourseDistanceUpdatedTwice_ReturnsUpdatedCourseDistance()
         {            
             Vessel vessel = new Vessel(1, Vessel.TargetType.Human, 0, 0, 1, 1, 1);            
 
@@ -36,6 +36,22 @@ namespace CKerTests
             vessel.UpdatePositions(deltaTime);
 
             double actual = vessel.CourseDistance;
+
+            Assert.AreEqual(exected, actual, double.Epsilon);
+        }
+
+        [Test]
+        public void UpdatePositions_OneVesselUpdateTimeUpdatedTwice_ReturnsUpdatedDeltaTime()
+        {
+            int deltaTime = 1;
+            Vessel vessel = new Vessel(1, Vessel.TargetType.Human, 0, 0, 1, 1, 1);
+
+            double exected = deltaTime * 2;
+            
+            vessel.UpdatePositions(deltaTime);
+            vessel.UpdatePositions(deltaTime);
+
+            double actual = vessel.UpdateTime;
 
             Assert.AreEqual(exected, actual, double.Epsilon);
         }
