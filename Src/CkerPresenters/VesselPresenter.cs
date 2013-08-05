@@ -214,6 +214,9 @@ namespace Cker.Presenters
         private void OnSimulationAlarmEvent(Cker.Simulator.OnAlarmEventArgs alarm)
         {
             CurrentAlarms.Add(alarm);
+
+            // Keep only the high risk alarm if there is both a low and a high risk alarm for a vessel.
+            CurrentAlarms.RemoveAll(a1 => a1.type == Simulator.AlarmType.Low && CurrentAlarms.Exists(a2 => a2.type == Simulator.AlarmType.High && IsAlarmVesselShared(a1, a2)));
         }
 
         // helper to get the name of a variable; 
@@ -222,6 +225,12 @@ namespace Cker.Presenters
         {
             MemberExpression expressionBody = (MemberExpression)expression.Body;
             return expressionBody.Member.Name;
+        }
+
+        // helper to check whether two alarms share the same vessel.
+        private bool IsAlarmVesselShared(Cker.Simulator.OnAlarmEventArgs a1, Cker.Simulator.OnAlarmEventArgs a2)
+        {
+            return a1.first == a2.first || a1.first == a2.second || a1.second == a2.first || a1.second == a2.second;
         }
     }
 }
