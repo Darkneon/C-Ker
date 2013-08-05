@@ -34,7 +34,7 @@ namespace CKerTests
         public void ParseText_EmptyText_ReturnsEmptyList()
         {
             string text = "\n";
-            List<Vessel> actual = Parser.ParseText(text);
+            List<Vessel> actual = ScenarioParser.ParseText(text);
             List<Vessel> expected = new List<Vessel>();            
 
             Assert.AreEqual(expected.Count, actual.Count);
@@ -44,7 +44,7 @@ namespace CKerTests
         public void ParseText_ValidLine_ReturnsListWithOneVesselObject() 
         {
             string text = "NEWT	 001	  		1			4990           		0        		0.1			   	    0.1  		 10\n";
-            List<Vessel> actual = Parser.ParseText(text);
+            List<Vessel> actual = ScenarioParser.ParseText(text);
             List<Vessel> expected = new List<Vessel>();
             expected.Add(new Vessel(new string[] { "NEWT", "1", "1", "4990", "0", "0.1", "0.1", "10" }));
 
@@ -59,9 +59,8 @@ namespace CKerTests
         [Test]
         public void ParseText_InvalidLineMissing_ReturnsEmpty()
         {
-            string text = "001	  		1			4990           		0        		0.1			   	    0.1  		 10\n";
-            //Assert.Throws<Exception>(() => Parser.ParseText(text));                        
-            List<Vessel> actual   = Parser.ParseText(text);
+            string text = "001	  		1			4990           		0        		0.1			   	    0.1  		 10\n";                               
+            List<Vessel> actual   = ScenarioParser.ParseText(text);
             int expected = 0;
 
             Assert.AreEqual(expected, actual.Count);

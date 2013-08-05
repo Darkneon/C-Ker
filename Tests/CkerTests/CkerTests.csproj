@@ -52,6 +52,10 @@
       <Project>{b246d76f-f1fb-4f4c-9710-6c8d93374414}</Project>
       <Name>CkerModels</Name>
     </ProjectReference>
+    <ProjectReference Include="..\..\Src\CkerParsing\CkerParsing.csproj">
+      <Project>{123af260-fd4a-429d-ace0-6228e0ada60d}</Project>
+      <Name>CkerParsing</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\Src\Server\CkerSimulation.csproj">
       <Project>{609df8eb-0705-43ec-b847-b0e2272f6da2}</Project>
       <Name>CkerSimulation</Name>

@@ -8,14 +8,24 @@ using System.IO;
 
 namespace Cker
 {
-    public class Parser
+    public class ScenarioParser
     {
-        const string Comment   = "//";
+        const string Comment = "//";
         const string NewTarget = "NEWT";
         const string StartTime = "STARTTIME";
-        const string TimeStep  = "TIMESTEP";
-        const string Time      = "TIME";
-        const string Range     = "RANGE";
+        const string TimeStep = "TIMESTEP";
+        const string Time = "TIME";
+        const string Range = "RANGE";
+
+        public class Simulator
+        {
+            static public int StartTime { get; set; }
+            static public int TimeStep { get; set; }
+            static public int Time { get; set; }
+            static public int Range { get; set; }
+        }
+        
+
 
         public static List<Vessel> Parse(string path, string filename)
         {
@@ -38,7 +48,7 @@ namespace Cker
             {
                 Vessel record = ParseLine(line);
                 if (record != null)
-                {                    
+                {
                     result.Add(record);
                 }
 
@@ -59,7 +69,7 @@ namespace Cker
             {
                 char[] delimiterChars = { ' ', '\t' };
                 string[] fields = line.Split(delimiterChars);
-                fields = fields.Where(x => !string.IsNullOrEmpty(x)).ToArray();                
+                fields = fields.Where(x => !string.IsNullOrEmpty(x)).ToArray();
 
                 switch (fields[0])
                 {

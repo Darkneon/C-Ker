@@ -63,7 +63,13 @@ namespace Cker
 
         public static void Start(string path, string filename) 
         {
-            m_vesselsList = Parser.Parse(path, filename);
+            m_vesselsList = ScenarioParser.Parse(path, filename);
+
+            StartTime = ScenarioParser.Simulator.StartTime;
+            TimeStep = ScenarioParser.Simulator.TimeStep;
+            Time = ScenarioParser.Simulator.Time;
+            Range = ScenarioParser.Simulator.Range;            
+
             m_currentTime = Simulator.StartTime;
             
             timer.Elapsed += new System.Timers.ElapsedEventHandler(timer_Elapsed);
