@@ -23,7 +23,7 @@ namespace CkerGUI
         private TableWidget tableWidget;
 
         // Radar. **to be replaced with new radar**
-        private RadarDisplay radarDisplay;
+        private RadarWidget radarDisplay;
 
         // Vessel presenter to get information from simulation.
         private VesselPresenter vesselPresenter;
@@ -52,7 +52,7 @@ namespace CkerGUI
         /// <param name="radarContainer"></param>
         public void SetupRadarWidget(Canvas radarContainer)
         {
-            radarDisplay = new RadarDisplay(radarContainer, Cker.Simulator.Range, 0.95);
+            radarDisplay = new RadarWidget(radarContainer, Cker.Simulator.Range, 0.95);
         }
 
         /// <summary>

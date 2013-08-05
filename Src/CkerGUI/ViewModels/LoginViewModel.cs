@@ -5,7 +5,7 @@ using System.IO;
 using System.Linq;
 using System.Windows;
 using System.Windows.Input;
-using CkerModels.Models;
+using Cker.Models;
 using SoftArcs.WPFSmartLibrary.MVVMCommands;
 using SoftArcs.WPFSmartLibrary.MVVMCore;
 using SoftArcs.WPFSmartLibrary.SmartUserControls;

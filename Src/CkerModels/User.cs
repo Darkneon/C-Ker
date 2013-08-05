@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace CkerModels.Models
+namespace Cker.Models
 {
     public enum UserType
     {

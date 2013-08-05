@@ -75,7 +75,7 @@
     <Compile Include="LoginWindow.xaml.cs">
       <DependentUpon>LoginWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="RadarDisplay.cs" />
+    <Compile Include="RadarWidget.cs" />
     <Compile Include="TableWidget.cs" />
     <Compile Include="VesselView.cs" />
     <Compile Include="ViewModels\LoginViewModel.cs" />
