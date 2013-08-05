@@ -65,7 +65,7 @@ namespace Cker.Models
             Y = Y + VY_0 * deltaTime;
             
             CourseDistance += 1;
-            UpdateTime += 0.1;
+            UpdateTime += 0.1f;
         }
 
         public override string ToString()
