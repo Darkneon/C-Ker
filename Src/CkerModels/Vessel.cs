@@ -24,6 +24,8 @@ namespace Cker.Models
         public float VX_0 { get; set; }
         public float VY_0 { get; set; }
         public float StartTime { get; set; }
+        public double CourseDistance { get; set; }
+        public float UpdateTime { get; set; }
 
         public Vessel(int id, TargetType type, double x, double y, float vx_0, float vy_0, int startTime)
         {
@@ -34,6 +36,8 @@ namespace Cker.Models
             VX_0 = vx_0;
             VY_0 = vy_0;
             StartTime = startTime;
+            CourseDistance = 0;
+            UpdateTime = 0;
         }        
 
         public Vessel(string[] parameters)
@@ -45,6 +49,8 @@ namespace Cker.Models
             VX_0 = Convert.ToSingle(parameters[5]);
             VY_0 = Convert.ToSingle(parameters[6]);
             StartTime = Convert.ToSingle(parameters[7]);
+            CourseDistance = 0;
+            UpdateTime = 0;
         }
 
         public double GetDistanceBetween(Vessel vessel)
@@ -57,6 +63,9 @@ namespace Cker.Models
         {
             X = X + VX_0 * deltaTime;
             Y = Y + VY_0 * deltaTime;
+            
+            CourseDistance += 1;
+            UpdateTime += 0.1;
         }
 
         public override string ToString()
