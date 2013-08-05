@@ -38,6 +38,9 @@ namespace Cker.Presenters
         // Track current attribute to sort by.
         private string currentSortByAttribute;
 
+        // Track current filtering options.
+        private List<Vessel.TargetType> currentWantedTypes;
+
         /// <summary>
         /// Must specify the scenario file to use, simply the filename "name.vsf" without the directory.
         /// </summary>
@@ -52,8 +55,9 @@ namespace Cker.Presenters
             Cker.Simulator.OnAlarm += OnSimulationAlarmEvent;
 
             // Display all vessels at first.
-            DisplayedVessels = Cker.Simulator.Vessels;
+            DisplayedVessels = GetAllVesselsWithinRadarRange();
 
+            currentWantedTypes = null;
             currentSortByAttribute = null;
             CurrentSortDirection = SortDirection.Descending;
 
@@ -86,8 +90,10 @@ namespace Cker.Presenters
         /// <param name="wantedTypes">specifies the types of vessels wanted</param>
         public void FilterVessels(List<Vessel.TargetType> wantedTypes)
         {
+            currentWantedTypes = wantedTypes;
+
             // Get all vessels that correspond to one of the wanted types.
-            DisplayedVessels = Cker.Simulator.Vessels.FindAll(vessel => wantedTypes.Contains(vessel.Type));
+            DisplayedVessels = GetAllVesselsWithinRadarRange().FindAll(vessel => currentWantedTypes.Contains(vessel.Type));
 
             // Make sure these retain sorted order if they were sorted before.
             if (currentSortByAttribute != null)
@@ -174,10 +180,35 @@ namespace Cker.Presenters
             }
         }
 
+        /// <summary>
+        /// Gets a list containing all vessels that are within the radar range.
+        /// </summary>
+        /// <returns></returns>
+        public List<Vessel> GetAllVesselsWithinRadarRange()
+        {
+            List<Vessel> vessels = new List<Vessel>();
+            vessels = Cker.Simulator.Vessels.Where(v => Math.Sqrt(v.X * v.X + v.Y * v.Y) <= Cker.Simulator.Range).ToList();
+            return vessels;
+        }
+
         private void OnSimulationUpdateEvent()
         {
             // Clear current alarms every update.
             CurrentAlarms.Clear();
+
+            // Refilter to eliminate vessels that moved out of range.
+            if (currentWantedTypes != null)
+            {
+                FilterVessels(currentWantedTypes);
+            }
+            else
+            {
+                DisplayedVessels = GetAllVesselsWithinRadarRange();
+                if (currentSortByAttribute != null)
+                {
+                    SortVessels(currentSortByAttribute, CurrentSortDirection);
+                }
+            }
         }
 
         private void OnSimulationAlarmEvent(Cker.Simulator.OnAlarmEventArgs alarm)
