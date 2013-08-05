@@ -25,6 +25,8 @@ namespace Cker
         private static int m_currentTime = 0;
 
         private static List<Vessel> m_vesselsList = new List<Vessel>();
+        private static List<Vessel> m_vesselsListOriginal = new List<Vessel>();
+
         public static List<Vessel> Vessels 
         {
             get { return m_vesselsList; }
@@ -63,7 +65,7 @@ namespace Cker
 
         public static void Start(string path, string filename) 
         {
-            m_vesselsList = ScenarioParser.Parse(path, filename);
+            m_vesselsListOriginal = ScenarioParser.Parse(path, filename);
 
             StartTime = ScenarioParser.Simulator.StartTime;
             TimeStep = ScenarioParser.Simulator.TimeStep;
@@ -71,7 +73,9 @@ namespace Cker
             Range = ScenarioParser.Simulator.Range;            
 
             m_currentTime = Simulator.StartTime;
-            
+
+            AddNewVessels();
+
             timer.Elapsed += new System.Timers.ElapsedEventHandler(timer_Elapsed);
             timer.Interval = Simulator.TimeStep * 1000; //To milliseconds            
             timer.Enabled = true;
@@ -96,10 +100,13 @@ namespace Cker
         {
             m_currentTime += Simulator.TimeStep;
 
+            AddNewVessels();
+
             foreach (Vessel v in m_vesselsList)
             {
                 v.UpdatePositions(Simulator.TimeStep);
             }
+            
 
             if (AfterUpdate != null)
             {
@@ -153,6 +160,22 @@ namespace Cker
 
                 } //end for
             } //end for
+        }
+
+        private static void AddNewVessels() 
+        {
+            if (m_vesselsListOriginal.Count == m_vesselsList.Count) 
+            {
+                return; // Nothing to add
+            }
+
+            foreach (Vessel v in m_vesselsListOriginal)
+            {
+                if (!m_vesselsList.Contains(v) && m_currentTime >= v.StartTime) 
+                {
+                    m_vesselsList.Add(v);
+                }
+            }
         }
 
         private static string GenerateKey(Vessel v1, Vessel v2) 
