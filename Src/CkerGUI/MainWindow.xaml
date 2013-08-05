@@ -65,27 +65,27 @@
                                 <GridViewColumnHeader Content="Type" MinWidth="128" HorizontalContentAlignment="Left" Padding="5,0,0,0" />
                             </GridViewColumn.Header>
                         </GridViewColumn>
-                        <GridViewColumn DisplayMemberBinding="{Binding Path=X, StringFormat=F6}">
+                        <GridViewColumn DisplayMemberBinding="{Binding Path=X, StringFormat=F2}">
                             <GridViewColumn.Header>
                                 <GridViewColumnHeader Content="X Pos" MinWidth="128" HorizontalContentAlignment="Left" Padding="5,0,0,0" />
                             </GridViewColumn.Header>
                         </GridViewColumn>
-                        <GridViewColumn DisplayMemberBinding="{Binding Path=Y, StringFormat=F6}">
+                        <GridViewColumn DisplayMemberBinding="{Binding Path=Y, StringFormat=F2}">
                             <GridViewColumn.Header>
                                 <GridViewColumnHeader Content="Y Pos" MinWidth="128" HorizontalContentAlignment="Left" Padding="5,0,0,0" />
                             </GridViewColumn.Header>
                         </GridViewColumn>
-                        <GridViewColumn DisplayMemberBinding="{Binding Path=VX_0}">
+                        <GridViewColumn DisplayMemberBinding="{Binding Path=VX_0, StringFormat=F2}">
                             <GridViewColumn.Header>
                                 <GridViewColumnHeader Content="Speed" MinWidth="128" HorizontalContentAlignment="Left" Padding="5,0,0,0" />
                             </GridViewColumn.Header>
                         </GridViewColumn>
-                        <GridViewColumn DisplayMemberBinding="{Binding Path=CourseDistance, StringFormat=F6}">
+                        <GridViewColumn DisplayMemberBinding="{Binding Path=CourseDistance, StringFormat=F2}">
                             <GridViewColumn.Header>
                                 <GridViewColumnHeader Content="Course Distance" MinWidth="128" HorizontalContentAlignment="Left" Padding="5,0,0,0" />
                             </GridViewColumn.Header>
                         </GridViewColumn>
-                        <GridViewColumn DisplayMemberBinding="{Binding Path=UpdateTime}">
+                        <GridViewColumn DisplayMemberBinding="{Binding Path=UpdateTime, StringFormat=F2}">
                             <GridViewColumn.Header>
                                 <GridViewColumnHeader Content="Update Time" MinWidth="128" HorizontalContentAlignment="Left" Padding="5,0,0,0" />
                             </GridViewColumn.Header>

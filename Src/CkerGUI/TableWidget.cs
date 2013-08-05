@@ -77,10 +77,9 @@ namespace CkerGUI
         private void OnColumnHeaderClick(object sender, RoutedEventArgs e)
         {
             GridViewColumnHeader headerClicked = e.OriginalSource as GridViewColumnHeader;
-            Debug.Assert(headerClicked != null, "OnColumnHeaderClick : Handling a null header");
 
             // Ignore clicks on the grid padding (extra spaces at the far right)
-            if (headerClicked.Role == GridViewColumnHeaderRole.Padding)
+            if (headerClicked == null || headerClicked.Role == GridViewColumnHeaderRole.Padding)
             {
                 return;
             }

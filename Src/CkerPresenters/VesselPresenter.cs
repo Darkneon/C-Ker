@@ -134,9 +134,9 @@ namespace Cker.Presenters
                 var typeName = GetVariableName(() => dummyVessel.Type);
                 var posXName = GetVariableName(() => dummyVessel.X);
                 var posYName = GetVariableName(() => dummyVessel.Y);
-                var velXName = GetVariableName(() => dummyVessel.VX_0);
-                var velYName = GetVariableName(() => dummyVessel.VY_0);
-                var timeName = GetVariableName(() => dummyVessel.StartTime);
+                var speedName = GetVariableName(() => dummyVessel.VX_0);
+                var distName = GetVariableName(() => dummyVessel.CourseDistance);
+                var timeName = GetVariableName(() => dummyVessel.UpdateTime);
 
                 // Compare the attribute name to see which attribute to sort by.
                 if (attributeName == idName)
@@ -155,17 +155,17 @@ namespace Cker.Presenters
                 {
                     DisplayedVessels = DisplayedVessels.OrderByDescending(v => v.Y).ToList();
                 }
-                else if (attributeName == velXName)
+                else if (attributeName == speedName)
                 {
                     DisplayedVessels = DisplayedVessels.OrderByDescending(v => v.VX_0).ToList();
                 }
-                else if (attributeName == velYName)
+                else if (attributeName == distName)
                 {
-                    DisplayedVessels = DisplayedVessels.OrderByDescending(v => v.VY_0).ToList();
+                    DisplayedVessels = DisplayedVessels.OrderByDescending(v => v.CourseDistance).ToList();
                 }
                 else if (attributeName == timeName)
                 {
-                    DisplayedVessels = DisplayedVessels.OrderByDescending(v => v.StartTime).ToList();
+                    DisplayedVessels = DisplayedVessels.OrderByDescending(v => v.UpdateTime).ToList();
                 }
                 else
                 {
