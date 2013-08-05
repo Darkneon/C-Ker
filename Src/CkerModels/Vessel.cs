@@ -63,9 +63,11 @@ namespace Cker.Models
         {
             X = X + VX_0 * deltaTime;
             Y = Y + VY_0 * deltaTime;
-            
-            CourseDistance += 1;
-            UpdateTime += 0.1f;
+
+            double deltaDistance = Math.Sqrt(Math.Pow(VX_0 * deltaTime, 2) + Math.Pow(VY_0 * deltaTime, 2));
+
+            CourseDistance += deltaDistance;
+            UpdateTime += deltaTime;
         }
 
         public override string ToString()

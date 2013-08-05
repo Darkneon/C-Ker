@@ -22,5 +22,22 @@ namespace CKerTests
             double actual = v1.GetDistanceBetween(v2);
             Assert.AreEqual(exected, actual, double.Epsilon);
         }
+
+        [Test]
+        public void UpdatePositions_TwoVessels_ReturnsUpdatedCourseDistance()
+        {            
+            Vessel vessel = new Vessel(1, Vessel.TargetType.Human, 0, 0, 1, 1, 1);            
+
+            //Move vessel by VX_0 and VY_0 twice
+            double exected = Math.Sqrt(Math.Pow(1, 2) + Math.Pow(1, 2)) * 2;
+
+            int deltaTime = 1;
+            vessel.UpdatePositions(deltaTime);
+            vessel.UpdatePositions(deltaTime);
+
+            double actual = vessel.CourseDistance;
+
+            Assert.AreEqual(exected, actual, double.Epsilon);
+        }
     }
 }
