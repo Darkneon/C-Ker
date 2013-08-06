@@ -51,8 +51,8 @@ namespace Cker.Presenters
             Cker.Simulator.Start("Assets/", scenarioFile);
 
             // Register event handlers.
-            Cker.Simulator.AfterUpdate += OnSimulationUpdateEvent;
-            Cker.Simulator.OnAlarm += OnSimulationAlarmEvent;
+            AddUpdateAction(OnSimulationUpdateEvent);
+            AddAlarmAction(OnSimulationAlarmEvent);
 
             // Display all vessels at first.
             DisplayedVessels = GetAllVesselsWithinRadarRange();
@@ -78,7 +78,7 @@ namespace Cker.Presenters
         /// Registers a function to be called when an alarm occurs.
         /// </summary>
         /// <param name="action"></param>
-        public void AddUpdateAction(Cker.Simulator.OnAlarmEventHandler action)
+        public void AddAlarmAction(Cker.Simulator.OnAlarmEventHandler action)
         {
             Cker.Simulator.OnAlarm += action;
         }

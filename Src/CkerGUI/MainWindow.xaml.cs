@@ -35,7 +35,7 @@ namespace CkerGUI
                 vesselsGrid.Margin = new Thickness(-Application.Current.MainWindow.Width / 6.0, 0.0, 0.0, 0.0);
                 // Center the table correctly.
                 GridViewColumn paddingColumn = new GridViewColumn();
-                paddingColumn.Width = radarCanvas.Margin.Left + 4;
+                paddingColumn.Width = radarGrid.Margin.Left + 4;
                 paddingColumn.DisplayMemberBinding = new Binding() { Source = null };
                 vesselsGridView.Columns.Insert(0, paddingColumn);
             }
