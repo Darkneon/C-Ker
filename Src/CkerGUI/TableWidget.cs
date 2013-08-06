@@ -85,8 +85,9 @@ namespace CkerGUI
             }
 
             // Retrieve name of the attritube associated to the column header just clicked.
+            // This corresponds to the binding; however, this is not the case when there are multibinds; we just take the header name instead.
             var dataBinding = (Binding)headerClicked.Column.DisplayMemberBinding;
-            var currentSortAttribute = dataBinding.Path.Path;
+            var currentSortAttribute = dataBinding != null ? dataBinding.Path.Path : headerClicked.Content as string;
 
             // Apply the sorting and update.
             vesselPresenter.SortVessels(currentSortAttribute);

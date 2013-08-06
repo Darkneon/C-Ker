@@ -134,7 +134,7 @@ namespace Cker.Presenters
                 var typeName = GetVariableName(() => dummyVessel.Type);
                 var posXName = GetVariableName(() => dummyVessel.X);
                 var posYName = GetVariableName(() => dummyVessel.Y);
-                var speedName = GetVariableName(() => dummyVessel.VX_0);
+                var speedName = "Speed";
                 var distName = GetVariableName(() => dummyVessel.CourseDistance);
                 var timeName = GetVariableName(() => dummyVessel.UpdateTime);
 
@@ -157,7 +157,8 @@ namespace Cker.Presenters
                 }
                 else if (attributeName == speedName)
                 {
-                    DisplayedVessels = DisplayedVessels.OrderByDescending(v => v.VX_0).ToList();
+                    // For speed we check both X and Y and sort by magnitude.
+                    DisplayedVessels = DisplayedVessels.OrderByDescending(v => v.VX_0 * v.VX_0 + v.VY_0 * v.VY_0).ToList();
                 }
                 else if (attributeName == distName)
                 {

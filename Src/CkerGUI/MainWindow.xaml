@@ -75,10 +75,22 @@
                                 <GridViewColumnHeader Content="Y Pos" MinWidth="120" HorizontalContentAlignment="Left" Padding="5,0,0,0" />
                             </GridViewColumn.Header>
                         </GridViewColumn>
-                        <GridViewColumn DisplayMemberBinding="{Binding Path=VX_0, StringFormat=F2}">
+                        <GridViewColumn>
                             <GridViewColumn.Header>
                                 <GridViewColumnHeader Content="Speed" MinWidth="120" HorizontalContentAlignment="Left" Padding="5,0,0,0" />
                             </GridViewColumn.Header>
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBlock>
+                                        <TextBlock.Text>
+                                            <MultiBinding StringFormat="{}({0:F2}, {1:F2})">
+                                                <Binding Path="VX_0" />
+                                                <Binding Path="VY_0" />
+                                            </MultiBinding>
+                                        </TextBlock.Text>
+                                    </TextBlock>
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
                         </GridViewColumn>
                         <GridViewColumn DisplayMemberBinding="{Binding Path=CourseDistance, StringFormat=F2}">
                             <GridViewColumn.Header>
