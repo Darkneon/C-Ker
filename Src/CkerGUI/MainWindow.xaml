@@ -6,7 +6,7 @@
 		xmlns:wpfsl="http://schemas.softarcs.com/wpfsmartlibrary"
 		mc:Ignorable="d" wpfsl:WindowKeysHandling.EscapeClosesWindow="True"
 		WindowStartupLocation="CenterScreen" SizeToContent="WidthAndHeight" Background="#FF16499A"
-        Title="C-Ker Vessel Monitoring System (Created by C-Lab 2013)" MinWidth="1024" MinHeight="768"
+        Title="C-Ker Vessel Monitoring System (Created by C-Lab 2013)" MinWidth="1024" MinHeight="768" MaxWidth="1024" MaxHeight="768"
         Loaded="OnWindowLoaded">
 
     <!-- Resources shared in this window -->
@@ -43,12 +43,27 @@
         </Grid.RowDefinitions>
 
         <!-- Top area display vessel radar map -->
-        <Canvas Name="radarCanvas" 
-                Margin="100, 0, 100, 0"
-                Grid.Row="0" Grid.ColumnSpan="6" 
-                Background="AliceBlue">
-            <!-- Vessel object display to be done in code -->
-        </Canvas>
+        <Grid Name="radarGrid"
+            Margin="100, 0, 100, 0"
+            Grid.Row="0" Grid.ColumnSpan="6" 
+            Background="AliceBlue">
+            <Ellipse Width="365" Height="365">
+                <Ellipse.Fill>
+                    <LinearGradientBrush StartPoint="0.5,0" EndPoint="0.5,1">
+                        <GradientStop Color="#007700" Offset="0.0" />
+                        <GradientStop Color="#002900" Offset="1.0" />
+                    </LinearGradientBrush>
+                </Ellipse.Fill>
+            </Ellipse>
+            <Ellipse Width="365" Height="365" StrokeThickness="1" Stroke="#00FF01"></Ellipse>
+            <Ellipse Width="220" Height="220" StrokeThickness="1" Stroke="#00FF01"></Ellipse>
+            <Ellipse Width="95" Height="95" StrokeThickness="1" Stroke="#00FF01"></Ellipse>
+            <Line X1="223" Y1="184.5" X2="588" Y2="184.5" StrokeThickness="1" Stroke="#00FF01"></Line>
+            <Line X1="405" Y1="0" X2="405" Y2="365" StrokeThickness="1" Stroke="#00FF01"></Line>
+            <Canvas Name="radarCanvas">
+                <!-- Vessel object display to be done in code -->
+            </Canvas>
+        </Grid>
 
         <!-- Bottom area display vessel information -->
         <Grid Name="vesselsGrid" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="5">

@@ -86,7 +86,7 @@ namespace CkerGUI
                     if (IsInRange(vessel.X, vessel.Y))
                     {
                         #region High-Risk and Low-Risk Alarm Visualization
-
+                        /*
                         // Make an overlay for the alarm range for testing purposes.
                         // Low-risk alarm range visual
                         Ellipse alarmVisual = new Ellipse();
@@ -109,7 +109,7 @@ namespace CkerGUI
                         canvas.Children.Add(alarmVisual);
                         Canvas.SetLeft(alarmVisual, ToPixelX(vessel.X) - alarmVisual.Width / 2);
                         Canvas.SetTop(alarmVisual, ToPixelY(vessel.Y) - alarmVisual.Height / 2);
-
+                        */
                         #endregion
 
                         #region Vessel Tooltip
@@ -131,13 +131,16 @@ namespace CkerGUI
 
                         #endregion
 
+                        SolidColorBrush vesselColor = new SolidColorBrush();
+                        vesselColor.Color = Color.FromRgb(0, 255, 1);
+
                         // Vessels are assigned different shapes according to their Type. Undefined vessel types are given a default shape.
                         // Vessel Type: Human
                         if (vessel.Type.ToString() == "Human")
                         {
                             Polygon vesselVisual = new Polygon();
 
-                            vesselVisual.Fill = Brushes.Blue;
+                            vesselVisual.Fill = vesselColor;
                             System.Windows.Point Point1 = new System.Windows.Point(10, 13);
                             System.Windows.Point Point2 = new System.Windows.Point(5, -2);
                             System.Windows.Point Point3 = new System.Windows.Point(0, 13);
@@ -162,7 +165,7 @@ namespace CkerGUI
                         {
                             Ellipse vesselVisual = new Ellipse();
 
-                            vesselVisual.Fill = Brushes.Blue;
+                            vesselVisual.Fill = vesselColor;
                             vesselVisual.Width = 10;
                             vesselVisual.Height = 10;
 
@@ -177,7 +180,7 @@ namespace CkerGUI
                         {
                             Polygon vesselVisual = new Polygon();
 
-                            vesselVisual.Fill = Brushes.Blue;
+                            vesselVisual.Fill = vesselColor;
                             System.Windows.Point Point1 = new System.Windows.Point(12.5, 8);
                             System.Windows.Point Point2 = new System.Windows.Point(-2.5, 8);
                             System.Windows.Point Point3 = new System.Windows.Point(5, -2);
@@ -198,7 +201,7 @@ namespace CkerGUI
                         {
                             Polyline vesselVisual = new Polyline();
 
-                            vesselVisual.Fill = Brushes.Blue;
+                            vesselVisual.Fill = vesselColor;
                             System.Windows.Point Point1 = new System.Windows.Point(12.5, 0);
                             System.Windows.Point Point2 = new System.Windows.Point(-2.5, 0);
                             System.Windows.Point Point3 = new System.Windows.Point(12.5, 10);
@@ -221,7 +224,7 @@ namespace CkerGUI
                         {
                             Rectangle vesselVisual = new Rectangle();
 
-                            vesselVisual.Fill = Brushes.Blue;
+                            vesselVisual.Fill = vesselColor;
                             vesselVisual.Width = 10;
                             vesselVisual.Height = 10;
 
@@ -236,7 +239,7 @@ namespace CkerGUI
                         {
                             Polyline vesselVisual = new Polyline();
 
-                            vesselVisual.Fill = Brushes.Blue;
+                            vesselVisual.Fill = vesselColor;
                             System.Windows.Point Point1 = new System.Windows.Point(0, 12.5);
                             System.Windows.Point Point2 = new System.Windows.Point(0, -2.5);
                             System.Windows.Point Point3 = new System.Windows.Point(10, 12.5);
