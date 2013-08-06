@@ -67,6 +67,428 @@ namespace CkerGUI
             CalculateCanvasProperties();
         }
 
+        #region Supposed to visualize alarms on the Radar Display, doesn't work
+
+        /// <summary>
+        /// Draws vessels that have triggered alarms on the canvas.
+        /// Will only draw vessels that have entered either High-Risk or Low-Risk alarms.
+        /// Each call will wipe the alarmed vessels off the canvas and redraw them if they continue in an alarm state.
+        /// </summary>
+        public void DrawAlarms(List<Cker.Simulator.OnAlarmEventArgs> alarms)
+        {
+            if (alarms != null)
+            {
+                canvas.Children.Clear();
+
+                foreach (var alarmVessels in alarms)
+                {
+                    if (IsInRange(alarmVessels.first.X, alarmVessels.first.Y) && IsInRange(alarmVessels.second.X, alarmVessels.second.Y))
+                    {
+                        #region Vessel Tooltip
+
+                        // Displays a tooltip with vessel information when the mouse is over the corresponding vessel
+                        ToolTip vesselToolTip = new ToolTip();
+                        vesselToolTip.Placement = PlacementMode.Right;
+                        vesselToolTip.PlacementRectangle = new Rect(50, 0, 0, 0);
+                        vesselToolTip.HorizontalOffset = 10;
+                        vesselToolTip.VerticalOffset = 20;
+
+                        //Create BulletDecorator and set it 
+                        //as the tooltip content.
+                        BulletDecorator bdec = new BulletDecorator();
+                        TextBlock vesselDesc = new TextBlock();
+                        vesselDesc.Text = "Vessel ID: " + alarmVessels.first.ID + "\nType: " + alarmVessels.first.Type.ToString() + "\nX-Pos: " + Math.Truncate(alarmVessels.first.X) + ", Y-Pos: " + Math.Truncate(alarmVessels.first.Y);
+                        bdec.Child = vesselDesc;
+                        vesselToolTip.Content = bdec;
+
+                        #endregion
+
+                        #region Vessel Drawing for First Vessel in Alarm State
+
+                        if (alarmVessels.first.Type.ToString() == "Human")
+                        {
+                            Polygon alarmVisual = new Polygon();
+
+                            if (alarmVessels.type == Cker.Simulator.AlarmType.High)
+                            {
+                                alarmVisual.Fill = Brushes.Red;
+                            }
+                            else if (alarmVessels.type == Cker.Simulator.AlarmType.Low)
+                            {
+                                alarmVisual.Fill = Brushes.Yellow;
+                            }
+
+                            #region Draws Polygon shape for Human types
+
+                            System.Windows.Point Point1 = new System.Windows.Point(10, 13);
+                            System.Windows.Point Point2 = new System.Windows.Point(5, -2);
+                            System.Windows.Point Point3 = new System.Windows.Point(0, 13);
+                            System.Windows.Point Point4 = new System.Windows.Point(10, -2);
+                            System.Windows.Point Point5 = new System.Windows.Point(0, -2);
+                            PointCollection myPointCollection = new PointCollection();
+                            myPointCollection.Add(Point1);
+                            myPointCollection.Add(Point2);
+                            myPointCollection.Add(Point3);
+                            myPointCollection.Add(Point4);
+                            myPointCollection.Add(Point5);
+                            alarmVisual.Points = myPointCollection;
+
+                            #endregion
+
+                            canvas.Children.Add(alarmVisual);
+                            Canvas.SetLeft(alarmVisual, ToPixelX(alarmVessels.first.X) - 5);
+                            Canvas.SetTop(alarmVisual, ToPixelY(alarmVessels.first.Y) - 5);
+
+                            alarmVisual.ToolTip = vesselToolTip;
+                        }
+                        // Vessel Type: SpeedBoat
+                        else if (alarmVessels.first.Type.ToString() == "SpeedBoat")
+                        {
+                            Ellipse alarmVisual = new Ellipse();
+
+                            if (alarmVessels.type == Cker.Simulator.AlarmType.High)
+                            {
+                                alarmVisual.Fill = Brushes.Red;
+                            }
+                            else if (alarmVessels.type == Cker.Simulator.AlarmType.Low)
+                            {
+                                alarmVisual.Fill = Brushes.Yellow;
+                            }
+
+                            alarmVisual.Width = 10;
+                            alarmVisual.Height = 10;
+
+                            canvas.Children.Add(alarmVisual);
+                            Canvas.SetLeft(alarmVisual, ToPixelX(alarmVessels.first.X) - 5);
+                            Canvas.SetTop(alarmVisual, ToPixelY(alarmVessels.first.Y) - 5);
+
+                            alarmVisual.ToolTip = vesselToolTip;
+                        }
+                        // Vessel Type: FishingBoat
+                        else if (alarmVessels.first.Type.ToString() == "FishingBoat")
+                        {
+                            Polygon alarmVisual = new Polygon();
+
+                            if (alarmVessels.type == Cker.Simulator.AlarmType.High)
+                            {
+                                alarmVisual.Fill = Brushes.Red;
+                            }
+                            else if (alarmVessels.type == Cker.Simulator.AlarmType.Low)
+                            {
+                                alarmVisual.Fill = Brushes.Yellow;
+                            }
+
+                            #region Draws Polygon shape for FishingBoat types (triangle)
+
+                            System.Windows.Point Point1 = new System.Windows.Point(12.5, 8);
+                            System.Windows.Point Point2 = new System.Windows.Point(-2.5, 8);
+                            System.Windows.Point Point3 = new System.Windows.Point(5, -2);
+                            PointCollection myPointCollection = new PointCollection();
+                            myPointCollection.Add(Point1);
+                            myPointCollection.Add(Point2);
+                            myPointCollection.Add(Point3);
+                            alarmVisual.Points = myPointCollection;
+
+                            #endregion
+
+                            canvas.Children.Add(alarmVisual);
+                            Canvas.SetLeft(alarmVisual, ToPixelX(alarmVessels.first.X) - 5);
+                            Canvas.SetTop(alarmVisual, ToPixelY(alarmVessels.first.Y) - 5);
+
+                            alarmVisual.ToolTip = vesselToolTip;
+                        }
+                        // Vessel Type: CargoVessel
+                        else if (alarmVessels.first.Type.ToString() == "CargoVessel")
+                        {
+                            Polyline alarmVisual = new Polyline();
+
+                            if (alarmVessels.type == Cker.Simulator.AlarmType.High)
+                            {
+                                alarmVisual.Fill = Brushes.Red;
+                            }
+                            else if (alarmVessels.type == Cker.Simulator.AlarmType.Low)
+                            {
+                                alarmVisual.Fill = Brushes.Yellow;
+                            }
+
+                            #region Draws Polyline shape for CargoVessel types
+
+                            System.Windows.Point Point1 = new System.Windows.Point(12.5, 0);
+                            System.Windows.Point Point2 = new System.Windows.Point(-2.5, 0);
+                            System.Windows.Point Point3 = new System.Windows.Point(12.5, 10);
+                            System.Windows.Point Point4 = new System.Windows.Point(-2.5, 10);
+                            PointCollection myPointCollection = new PointCollection();
+                            myPointCollection.Add(Point1);
+                            myPointCollection.Add(Point2);
+                            myPointCollection.Add(Point3);
+                            myPointCollection.Add(Point4);
+                            alarmVisual.Points = myPointCollection;
+
+                            #endregion
+
+                            canvas.Children.Add(alarmVisual);
+                            Canvas.SetLeft(alarmVisual, ToPixelX(alarmVessels.first.X) - 5);
+                            Canvas.SetTop(alarmVisual, ToPixelY(alarmVessels.first.Y) - 5);
+
+                            alarmVisual.ToolTip = vesselToolTip;
+                        }
+                        // Vessel Type: PassengerVessel
+                        else if (alarmVessels.first.Type.ToString() == "PassengerVessel")
+                        {
+                            Rectangle alarmVisual = new Rectangle();
+
+                            if (alarmVessels.type == Cker.Simulator.AlarmType.High)
+                            {
+                                alarmVisual.Fill = Brushes.Red;
+                            }
+                            else if (alarmVessels.type == Cker.Simulator.AlarmType.Low)
+                            {
+                                alarmVisual.Fill = Brushes.Yellow;
+                            }
+
+                            alarmVisual.Width = 10;
+                            alarmVisual.Height = 10;
+
+                            canvas.Children.Add(alarmVisual);
+                            Canvas.SetLeft(alarmVisual, ToPixelX(alarmVessels.first.X) - 5);
+                            Canvas.SetTop(alarmVisual, ToPixelY(alarmVessels.first.Y) - 5);
+
+                            alarmVisual.ToolTip = vesselToolTip;
+                        }
+                        // Vessel Type: Undefined/User-defined
+                        else
+                        {
+                            Polyline alarmVisual = new Polyline();
+
+                            if (alarmVessels.type == Cker.Simulator.AlarmType.High)
+                            {
+                                alarmVisual.Fill = Brushes.Red;
+                            }
+                            else if (alarmVessels.type == Cker.Simulator.AlarmType.Low)
+                            {
+                                alarmVisual.Fill = Brushes.Yellow;
+                            }
+
+                            #region Draws Polyline shape for Undefined types
+
+                            System.Windows.Point Point1 = new System.Windows.Point(0, 12.5);
+                            System.Windows.Point Point2 = new System.Windows.Point(0, -2.5);
+                            System.Windows.Point Point3 = new System.Windows.Point(10, 12.5);
+                            System.Windows.Point Point4 = new System.Windows.Point(10, -2.5);
+                            PointCollection myPointCollection = new PointCollection();
+                            myPointCollection.Add(Point1);
+                            myPointCollection.Add(Point2);
+                            myPointCollection.Add(Point3);
+                            myPointCollection.Add(Point4);
+                            alarmVisual.Points = myPointCollection;
+
+                            #endregion
+
+                            canvas.Children.Add(alarmVisual);
+                            Canvas.SetLeft(alarmVisual, ToPixelX(alarmVessels.first.X) - 5);
+                            Canvas.SetTop(alarmVisual, ToPixelY(alarmVessels.first.Y) - 5);
+
+                            alarmVisual.ToolTip = vesselToolTip;
+                        }
+
+                        #endregion
+
+                        #region Vessel Drawing for Second Vessel in Alarm State
+
+                        if (alarmVessels.second.Type.ToString() == "Human")
+                        {
+                            Polygon alarmVisual = new Polygon();
+
+                            if (alarmVessels.type == Cker.Simulator.AlarmType.High)
+                            {
+                                alarmVisual.Fill = Brushes.Red;
+                            }
+                            else if (alarmVessels.type == Cker.Simulator.AlarmType.Low)
+                            {
+                                alarmVisual.Fill = Brushes.Yellow;
+                            }
+
+                            #region Draws Polygon shape for Human types
+
+                            System.Windows.Point Point1 = new System.Windows.Point(10, 13);
+                            System.Windows.Point Point2 = new System.Windows.Point(5, -2);
+                            System.Windows.Point Point3 = new System.Windows.Point(0, 13);
+                            System.Windows.Point Point4 = new System.Windows.Point(10, -2);
+                            System.Windows.Point Point5 = new System.Windows.Point(0, -2);
+                            PointCollection myPointCollection = new PointCollection();
+                            myPointCollection.Add(Point1);
+                            myPointCollection.Add(Point2);
+                            myPointCollection.Add(Point3);
+                            myPointCollection.Add(Point4);
+                            myPointCollection.Add(Point5);
+                            alarmVisual.Points = myPointCollection;
+
+                            #endregion
+
+                            canvas.Children.Add(alarmVisual);
+                            Canvas.SetLeft(alarmVisual, ToPixelX(alarmVessels.first.X) - 5);
+                            Canvas.SetTop(alarmVisual, ToPixelY(alarmVessels.first.Y) - 5);
+
+                            alarmVisual.ToolTip = vesselToolTip;
+                        }
+                        // Vessel Type: SpeedBoat
+                        else if (alarmVessels.second.Type.ToString() == "SpeedBoat")
+                        {
+                            Ellipse alarmVisual = new Ellipse();
+
+                            if (alarmVessels.type == Cker.Simulator.AlarmType.High)
+                            {
+                                alarmVisual.Fill = Brushes.Red;
+                            }
+                            else if (alarmVessels.type == Cker.Simulator.AlarmType.Low)
+                            {
+                                alarmVisual.Fill = Brushes.Yellow;
+                            }
+
+                            alarmVisual.Width = 10;
+                            alarmVisual.Height = 10;
+
+                            canvas.Children.Add(alarmVisual);
+                            Canvas.SetLeft(alarmVisual, ToPixelX(alarmVessels.first.X) - 5);
+                            Canvas.SetTop(alarmVisual, ToPixelY(alarmVessels.first.Y) - 5);
+
+                            alarmVisual.ToolTip = vesselToolTip;
+                        }
+                        // Vessel Type: FishingBoat
+                        else if (alarmVessels.second.Type.ToString() == "FishingBoat")
+                        {
+                            Polygon alarmVisual = new Polygon();
+
+                            if (alarmVessels.type == Cker.Simulator.AlarmType.High)
+                            {
+                                alarmVisual.Fill = Brushes.Red;
+                            }
+                            else if (alarmVessels.type == Cker.Simulator.AlarmType.Low)
+                            {
+                                alarmVisual.Fill = Brushes.Yellow;
+                            }
+
+                            #region Draws Polygon shape for FishingBoat types (triangle)
+
+                            System.Windows.Point Point1 = new System.Windows.Point(12.5, 8);
+                            System.Windows.Point Point2 = new System.Windows.Point(-2.5, 8);
+                            System.Windows.Point Point3 = new System.Windows.Point(5, -2);
+                            PointCollection myPointCollection = new PointCollection();
+                            myPointCollection.Add(Point1);
+                            myPointCollection.Add(Point2);
+                            myPointCollection.Add(Point3);
+                            alarmVisual.Points = myPointCollection;
+
+                            #endregion
+
+                            canvas.Children.Add(alarmVisual);
+                            Canvas.SetLeft(alarmVisual, ToPixelX(alarmVessels.first.X) - 5);
+                            Canvas.SetTop(alarmVisual, ToPixelY(alarmVessels.first.Y) - 5);
+
+                            alarmVisual.ToolTip = vesselToolTip;
+                        }
+                        // Vessel Type: CargoVessel
+                        else if (alarmVessels.second.Type.ToString() == "CargoVessel")
+                        {
+                            Polyline alarmVisual = new Polyline();
+
+                            if (alarmVessels.type == Cker.Simulator.AlarmType.High)
+                            {
+                                alarmVisual.Fill = Brushes.Red;
+                            }
+                            else if (alarmVessels.type == Cker.Simulator.AlarmType.Low)
+                            {
+                                alarmVisual.Fill = Brushes.Yellow;
+                            }
+
+                            #region Draws Polyline shape for CargoVessel types
+
+                            System.Windows.Point Point1 = new System.Windows.Point(12.5, 0);
+                            System.Windows.Point Point2 = new System.Windows.Point(-2.5, 0);
+                            System.Windows.Point Point3 = new System.Windows.Point(12.5, 10);
+                            System.Windows.Point Point4 = new System.Windows.Point(-2.5, 10);
+                            PointCollection myPointCollection = new PointCollection();
+                            myPointCollection.Add(Point1);
+                            myPointCollection.Add(Point2);
+                            myPointCollection.Add(Point3);
+                            myPointCollection.Add(Point4);
+                            alarmVisual.Points = myPointCollection;
+
+                            #endregion
+
+                            canvas.Children.Add(alarmVisual);
+                            Canvas.SetLeft(alarmVisual, ToPixelX(alarmVessels.first.X) - 5);
+                            Canvas.SetTop(alarmVisual, ToPixelY(alarmVessels.first.Y) - 5);
+
+                            alarmVisual.ToolTip = vesselToolTip;
+                        }
+                        // Vessel Type: PassengerVessel
+                        else if (alarmVessels.second.Type.ToString() == "PassengerVessel")
+                        {
+                            Rectangle alarmVisual = new Rectangle();
+
+                            if (alarmVessels.type == Cker.Simulator.AlarmType.High)
+                            {
+                                alarmVisual.Fill = Brushes.Red;
+                            }
+                            else if (alarmVessels.type == Cker.Simulator.AlarmType.Low)
+                            {
+                                alarmVisual.Fill = Brushes.Yellow;
+                            }
+
+                            alarmVisual.Width = 10;
+                            alarmVisual.Height = 10;
+
+                            canvas.Children.Add(alarmVisual);
+                            Canvas.SetLeft(alarmVisual, ToPixelX(alarmVessels.first.X) - 5);
+                            Canvas.SetTop(alarmVisual, ToPixelY(alarmVessels.first.Y) - 5);
+
+                            alarmVisual.ToolTip = vesselToolTip;
+                        }
+                        // Vessel Type: Undefined/User-defined
+                        else
+                        {
+                            Polyline alarmVisual = new Polyline();
+
+                            if (alarmVessels.type == Cker.Simulator.AlarmType.High)
+                            {
+                                alarmVisual.Fill = Brushes.Red;
+                            }
+                            else if (alarmVessels.type == Cker.Simulator.AlarmType.Low)
+                            {
+                                alarmVisual.Fill = Brushes.Yellow;
+                            }
+
+                            #region Draws Polyline shape for Undefined types
+
+                            System.Windows.Point Point1 = new System.Windows.Point(0, 12.5);
+                            System.Windows.Point Point2 = new System.Windows.Point(0, -2.5);
+                            System.Windows.Point Point3 = new System.Windows.Point(10, 12.5);
+                            System.Windows.Point Point4 = new System.Windows.Point(10, -2.5);
+                            PointCollection myPointCollection = new PointCollection();
+                            myPointCollection.Add(Point1);
+                            myPointCollection.Add(Point2);
+                            myPointCollection.Add(Point3);
+                            myPointCollection.Add(Point4);
+                            alarmVisual.Points = myPointCollection;
+
+                            #endregion
+
+                            canvas.Children.Add(alarmVisual);
+                            Canvas.SetLeft(alarmVisual, ToPixelX(alarmVessels.first.X) - 5);
+                            Canvas.SetTop(alarmVisual, ToPixelY(alarmVessels.first.Y) - 5);
+
+                            alarmVisual.ToolTip = vesselToolTip;
+                        }
+
+                        #endregion
+                    }
+                }
+            }
+        }
+
+        #endregion
+
         /// <summary>
         /// Draws the specified vessels on the canvas.
         /// Will only draw vessels that are within range.
@@ -141,6 +563,9 @@ namespace CkerGUI
                             Polygon vesselVisual = new Polygon();
 
                             vesselVisual.Fill = vesselColor;
+
+                            #region Draws Polygon shape for Human types
+
                             System.Windows.Point Point1 = new System.Windows.Point(10, 13);
                             System.Windows.Point Point2 = new System.Windows.Point(5, -2);
                             System.Windows.Point Point3 = new System.Windows.Point(0, 13);
@@ -154,6 +579,8 @@ namespace CkerGUI
                             myPointCollection.Add(Point5);
                             vesselVisual.Points = myPointCollection;
 
+                            #endregion
+
                             canvas.Children.Add(vesselVisual);
                             Canvas.SetLeft(vesselVisual, ToPixelX(vessel.X) - 5);
                             Canvas.SetTop(vesselVisual, ToPixelY(vessel.Y) - 5);
@@ -166,6 +593,7 @@ namespace CkerGUI
                             Ellipse vesselVisual = new Ellipse();
 
                             vesselVisual.Fill = vesselColor;
+
                             vesselVisual.Width = 10;
                             vesselVisual.Height = 10;
 
@@ -181,6 +609,9 @@ namespace CkerGUI
                             Polygon vesselVisual = new Polygon();
 
                             vesselVisual.Fill = vesselColor;
+
+                            #region Draws Polygon shape for FishingBoat types (triangle)
+
                             System.Windows.Point Point1 = new System.Windows.Point(12.5, 8);
                             System.Windows.Point Point2 = new System.Windows.Point(-2.5, 8);
                             System.Windows.Point Point3 = new System.Windows.Point(5, -2);
@@ -189,6 +620,8 @@ namespace CkerGUI
                             myPointCollection.Add(Point2);
                             myPointCollection.Add(Point3);
                             vesselVisual.Points = myPointCollection;
+
+                            #endregion
 
                             canvas.Children.Add(vesselVisual);
                             Canvas.SetLeft(vesselVisual, ToPixelX(vessel.X) - 5);
@@ -202,6 +635,9 @@ namespace CkerGUI
                             Polyline vesselVisual = new Polyline();
 
                             vesselVisual.Fill = vesselColor;
+
+                            #region Draws Polyline shape for CargoVessel types
+
                             System.Windows.Point Point1 = new System.Windows.Point(12.5, 0);
                             System.Windows.Point Point2 = new System.Windows.Point(-2.5, 0);
                             System.Windows.Point Point3 = new System.Windows.Point(12.5, 10);
@@ -212,6 +648,8 @@ namespace CkerGUI
                             myPointCollection.Add(Point3);
                             myPointCollection.Add(Point4);
                             vesselVisual.Points = myPointCollection;
+
+                            #endregion
 
                             canvas.Children.Add(vesselVisual);
                             Canvas.SetLeft(vesselVisual, ToPixelX(vessel.X) - 5);
@@ -240,6 +678,9 @@ namespace CkerGUI
                             Polyline vesselVisual = new Polyline();
 
                             vesselVisual.Fill = vesselColor;
+
+                            #region Draws Polyline shape for Undefined types
+
                             System.Windows.Point Point1 = new System.Windows.Point(0, 12.5);
                             System.Windows.Point Point2 = new System.Windows.Point(0, -2.5);
                             System.Windows.Point Point3 = new System.Windows.Point(10, 12.5);
@@ -250,6 +691,8 @@ namespace CkerGUI
                             myPointCollection.Add(Point3);
                             myPointCollection.Add(Point4);
                             vesselVisual.Points = myPointCollection;
+
+                            #endregion
 
                             canvas.Children.Add(vesselVisual);
                             Canvas.SetLeft(vesselVisual, ToPixelX(vessel.X) - 5);

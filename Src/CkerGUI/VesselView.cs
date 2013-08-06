@@ -23,7 +23,7 @@ namespace CkerGUI
         private TableWidget tableWidget;
 
         // Radar. **to be replaced with new radar**
-        private RadarWidget radarDisplay;
+        private RadarWidget radarWidget;
 
         // Vessel presenter to get information from simulation.
         private VesselPresenter vesselPresenter;
@@ -52,7 +52,7 @@ namespace CkerGUI
         /// <param name="radarContainer"></param>
         public void SetupRadarWidget(Canvas radarContainer)
         {
-            radarDisplay = new RadarWidget(vesselPresenter, radarContainer, Cker.Simulator.Range, 0.95);
+            radarWidget = new RadarWidget(vesselPresenter, radarContainer, Cker.Simulator.Range, 0.95);
         }
 
         /// <summary>
@@ -144,7 +144,10 @@ namespace CkerGUI
             tableWidget.UpdateVessels();
 
             // Update vessel map display.
-            radarDisplay.DrawVessels( vesselPresenter.DisplayedVessels );
+            radarWidget.DrawVessels(vesselPresenter.DisplayedVessels);
+
+            // Update vessel map display with vessels in alarm state.
+            // radarWidget.DrawAlarms(vesselPresenter.CurrentAlarms);
         }
     }
 }

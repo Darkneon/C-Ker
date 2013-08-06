@@ -58,10 +58,12 @@
             <Ellipse Width="365" Height="365" StrokeThickness="1" Stroke="#00FF01"></Ellipse>
             <Ellipse Width="220" Height="220" StrokeThickness="1" Stroke="#00FF01"></Ellipse>
             <Ellipse Width="95" Height="95" StrokeThickness="1" Stroke="#00FF01"></Ellipse>
-            <Line X1="223" Y1="184.5" X2="588" Y2="184.5" StrokeThickness="1" Stroke="#00FF01"></Line>
+            <!-- Horizontal Axis -->
+            <Line X1="222" Y1="184.5" X2="587" Y2="184.5" StrokeThickness="1" Stroke="#00FF01"></Line>
+            <!-- Vertical Axis -->
             <Line X1="405" Y1="0" X2="405" Y2="365" StrokeThickness="1" Stroke="#00FF01"></Line>
             <Canvas Name="radarCanvas">
-                <!-- Vessel object display to be done in code -->
+                <!-- Vessel object display done in code -->
             </Canvas>
         </Grid>
 
