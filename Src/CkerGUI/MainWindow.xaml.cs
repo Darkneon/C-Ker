@@ -1,8 +1,10 @@
 ﻿using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Controls.Primitives;
+using System.Windows.Data;
 using System.Windows.Input;
 using System.Windows.Media;
+using Cker.Authentication;
 using Cker.Models;
 
 namespace CkerGUI
@@ -24,13 +26,18 @@ namespace CkerGUI
             vesselView.SetupFilteringCheckboxes(toggleAllVesselCheckbox, individualVesselCheckboxes);
 
             // Get the current user to check it's priviledges.
-            User currentUser = Application.Current.Properties["CurrentUser"] as User;
+            User currentUser = Authenticator.CurrentUser;
             if (currentUser.Type == UserType.Operator)
             {
                 // Remove filtering and sorting abilities.
                 filteringOptionsPanel.Visibility = Visibility.Hidden;
-                vesselsTableGrid.Margin = new Thickness(-Application.Current.MainWindow.Width/6.0, 0.0, 0.0, 0.0);
                 vesselsListView.AddHandler(GridViewColumnHeader.PreviewMouseLeftButtonDownEvent, new RoutedEventHandler(OnOperatorMouseDown));
+                vesselsGrid.Margin = new Thickness(-Application.Current.MainWindow.Width / 6.0, 0.0, 0.0, 0.0);
+                // Center the table correctly.
+                GridViewColumn paddingColumn = new GridViewColumn();
+                paddingColumn.Width = radarCanvas.Margin.Left + 4;
+                paddingColumn.DisplayMemberBinding = new Binding() { Source = null };
+                vesselsGridView.Columns.Insert(0, paddingColumn);
             }
         }
 

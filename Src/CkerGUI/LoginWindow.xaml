@@ -23,10 +23,11 @@
         <wpfsl:SmartLoginOverlay x:Name="CKerLoginOverlayControl"
 										 FullSpan="On"
 										 IsUserOptionAvailable="True"
-										 UserName="{Binding UserName}"
-										 Password="{Binding Password}"
+										 UserName="{Binding UserNameField}"
+										 Password="{Binding PasswordField}"
 										 UserImageSource="{Binding UserImageSource}"
 										 AdditionalSystemInfo="Locked"
+                                         WrongCredentialsInfo="Invalid credentials; please try again."
 										 Command="{Binding SubmitCommand}"
 										 CommandParameter="{Binding RelativeSource={RelativeSource Self} }" />
 

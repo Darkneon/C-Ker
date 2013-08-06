@@ -2,7 +2,6 @@
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
-using CkerGUI.ViewModels;
 
 namespace CkerGUI
 {
@@ -12,14 +11,14 @@ namespace CkerGUI
     public partial class LoginWindow : Window
     {
         // Login overlay
-        public LoginViewModel ViewModel;
+        public LoginView ViewModel;
 
         public LoginWindow()
         {
             InitializeComponent();
 
             // Initialize Login Screen
-            this.ViewModel = new LoginViewModel();
+            this.ViewModel = new LoginView();
             this.DataContext = this.ViewModel;
 
             InitializeScenarioFileList();

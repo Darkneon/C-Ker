@@ -51,43 +51,43 @@
         </Canvas>
 
         <!-- Bottom area display vessel information -->
-        <Grid Name="vesselsTableGrid" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="5">
+        <Grid Name="vesselsGrid" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="5">
             <ListView Name="vesselsListView">
                 <ListView.View>
-                    <GridView>
+                    <GridView x:Name="vesselsGridView">
                         <GridViewColumn DisplayMemberBinding="{Binding Path=ID}">
                             <GridViewColumn.Header>
-                                <GridViewColumnHeader Content="Vessel ID" MinWidth="128" HorizontalContentAlignment="Left" Padding="5,0,0,0" />
+                                <GridViewColumnHeader Content="Vessel ID" MinWidth="80" HorizontalContentAlignment="Left" Padding="5,0,0,0" />
                             </GridViewColumn.Header>
                         </GridViewColumn>
                         <GridViewColumn DisplayMemberBinding="{Binding Path=Type}">
                             <GridViewColumn.Header>
-                                <GridViewColumnHeader Content="Type" MinWidth="128" HorizontalContentAlignment="Left" Padding="5,0,0,0" />
+                                <GridViewColumnHeader Content="Type" MinWidth="120" HorizontalContentAlignment="Left" Padding="5,0,0,0" />
                             </GridViewColumn.Header>
                         </GridViewColumn>
                         <GridViewColumn DisplayMemberBinding="{Binding Path=X, StringFormat=F2}">
                             <GridViewColumn.Header>
-                                <GridViewColumnHeader Content="X Pos" MinWidth="128" HorizontalContentAlignment="Left" Padding="5,0,0,0" />
+                                <GridViewColumnHeader Content="X Pos" MinWidth="120" HorizontalContentAlignment="Left" Padding="5,0,0,0" />
                             </GridViewColumn.Header>
                         </GridViewColumn>
                         <GridViewColumn DisplayMemberBinding="{Binding Path=Y, StringFormat=F2}">
                             <GridViewColumn.Header>
-                                <GridViewColumnHeader Content="Y Pos" MinWidth="128" HorizontalContentAlignment="Left" Padding="5,0,0,0" />
+                                <GridViewColumnHeader Content="Y Pos" MinWidth="120" HorizontalContentAlignment="Left" Padding="5,0,0,0" />
                             </GridViewColumn.Header>
                         </GridViewColumn>
                         <GridViewColumn DisplayMemberBinding="{Binding Path=VX_0, StringFormat=F2}">
                             <GridViewColumn.Header>
-                                <GridViewColumnHeader Content="Speed" MinWidth="128" HorizontalContentAlignment="Left" Padding="5,0,0,0" />
+                                <GridViewColumnHeader Content="Speed" MinWidth="120" HorizontalContentAlignment="Left" Padding="5,0,0,0" />
                             </GridViewColumn.Header>
                         </GridViewColumn>
                         <GridViewColumn DisplayMemberBinding="{Binding Path=CourseDistance, StringFormat=F2}">
                             <GridViewColumn.Header>
-                                <GridViewColumnHeader Content="Course Distance" MinWidth="128" HorizontalContentAlignment="Left" Padding="5,0,0,0" />
+                                <GridViewColumnHeader Content="Course Distance" MinWidth="120" HorizontalContentAlignment="Left" Padding="5,0,0,0" />
                             </GridViewColumn.Header>
                         </GridViewColumn>
                         <GridViewColumn DisplayMemberBinding="{Binding Path=UpdateTime, StringFormat=F2}">
                             <GridViewColumn.Header>
-                                <GridViewColumnHeader Content="Update Time" MinWidth="128" HorizontalContentAlignment="Left" Padding="5,0,0,0" />
+                                <GridViewColumnHeader Content="Update Time" MinWidth="120" HorizontalContentAlignment="Left" Padding="5,0,0,0" />
                             </GridViewColumn.Header>
                         </GridViewColumn>
                     </GridView>

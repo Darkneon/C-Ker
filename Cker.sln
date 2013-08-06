@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CkerPresenters", "Src\CkerP
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CkerParsing", "Src\CkerParsing\CkerParsing.csproj", "{123AF260-FD4A-429D-ACE0-6228E0ADA60D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CkerAuthentication", "Src\CkerAuthentication\CkerAuthentication.csproj", "{67E4C34D-AC4A-4197-A711-79EACE3D1EF0}"
+EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CkerSimulation", "Src\CkerSimulation\CkerSimulation.csproj", "{609DF8EB-0705-43EC-B847-B0E2272F6DA2}"
 EndProject
 Global
@@ -39,6 +41,10 @@ Global
 		{123AF260-FD4A-429D-ACE0-6228E0ADA60D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{123AF260-FD4A-429D-ACE0-6228E0ADA60D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{123AF260-FD4A-429D-ACE0-6228E0ADA60D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{67E4C34D-AC4A-4197-A711-79EACE3D1EF0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{67E4C34D-AC4A-4197-A711-79EACE3D1EF0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{67E4C34D-AC4A-4197-A711-79EACE3D1EF0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{67E4C34D-AC4A-4197-A711-79EACE3D1EF0}.Release|Any CPU.Build.0 = Release|Any CPU
 		{609DF8EB-0705-43EC-B847-B0E2272F6DA2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{609DF8EB-0705-43EC-B847-B0E2272F6DA2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{609DF8EB-0705-43EC-B847-B0E2272F6DA2}.Release|Any CPU.ActiveCfg = Release|Any CPU

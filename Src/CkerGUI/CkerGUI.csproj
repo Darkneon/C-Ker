@@ -72,13 +72,13 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="LoginView.cs" />
     <Compile Include="LoginWindow.xaml.cs">
       <DependentUpon>LoginWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="RadarWidget.cs" />
     <Compile Include="TableWidget.cs" />
     <Compile Include="VesselView.cs" />
-    <Compile Include="ViewModels\LoginViewModel.cs" />
     <Page Include="LoginWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -124,6 +124,10 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\CkerAuthentication\CkerAuthentication.csproj">
+      <Project>{67e4c34d-ac4a-4197-a711-79eace3d1ef0}</Project>
+      <Name>CkerAuthentication</Name>
+    </ProjectReference>
     <ProjectReference Include="..\CkerModels\CkerModels.csproj">
       <Project>{b246d76f-f1fb-4f4c-9710-6c8d93374414}</Project>
       <Name>CkerModels</Name>
@@ -160,8 +164,8 @@
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
-    <PostBuildEvent>mkdir "$(TargetDir)Assets\"
-copy "$(SolutionDir)Assets\" "$(TargetDir)Assets\" /Y</PostBuildEvent>
+    <PostBuildEvent>mkdir "$(TargetDir)Assets"
+xcopy "$(SolutionDir)Assets" "$(TargetDir)Assets" /E /Y</PostBuildEvent>
   </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
