@@ -164,8 +164,10 @@ namespace Cker
 
         private static void AddNewVessels() 
         {
-            if (m_vesselsListOriginal.Count == m_vesselsList.Count) 
-            {
+            List<Vessel> toRemove = new List<Vessel>();
+
+            if (m_vesselsListOriginal.Count == 0) 
+            {                
                 return; // Nothing to add
             }
 
@@ -174,8 +176,18 @@ namespace Cker
                 if (!m_vesselsList.Contains(v) && m_currentTime >= v.StartTime) 
                 {
                     m_vesselsList.Add(v);
+                    toRemove.Add(v);
                 }
             }
+
+            foreach (Vessel v in toRemove)
+            {
+                m_vesselsListOriginal.Remove(v);
+            }
+
+            m_vesselsListOriginal.TrimExcess();
+            
+            
         }
 
         private static string GenerateKey(Vessel v1, Vessel v2) 
