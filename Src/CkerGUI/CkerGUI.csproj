@@ -132,7 +132,7 @@
       <Project>{199e1fd0-5463-476f-b9eb-267d006f9cf0}</Project>
       <Name>CkerPresenters</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Server\CkerSimulation.csproj">
+    <ProjectReference Include="..\CkerSimulation\CkerSimulation.csproj">
       <Project>{609df8eb-0705-43ec-b847-b0e2272f6da2}</Project>
       <Name>CkerSimulation</Name>
     </ProjectReference>

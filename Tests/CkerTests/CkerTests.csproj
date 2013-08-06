@@ -56,10 +56,6 @@
       <Project>{123af260-fd4a-429d-ace0-6228e0ada60d}</Project>
       <Name>CkerParsing</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\Src\Server\CkerSimulation.csproj">
-      <Project>{609df8eb-0705-43ec-b847-b0e2272f6da2}</Project>
-      <Name>CkerSimulation</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -7,8 +7,8 @@
     <ProjectGuid>{609DF8EB-0705-43EC-B847-B0E2272F6DA2}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Server</RootNamespace>
-    <AssemblyName>Server</AssemblyName>
+    <RootNamespace>Simulation</RootNamespace>
+    <AssemblyName>CkerSimulation</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
