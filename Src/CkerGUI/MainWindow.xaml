@@ -55,8 +55,11 @@
                     </LinearGradientBrush>
                 </Ellipse.Fill>
             </Ellipse>
+            <!-- Outer Range Ring -->
             <Ellipse Width="365" Height="365" StrokeThickness="1" Stroke="#00FF01"></Ellipse>
+            <!-- Middle Range Ring -->
             <Ellipse Width="220" Height="220" StrokeThickness="1" Stroke="#00FF01"></Ellipse>
+            <!-- Inner Range Ring -->
             <Ellipse Width="95" Height="95" StrokeThickness="1" Stroke="#00FF01"></Ellipse>
             <!-- Horizontal Axis -->
             <Line X1="222" Y1="184.5" X2="587" Y2="184.5" StrokeThickness="1" Stroke="#00FF01"></Line>
