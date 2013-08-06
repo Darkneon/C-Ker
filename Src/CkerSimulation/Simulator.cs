@@ -85,12 +85,7 @@ namespace Cker
         public static void Stop() 
         {
             timer.Enabled = false;
-        }   
-
-        private static int TimeRemaining()
-        {
-            return Simulator.Time - m_currentTime;
-        }
+        }           
 
         //-------------------------------------------------------------------
         // Events
@@ -127,6 +122,11 @@ namespace Cker
         //-------------------------------------------------------------------
         // Private Methods
         //-------------------------------------------------------------------
+
+        private static int TimeRemaining()
+        {
+            return Simulator.Time - m_currentTime;
+        }
 
         private static void CheckCollisions() 
         {        
