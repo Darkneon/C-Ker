@@ -18,6 +18,9 @@ namespace CkerGUI
     {
         private LoginPresenter loginPresenter;
 
+        // Action to perform when login is done.
+        private Action loginCompleteAction;
+
         // The user name field entered by the user.
         public string UserNameField
         {
@@ -56,6 +59,16 @@ namespace CkerGUI
                 InitializeCommands();
             }
             loginPresenter = new LoginPresenter();
+            loginCompleteAction = delegate { };
+        }
+
+        /// <summary>
+        /// Adds an action to perform when login is done.
+        /// </summary>
+        /// <param name="action"></param>
+        public void AddLoginCompleteAction(Action action)
+        {
+            loginCompleteAction += action;
         }
 
         private void InitializeCommands()
@@ -72,6 +85,7 @@ namespace CkerGUI
                 if (loginPresenter.Authenticate(this.UserNameField, this.PasswordField))
                 {
                     accessControlSystem.Unlock();
+                    loginCompleteAction();
                 }
                 else
                 {

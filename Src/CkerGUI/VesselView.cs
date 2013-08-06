@@ -28,10 +28,13 @@ namespace CkerGUI
         // Vessel presenter to get information from simulation.
         private VesselPresenter vesselPresenter;
 
-        public VesselView()
+        /// <summary>
+        /// Must specify the scenario file to use
+        /// </summary>
+        /// <param name="file"></param>
+        public VesselView(string file)
         {
-            var selectedScenarioFile = Application.Current.Properties["SelectedScenarioFile"] as string;
-            vesselPresenter = new VesselPresenter(selectedScenarioFile);
+            vesselPresenter = new VesselPresenter(file);
             vesselPresenter.AddUpdateAction(OnServerUpdate);
         }
 
@@ -65,6 +68,7 @@ namespace CkerGUI
             Debug.Assert(toggleAllCheckbox != null && checkboxContainer != null, "SetupFilteringCheckboxes : null arguments");
 
             vesselFilterCheckboxes = new List<CheckBox>();
+            checkboxContainer.Children.Clear();
             // Add one checkbox for each vessel type.
             foreach (var vesselType in Enum.GetValues(typeof(Cker.Models.Vessel.TargetType)))
             {
@@ -83,6 +87,18 @@ namespace CkerGUI
             }
             vesselToggleAllCheckbox = toggleAllCheckbox;
             vesselToggleAllCheckbox.Click += OnCheckboxClick;
+        }
+
+        /// <summary>
+        /// Refreshes the vessels once.
+        /// </summary>
+        public void UpdateVessels()
+        {
+            // Update the table widget.
+            tableWidget.UpdateVessels();
+
+            // Update vessel map display.
+            radarWidget.DrawVessels(vesselPresenter.DisplayedVessels);
         }
 
         private void OnCheckboxClick(object sender, RoutedEventArgs e)
@@ -136,18 +152,6 @@ namespace CkerGUI
         {
             // Invoke update on the dispatcher thread to allow GUI operations.
             Application.Current.Dispatcher.Invoke(UpdateVessels);
-        }
-
-        private void UpdateVessels()
-        {
-            // Update the table widget.
-            tableWidget.UpdateVessels();
-
-            // Update vessel map display.
-            radarWidget.DrawVessels(vesselPresenter.DisplayedVessels);
-
-            // Update vessel map display with vessels in alarm state.
-            // radarWidget.DrawAlarms(vesselPresenter.CurrentAlarms);
         }
     }
 }

@@ -48,6 +48,7 @@ namespace Cker.Presenters
         public VesselPresenter(string scenarioFile)
         {
             // Starts the simulation here.
+            Cker.Simulator.Stop();
             Cker.Simulator.Start("Assets/", scenarioFile);
 
             // Register event handlers.

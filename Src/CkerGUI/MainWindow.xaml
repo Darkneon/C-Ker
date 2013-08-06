@@ -42,10 +42,50 @@
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 
+
+        <!-- Top left, simulation start button, and file selection -->
+        <Grid Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="1">
+            
+            <Button Content="New Simulation" Focusable="False"
+                    Height="40" Width="120" VerticalAlignment="Top" Margin="0,10,0,0"
+                    Click="OnNewSimulationButtonClick"/>
+
+            <Label Name="fileSelectionLabel" 
+                   Height="40" VerticalAlignment="Top" Margin="0,50,0,0"
+                   Foreground="DarkGray" Visibility="Hidden" >
+                <TextBlock Foreground="#FF575757">
+                    Double click a scenario file <LineBreak />
+                    or browse to choose another.
+                </TextBlock>
+            </Label>
+
+            <ListBox Name="fileSelectionListBox" 
+                     Height="200" VerticalAlignment="Top" Margin="10,95,10,0"
+                     SelectionMode="Single" Visibility="Hidden"
+                     MouseDoubleClick="OnListDoubleClick" >
+                <!-- File listing to be filled in code. -->
+            </ListBox>
+
+            <Button Name="fileBrowseButton" Content="Browse" Focusable="False"
+                    Height="24" Width="64" Margin="24,300,0,0"
+                    HorizontalAlignment="Left" VerticalAlignment="Top"
+                    Click="OnFileBrowseButtonClick" Visibility="Hidden" />
+            
+            <Button Name="fileCancelButton" Content="Cancel" Focusable="False"
+                    Height="24" Width="64" VerticalAlignment="Top" Margin="84,300,0,0"
+                    Click="OnFileCancelButtonClick" Visibility="Hidden" />
+            
+            <Label Name="fileBrowseErrorLabel" 
+                   Content="Please select a valid .vsf file."
+                   Height="40" VerticalAlignment="Top" Margin="0,324,0,0"
+                   Foreground="Red" Visibility="Hidden" >
+            </Label>
+
+        </Grid>
+
         <!-- Top area display vessel radar map -->
         <Grid Name="radarGrid"
-            Margin="100, 0, 100, 0"
-            Grid.Row="0" Grid.ColumnSpan="6" 
+            Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="4" 
             Background="AliceBlue">
             <Ellipse Width="365" Height="365">
                 <Ellipse.Fill>
@@ -62,9 +102,9 @@
             <!-- Inner Range Ring -->
             <Ellipse Width="95" Height="95" StrokeThickness="1" Stroke="#00FF01"></Ellipse>
             <!-- Horizontal Axis -->
-            <Line X1="222" Y1="184.5" X2="587" Y2="184.5" StrokeThickness="1" Stroke="#00FF01"></Line>
+            <Line X1="152" Y1="184.5" X2="517" Y2="184.5" StrokeThickness="1" Stroke="#00FF01"></Line>
             <!-- Vertical Axis -->
-            <Line X1="405" Y1="0" X2="405" Y2="365" StrokeThickness="1" Stroke="#00FF01"></Line>
+            <Line X1="336" Y1="0" X2="336" Y2="365" StrokeThickness="1" Stroke="#00FF01"></Line>
             <Canvas Name="radarCanvas">
                 <!-- Vessel object display done in code -->
             </Canvas>
@@ -136,7 +176,9 @@
         </Grid>
         
         <!-- Bottom corner display filtering options -->
-        <StackPanel Name="filteringOptionsPanel" Grid.Row="1" Grid.Column="0" Margin="15,0">
+        <StackPanel Name="filteringOptionsPanel" 
+                    Grid.Row="1" Grid.Column="0" Margin="15,0"
+                    Visibility="Hidden">
             <Label FontWeight="SemiBold"> Show Vessel Types </Label>
             
             <!-- Toggle all box -->
@@ -148,5 +190,22 @@
             <StackPanel Name="individualVesselCheckboxes" Margin="10,5">
             </StackPanel>
         </StackPanel>
+
+        <!-- Login Screen Overlay -->
+        <wpfsl:SmartLoginOverlay x:Name="CKerLoginOverlayControl"
+								 FullSpan="On"
+								 IsUserOptionAvailable="True"
+								 UserName="{Binding UserNameField}"
+								 Password="{Binding PasswordField}"
+								 UserImageSource="{Binding UserImageSource}"
+								 AdditionalSystemInfo="Locked"
+                                 WrongCredentialsInfo="Invalid credentials; please try again."
+								 Command="{Binding SubmitCommand}"
+								 CommandParameter="{Binding RelativeSource={RelativeSource Self} }" />
+
+        <Label Name="loginInformationLabel" Grid.RowSpan="3" Grid.ColumnSpan="6" FontSize="9"
+			   HorizontalAlignment="Center" VerticalAlignment="Bottom" Foreground="LightSkyBlue"
+			   Content="Login Information  =>  User: admin * Password: fullaccess   /   User: operator * Password: gimpedaccess" />
+
     </Grid>
 </Window>

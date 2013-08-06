@@ -66,6 +66,9 @@ namespace Cker
         public static void Start(string path, string filename) 
         {
             m_vesselsListOriginal = ScenarioParser.Parse(path, filename);
+            m_vesselsList = new List<Vessel>();
+            AfterUpdate = delegate { };
+            OnAlarm = delegate { };
 
             StartTime = ScenarioParser.Simulator.StartTime;
             TimeStep = ScenarioParser.Simulator.TimeStep;
@@ -76,6 +79,7 @@ namespace Cker
 
             AddNewVessels();
 
+            timer = new Timer();
             timer.Elapsed += new System.Timers.ElapsedEventHandler(timer_Elapsed);
             timer.Interval = Simulator.TimeStep * 1000; //To milliseconds            
             timer.Enabled = true;
@@ -85,7 +89,8 @@ namespace Cker
         public static void Stop() 
         {
             timer.Enabled = false;
-        }           
+            timer.Stop();
+        }
 
         //-------------------------------------------------------------------
         // Events
