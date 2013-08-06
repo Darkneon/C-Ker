@@ -54,12 +54,13 @@ namespace CkerGUI
         /// <param name="radarCanvas"></param>
         /// <param name="range"></param>
         /// <param name="canvasRatio"></param>
-        public RadarWidget(Canvas radarCanvas, double range, double canvasRatio)
+        public RadarWidget(VesselPresenter presenter, Canvas radarCanvas, double range, double canvasRatio)
         {
             canvas = radarCanvas;
             Range = range;
             CanvasRatio = canvasRatio;
             currentVessels = null;
+            vesselPresenter = presenter;
 
             canvas.SizeChanged += OnCanvasSizeChanged;
 
@@ -84,7 +85,7 @@ namespace CkerGUI
                 {
                     if (IsInRange(vessel.X, vessel.Y))
                     {
-                        #region High- and Low-Risk Alarm Visualization
+                        #region High-Risk and Low-Risk Alarm Visualization
 
                         // Make an overlay for the alarm range for testing purposes.
                         // Low-risk alarm range visual

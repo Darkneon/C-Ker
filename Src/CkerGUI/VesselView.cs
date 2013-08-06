@@ -52,7 +52,7 @@ namespace CkerGUI
         /// <param name="radarContainer"></param>
         public void SetupRadarWidget(Canvas radarContainer)
         {
-            radarDisplay = new RadarWidget(radarContainer, Cker.Simulator.Range, 0.95);
+            radarDisplay = new RadarWidget(vesselPresenter, radarContainer, Cker.Simulator.Range, 0.95);
         }
 
         /// <summary>
