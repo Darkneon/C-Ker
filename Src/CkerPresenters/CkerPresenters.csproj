@@ -39,10 +39,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="LoginPresenter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="VesselPresenter.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\CkerAuthentication\CkerAuthentication.csproj">
+      <Project>{67e4c34d-ac4a-4197-a711-79eace3d1ef0}</Project>
+      <Name>CkerAuthentication</Name>
+    </ProjectReference>
     <ProjectReference Include="..\CkerModels\CkerModels.csproj">
       <Project>{b246d76f-f1fb-4f4c-9710-6c8d93374414}</Project>
       <Name>CkerModels</Name>

@@ -7,6 +7,7 @@ using System.Windows;
 using System.Windows.Input;
 using Cker.Authentication;
 using Cker.Models;
+using CkerPresenters;
 using SoftArcs.WPFSmartLibrary.MVVMCommands;
 using SoftArcs.WPFSmartLibrary.MVVMCore;
 using SoftArcs.WPFSmartLibrary.SmartUserControls;
@@ -15,12 +16,7 @@ namespace CkerGUI
 {
     public class LoginView : ViewModelBase
     {
-        // Paths to the user type display images.
-        private readonly string administratorImagePath = @"\Images\admin.png";
-        private readonly string operatorImagePath = @"\Images\operator.png";
-
-        // Handler for when the user enters data.
-        public ICommand SubmitCommand { get; private set; }
+        private LoginPresenter loginPresenter;
 
         // The user name field entered by the user.
         public string UserNameField
@@ -32,7 +28,7 @@ namespace CkerGUI
 
                 // This displays the corresponding user image when the correct username is typed into the field.
                 // It is not necessarily the most secure feature in the world.
-                this.UserImageSource = this.GetUserImagePath( UserNameField );
+                this.UserImageSource = loginPresenter.GetUserImagePath(UserNameField);
             }
         }
 
@@ -50,12 +46,21 @@ namespace CkerGUI
             set { SetValue(() => UserImageSource, value); }
         }
 
+        // Handler for when the user enters data.
+        public ICommand SubmitCommand { get; private set; }
+
         public LoginView()
         {
             if (ViewModelHelper.IsInDesignModeStatic == false)
             {
-                this.InitializeAllCommands();
+                InitializeCommands();
             }
+            loginPresenter = new LoginPresenter();
+        }
+
+        private void InitializeCommands()
+        {
+            this.SubmitCommand = new ActionCommand(this.ExecuteSubmit, this.CanExecuteSubmit);
         }
 
         private void ExecuteSubmit(object commandParameter)
@@ -64,7 +69,7 @@ namespace CkerGUI
 
             if (accessControlSystem != null)
             {
-                if (Authenticator.Login(this.UserNameField, this.PasswordField) == true)
+                if (loginPresenter.Authenticate(this.UserNameField, this.PasswordField))
                 {
                     accessControlSystem.Unlock();
                 }
@@ -78,23 +83,6 @@ namespace CkerGUI
         private bool CanExecuteSubmit(object commandParameter)
         {
             return !string.IsNullOrEmpty(this.PasswordField);
-        }
-
-        private void InitializeAllCommands()
-        {
-            this.SubmitCommand = new ActionCommand(this.ExecuteSubmit, this.CanExecuteSubmit);
-        }
-
-        private string GetUserImagePath(string userName)
-        {
-            User user = Authenticator.FindUser(userName);
-
-            if (user != null)
-            {
-                return user.Type == UserType.Administrator ? administratorImagePath : operatorImagePath;
-            }
-
-            return String.Empty;
         }
     }
 }
