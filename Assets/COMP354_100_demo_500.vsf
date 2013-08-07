@@ -1,0 +1,308 @@
+// Version Number
+VSF	001
+// All targets follow constant speed (no acceleration)
+// Total simulation time [seconds]
+STARTTIME 0
+TIMESTEP  0.5
+TIME   100
+RANGE  5000
+// NEWT: New Target #  1
+//Vessel ID	Vessel Type		X [m]           	Y [m]		  Vx_0[m/s]		 	Vy_0[m/s]  Start Time[/sec] 
+NEWT	001	  		3    3313.797428    3033.643916    0.241885    1.597031    0
+// NEWT: New Target #  2
+//Vessel ID	Vessel Type		X [m]           	Y [m]		  Vx_0[m/s]		 	Vy_0[m/s]  Start Time[/sec] 
+NEWT	002	  		3    -832.005321    1568.598910    2.511893    1.167936    0
+// NEWT: New Target #  3
+//Vessel ID	Vessel Type		X [m]           	Y [m]		  Vx_0[m/s]		 	Vy_0[m/s]  Start Time[/sec] 
+NEWT	003	  		5    -1275.902599    -3018.815975    1.958751    1.357974    0
+// NEWT: New Target #  4
+//Vessel ID	Vessel Type		X [m]           	Y [m]		  Vx_0[m/s]		 	Vy_0[m/s]  Start Time[/sec] 
+NEWT	004	  		5    -771.643850    478.709012    3.770948    1.670976    0
+// NEWT: New Target #  5
+//Vessel ID	Vessel Type		X [m]           	Y [m]		  Vx_0[m/s]		 	Vy_0[m/s]  Start Time[/sec] 
+NEWT	005	  		4    -1985.450513    2010.987559    2.665355    2.156506    0
+// NEWT: New Target #  6
+//Vessel ID	Vessel Type		X [m]           	Y [m]		  Vx_0[m/s]		 	Vy_0[m/s]  Start Time[/sec] 
+NEWT	006	  		2    1665.279134    -3218.675456    0.512058    3.996322    0
+// NEWT: New Target #  7
+//Vessel ID	Vessel Type		X [m]           	Y [m]		  Vx_0[m/s]		 	Vy_0[m/s]  Start Time[/sec] 
+NEWT	007	  		2    -4673.991795    611.997927    3.527466    2.676701    0
+// NEWT: New Target #  8
+//Vessel ID	Vessel Type		X [m]           	Y [m]		  Vx_0[m/s]		 	Vy_0[m/s]  Start Time[/sec] 
+NEWT	008	  		4    -1310.834539    -392.740627    3.926552    0.625620    0
+// NEWT: New Target #  9
+//Vessel ID	Vessel Type		X [m]           	Y [m]		  Vx_0[m/s]		 	Vy_0[m/s]  Start Time[/sec] 
+NEWT	009	  		3    1447.645369    -1237.277897    0.763695    1.713012    0
+// NEWT: New Target #  10
+//Vessel ID	Vessel Type		X [m]           	Y [m]		  Vx_0[m/s]		 	Vy_0[m/s]  Start Time[/sec] 
+NEWT	010	  		3    -3793.883867    895.074847    0.904751    1.538476    0
+// NEWT: New Target #  11
+//Vessel ID	Vessel Type		X [m]           	Y [m]		  Vx_0[m/s]		 	Vy_0[m/s]  Start Time[/sec] 
+NEWT	011	  		4    -2481.938775    -2095.593357    2.468364    1.061124    0
+// NEWT: New Target #  12
+//Vessel ID	Vessel Type		X [m]           	Y [m]		  Vx_0[m/s]		 	Vy_0[m/s]  Start Time[/sec] 
+NEWT	012	  		2    -2392.720009    943.562507    0.090050    1.701037    0
+// NEWT: New Target #  13
+//Vessel ID	Vessel Type		X [m]           	Y [m]		  Vx_0[m/s]		 	Vy_0[m/s]  Start Time[/sec] 
+NEWT	013	  		3    -3385.152557    -3212.338132    1.691543    0.376917    0
+// NEWT: New Target #  14
+//Vessel ID	Vessel Type		X [m]           	Y [m]		  Vx_0[m/s]		 	Vy_0[m/s]  Start Time[/sec] 
+NEWT	014	  		1    -290.757436    1959.493133    2.799551    2.554123    0
+// NEWT: New Target #  15
+//Vessel ID	Vessel Type		X [m]           	Y [m]		  Vx_0[m/s]		 	Vy_0[m/s]  Start Time[/sec] 
+NEWT	015	  		3    -4311.939009    -1804.002648    2.123457    2.617783    0
+// NEWT: New Target #  16
+//Vessel ID	Vessel Type		X [m]           	Y [m]		  Vx_0[m/s]		 	Vy_0[m/s]  Start Time[/sec] 
+NEWT	016	  		2    3199.812228    2183.589432    3.874597    2.125336    0
+// NEWT: New Target #  17
+//Vessel ID	Vessel Type		X [m]           	Y [m]		  Vx_0[m/s]		 	Vy_0[m/s]  Start Time[/sec] 
+NEWT	017	  		1    -3943.707967    1109.586587    3.115209    1.693812    0
+// NEWT: New Target #  18
+//Vessel ID	Vessel Type		X [m]           	Y [m]		  Vx_0[m/s]		 	Vy_0[m/s]  Start Time[/sec] 
+NEWT	018	  		3    -2335.285092    -3463.432824    1.124021    1.760341    0
+// NEWT: New Target #  19
+//Vessel ID	Vessel Type		X [m]           	Y [m]		  Vx_0[m/s]		 	Vy_0[m/s]  Start Time[/sec] 
+NEWT	019	  		4    -425.756343    3753.715986    2.072208    3.774490    0
+// NEWT: New Target #  20
+//Vessel ID	Vessel Type		X [m]           	Y [m]		  Vx_0[m/s]		 	Vy_0[m/s]  Start Time[/sec] 
+NEWT	020	  		2    1718.081654    1951.404996    0.271971    1.019161    0
+// NEWT: New Target #  21
+//Vessel ID	Vessel Type		X [m]           	Y [m]		  Vx_0[m/s]		 	Vy_0[m/s]  Start Time[/sec] 
+NEWT	021	  		4    1678.327270    3443.921565    1.377850    3.122079    0
+// NEWT: New Target #  22
+//Vessel ID	Vessel Type		X [m]           	Y [m]		  Vx_0[m/s]		 	Vy_0[m/s]  Start Time[/sec] 
+NEWT	022	  		1    2701.597286    -1775.281928    3.138957    1.885429    0
+// NEWT: New Target #  23
+//Vessel ID	Vessel Type		X [m]           	Y [m]		  Vx_0[m/s]		 	Vy_0[m/s]  Start Time[/sec] 
+NEWT	023	  		2    -3241.255843    2217.580334    1.893944    0.610885    0
+// NEWT: New Target #  24
+//Vessel ID	Vessel Type		X [m]           	Y [m]		  Vx_0[m/s]		 	Vy_0[m/s]  Start Time[/sec] 
+NEWT	024	  		5    1073.892138    -3082.547445    2.953707    0.971398    0
+// NEWT: New Target #  25
+//Vessel ID	Vessel Type		X [m]           	Y [m]		  Vx_0[m/s]		 	Vy_0[m/s]  Start Time[/sec] 
+NEWT	025	  		1    -2309.384133    2655.000166    0.754648    1.149993    0
+// NEWT: New Target #  26
+//Vessel ID	Vessel Type		X [m]           	Y [m]		  Vx_0[m/s]		 	Vy_0[m/s]  Start Time[/sec] 
+NEWT	026	  		4    762.093807    1833.632433    2.186372    1.702915    0
+// NEWT: New Target #  27
+//Vessel ID	Vessel Type		X [m]           	Y [m]		  Vx_0[m/s]		 	Vy_0[m/s]  Start Time[/sec] 
+NEWT	027	  		2    1476.176302    1790.167541    2.543147    3.780696    0
+// NEWT: New Target #  28
+//Vessel ID	Vessel Type		X [m]           	Y [m]		  Vx_0[m/s]		 	Vy_0[m/s]  Start Time[/sec] 
+NEWT	028	  		3    2092.817027    -2637.694230    0.477585    2.429216    0
+// NEWT: New Target #  29
+//Vessel ID	Vessel Type		X [m]           	Y [m]		  Vx_0[m/s]		 	Vy_0[m/s]  Start Time[/sec] 
+NEWT	029	  		4    -412.745064    1619.447519    3.081142    1.400872    0
+// NEWT: New Target #  30
+//Vessel ID	Vessel Type		X [m]           	Y [m]		  Vx_0[m/s]		 	Vy_0[m/s]  Start Time[/sec] 
+NEWT	030	  		3    -838.414100    3419.291527    3.331667    1.025764    0
+// NEWT: New Target #  31
+//Vessel ID	Vessel Type		X [m]           	Y [m]		  Vx_0[m/s]		 	Vy_0[m/s]  Start Time[/sec] 
+NEWT	031	  		2    822.491645    407.393371    3.479764    1.059116    0
+// NEWT: New Target #  32
+//Vessel ID	Vessel Type		X [m]           	Y [m]		  Vx_0[m/s]		 	Vy_0[m/s]  Start Time[/sec] 
+NEWT	032	  		4    1393.169610    447.161105    2.589246    2.175544    0
+// NEWT: New Target #  33
+//Vessel ID	Vessel Type		X [m]           	Y [m]		  Vx_0[m/s]		 	Vy_0[m/s]  Start Time[/sec] 
+NEWT	033	  		1    224.953058    4937.046241    0.874707    0.423193    0
+// NEWT: New Target #  34
+//Vessel ID	Vessel Type		X [m]           	Y [m]		  Vx_0[m/s]		 	Vy_0[m/s]  Start Time[/sec] 
+NEWT	034	  		4    -4364.086290    -954.200041    1.793492    1.463265    0
+// NEWT: New Target #  35
+//Vessel ID	Vessel Type		X [m]           	Y [m]		  Vx_0[m/s]		 	Vy_0[m/s]  Start Time[/sec] 
+NEWT	035	  		2    1278.963796    2719.803856    3.731414    3.890963    0
+// NEWT: New Target #  36
+//Vessel ID	Vessel Type		X [m]           	Y [m]		  Vx_0[m/s]		 	Vy_0[m/s]  Start Time[/sec] 
+NEWT	036	  		3    -3611.257972    1962.663371    0.375280    2.101618    0
+// NEWT: New Target #  37
+//Vessel ID	Vessel Type		X [m]           	Y [m]		  Vx_0[m/s]		 	Vy_0[m/s]  Start Time[/sec] 
+NEWT	037	  		4    3611.398114    -151.466664    1.573825    2.685725    0
+// NEWT: New Target #  38
+//Vessel ID	Vessel Type		X [m]           	Y [m]		  Vx_0[m/s]		 	Vy_0[m/s]  Start Time[/sec] 
+NEWT	038	  		2    200.524674    -1522.873287    0.599989    2.344368    0
+// NEWT: New Target #  39
+//Vessel ID	Vessel Type		X [m]           	Y [m]		  Vx_0[m/s]		 	Vy_0[m/s]  Start Time[/sec] 
+NEWT	039	  		4    1877.960851    -1407.717896    2.945360    1.578830    0
+// NEWT: New Target #  40
+//Vessel ID	Vessel Type		X [m]           	Y [m]		  Vx_0[m/s]		 	Vy_0[m/s]  Start Time[/sec] 
+NEWT	040	  		3    2040.474303    -576.945866    0.078310    1.323432    0
+// NEWT: New Target #  41
+//Vessel ID	Vessel Type		X [m]           	Y [m]		  Vx_0[m/s]		 	Vy_0[m/s]  Start Time[/sec] 
+NEWT	041	  		5    -2297.295766    -3029.462019    3.286885    1.719686    0
+// NEWT: New Target #  42
+//Vessel ID	Vessel Type		X [m]           	Y [m]		  Vx_0[m/s]		 	Vy_0[m/s]  Start Time[/sec] 
+NEWT	042	  		4    -1088.170045    2691.143874    1.587166    3.234056    0
+// NEWT: New Target #  43
+//Vessel ID	Vessel Type		X [m]           	Y [m]		  Vx_0[m/s]		 	Vy_0[m/s]  Start Time[/sec] 
+NEWT	043	  		2    -1226.044552    -2839.810840    3.161629    3.797216    0
+// NEWT: New Target #  44
+//Vessel ID	Vessel Type		X [m]           	Y [m]		  Vx_0[m/s]		 	Vy_0[m/s]  Start Time[/sec] 
+NEWT	044	  		2    1712.643705    -613.550174    3.334002    3.075417    0
+// NEWT: New Target #  45
+//Vessel ID	Vessel Type		X [m]           	Y [m]		  Vx_0[m/s]		 	Vy_0[m/s]  Start Time[/sec] 
+NEWT	045	  		4    880.260553    -3452.476513    0.799451    1.627819    0
+// NEWT: New Target #  46
+//Vessel ID	Vessel Type		X [m]           	Y [m]		  Vx_0[m/s]		 	Vy_0[m/s]  Start Time[/sec] 
+NEWT	046	  		1    3255.838158    2899.630299    1.274097    2.136257    0
+// NEWT: New Target #  47
+//Vessel ID	Vessel Type		X [m]           	Y [m]		  Vx_0[m/s]		 	Vy_0[m/s]  Start Time[/sec] 
+NEWT	047	  		4    -3102.895940    -49.941750    0.590433    0.219897    0
+// NEWT: New Target #  48
+//Vessel ID	Vessel Type		X [m]           	Y [m]		  Vx_0[m/s]		 	Vy_0[m/s]  Start Time[/sec] 
+NEWT	048	  		4    605.595274    4296.088668    2.786669    2.331164    0
+// NEWT: New Target #  49
+//Vessel ID	Vessel Type		X [m]           	Y [m]		  Vx_0[m/s]		 	Vy_0[m/s]  Start Time[/sec] 
+NEWT	049	  		3    3013.476055    -2721.570643    1.992377    3.603410    0
+// NEWT: New Target #  50
+//Vessel ID	Vessel Type		X [m]           	Y [m]		  Vx_0[m/s]		 	Vy_0[m/s]  Start Time[/sec] 
+NEWT	050	  		4    3451.781851    2386.402920    2.343948    0.986938    0
+// NEWT: New Target #  51
+//Vessel ID	Vessel Type		X [m]           	Y [m]		  Vx_0[m/s]		 	Vy_0[m/s]  Start Time[/sec] 
+NEWT	051	  		5    -4165.171864    1259.597852    2.643778    2.919007    0
+// NEWT: New Target #  52
+//Vessel ID	Vessel Type		X [m]           	Y [m]		  Vx_0[m/s]		 	Vy_0[m/s]  Start Time[/sec] 
+NEWT	052	  		3    800.903658    -4830.170617    0.483438    3.450843    0
+// NEWT: New Target #  53
+//Vessel ID	Vessel Type		X [m]           	Y [m]		  Vx_0[m/s]		 	Vy_0[m/s]  Start Time[/sec] 
+NEWT	053	  		1    3448.556746    -2905.949160    2.209165    2.519534    0
+// NEWT: New Target #  54
+//Vessel ID	Vessel Type		X [m]           	Y [m]		  Vx_0[m/s]		 	Vy_0[m/s]  Start Time[/sec] 
+NEWT	054	  		2    1147.134191    -1375.885377    0.198130    1.958280    0
+// NEWT: New Target #  55
+//Vessel ID	Vessel Type		X [m]           	Y [m]		  Vx_0[m/s]		 	Vy_0[m/s]  Start Time[/sec] 
+NEWT	055	  		1    -3769.162525    -2945.058291    0.586060    0.756289    0
+// NEWT: New Target #  56
+//Vessel ID	Vessel Type		X [m]           	Y [m]		  Vx_0[m/s]		 	Vy_0[m/s]  Start Time[/sec] 
+NEWT	056	  		3    1351.979169    -2181.331441    2.154387    2.780652    0
+// NEWT: New Target #  57
+//Vessel ID	Vessel Type		X [m]           	Y [m]		  Vx_0[m/s]		 	Vy_0[m/s]  Start Time[/sec] 
+NEWT	057	  		4    358.010558    -548.168347    0.495729    1.961429    0
+// NEWT: New Target #  58
+//Vessel ID	Vessel Type		X [m]           	Y [m]		  Vx_0[m/s]		 	Vy_0[m/s]  Start Time[/sec] 
+NEWT	058	  		4    3739.274059    -2297.056677    0.833845    2.259918    0
+// NEWT: New Target #  59
+//Vessel ID	Vessel Type		X [m]           	Y [m]		  Vx_0[m/s]		 	Vy_0[m/s]  Start Time[/sec] 
+NEWT	059	  		1    -829.710484    -2940.244845    3.791732    0.328285    0
+// NEWT: New Target #  60
+//Vessel ID	Vessel Type		X [m]           	Y [m]		  Vx_0[m/s]		 	Vy_0[m/s]  Start Time[/sec] 
+NEWT	060	  		1    -3579.588781    -3335.395591    2.483835    2.294839    0
+// NEWT: New Target #  61
+//Vessel ID	Vessel Type		X [m]           	Y [m]		  Vx_0[m/s]		 	Vy_0[m/s]  Start Time[/sec] 
+NEWT	061	  		4    4312.013846    2286.616817    2.951367    0.253618    0
+// NEWT: New Target #  62
+//Vessel ID	Vessel Type		X [m]           	Y [m]		  Vx_0[m/s]		 	Vy_0[m/s]  Start Time[/sec] 
+NEWT	062	  		1    133.774186    -3223.975395    1.594358    0.535725    0
+// NEWT: New Target #  63
+//Vessel ID	Vessel Type		X [m]           	Y [m]		  Vx_0[m/s]		 	Vy_0[m/s]  Start Time[/sec] 
+NEWT	063	  		3    4391.417061    -1986.939354    1.182135    1.331745    0
+// NEWT: New Target #  64
+//Vessel ID	Vessel Type		X [m]           	Y [m]		  Vx_0[m/s]		 	Vy_0[m/s]  Start Time[/sec] 
+NEWT	064	  		4    1481.984065    -4747.718185    3.368826    2.236130    0
+// NEWT: New Target #  65
+//Vessel ID	Vessel Type		X [m]           	Y [m]		  Vx_0[m/s]		 	Vy_0[m/s]  Start Time[/sec] 
+NEWT	065	  		4    -1521.208057    -539.733519    0.216958    0.708430    0
+// NEWT: New Target #  66
+//Vessel ID	Vessel Type		X [m]           	Y [m]		  Vx_0[m/s]		 	Vy_0[m/s]  Start Time[/sec] 
+NEWT	066	  		3    -1691.710048    3984.861378    0.472621    3.953672    0
+// NEWT: New Target #  67
+//Vessel ID	Vessel Type		X [m]           	Y [m]		  Vx_0[m/s]		 	Vy_0[m/s]  Start Time[/sec] 
+NEWT	067	  		2    -351.600584    2639.570785    3.272816    0.400886    0
+// NEWT: New Target #  68
+//Vessel ID	Vessel Type		X [m]           	Y [m]		  Vx_0[m/s]		 	Vy_0[m/s]  Start Time[/sec] 
+NEWT	068	  		2    -1403.650865    -4432.953109    2.087543    1.343396    0
+// NEWT: New Target #  69
+//Vessel ID	Vessel Type		X [m]           	Y [m]		  Vx_0[m/s]		 	Vy_0[m/s]  Start Time[/sec] 
+NEWT	069	  		5    -2910.533260    4051.535590    2.701565    1.873873    0
+// NEWT: New Target #  70
+//Vessel ID	Vessel Type		X [m]           	Y [m]		  Vx_0[m/s]		 	Vy_0[m/s]  Start Time[/sec] 
+NEWT	070	  		2    -3959.884252    2455.460737    2.945070    2.247446    0
+// NEWT: New Target #  71
+//Vessel ID	Vessel Type		X [m]           	Y [m]		  Vx_0[m/s]		 	Vy_0[m/s]  Start Time[/sec] 
+NEWT	071	  		5    972.113503    -2000.630099    0.536492    0.850406    0
+// NEWT: New Target #  72
+//Vessel ID	Vessel Type		X [m]           	Y [m]		  Vx_0[m/s]		 	Vy_0[m/s]  Start Time[/sec] 
+NEWT	072	  		1    -4285.471872    -2575.134411    0.215018    1.766888    0
+// NEWT: New Target #  73
+//Vessel ID	Vessel Type		X [m]           	Y [m]		  Vx_0[m/s]		 	Vy_0[m/s]  Start Time[/sec] 
+NEWT	073	  		3    3971.913510    -3033.418086    0.373482    1.229468    0
+// NEWT: New Target #  74
+//Vessel ID	Vessel Type		X [m]           	Y [m]		  Vx_0[m/s]		 	Vy_0[m/s]  Start Time[/sec] 
+NEWT	074	  		4    -4379.547787    -2017.560281    0.185405    2.021713    0
+// NEWT: New Target #  75
+//Vessel ID	Vessel Type		X [m]           	Y [m]		  Vx_0[m/s]		 	Vy_0[m/s]  Start Time[/sec] 
+NEWT	075	  		5    1310.699992    -4101.083492    0.323450    3.108962    0
+// NEWT: New Target #  76
+//Vessel ID	Vessel Type		X [m]           	Y [m]		  Vx_0[m/s]		 	Vy_0[m/s]  Start Time[/sec] 
+NEWT	076	  		2    337.719518    -3908.457880    3.303235    1.352391    0
+// NEWT: New Target #  77
+//Vessel ID	Vessel Type		X [m]           	Y [m]		  Vx_0[m/s]		 	Vy_0[m/s]  Start Time[/sec] 
+NEWT	077	  		4    1034.679838    261.024658    2.918838    2.829014    0
+// NEWT: New Target #  78
+//Vessel ID	Vessel Type		X [m]           	Y [m]		  Vx_0[m/s]		 	Vy_0[m/s]  Start Time[/sec] 
+NEWT	078	  		1    -2120.230244    1925.319864    2.226679    1.586083    0
+// NEWT: New Target #  79
+//Vessel ID	Vessel Type		X [m]           	Y [m]		  Vx_0[m/s]		 	Vy_0[m/s]  Start Time[/sec] 
+NEWT	079	  		1    2801.755315    -1624.161359    2.431464    2.965016    0
+// NEWT: New Target #  80
+//Vessel ID	Vessel Type		X [m]           	Y [m]		  Vx_0[m/s]		 	Vy_0[m/s]  Start Time[/sec] 
+NEWT	080	  		4    -3721.116202    495.401070    1.940918    3.561903    0
+// NEWT: New Target #  81
+//Vessel ID	Vessel Type		X [m]           	Y [m]		  Vx_0[m/s]		 	Vy_0[m/s]  Start Time[/sec] 
+NEWT	081	  		2    2227.245397    -3896.465194    0.469971    2.562872    0
+// NEWT: New Target #  82
+//Vessel ID	Vessel Type		X [m]           	Y [m]		  Vx_0[m/s]		 	Vy_0[m/s]  Start Time[/sec] 
+NEWT	082	  		2    1538.120226    2491.314631    2.332743    2.960129    0
+// NEWT: New Target #  83
+//Vessel ID	Vessel Type		X [m]           	Y [m]		  Vx_0[m/s]		 	Vy_0[m/s]  Start Time[/sec] 
+NEWT	083	  		4    -1335.633837    -1308.011957    2.740114    2.391767    0
+// NEWT: New Target #  84
+//Vessel ID	Vessel Type		X [m]           	Y [m]		  Vx_0[m/s]		 	Vy_0[m/s]  Start Time[/sec] 
+NEWT	084	  		2    -1323.470816    -2939.721405    0.346666    3.087736    0
+// NEWT: New Target #  85
+//Vessel ID	Vessel Type		X [m]           	Y [m]		  Vx_0[m/s]		 	Vy_0[m/s]  Start Time[/sec] 
+NEWT	085	  		3    -1117.283690    517.785320    0.915813    2.567762    0
+// NEWT: New Target #  86
+//Vessel ID	Vessel Type		X [m]           	Y [m]		  Vx_0[m/s]		 	Vy_0[m/s]  Start Time[/sec] 
+NEWT	086	  		2    -3481.544749    2819.319666    0.402425    1.176265    0
+// NEWT: New Target #  87
+//Vessel ID	Vessel Type		X [m]           	Y [m]		  Vx_0[m/s]		 	Vy_0[m/s]  Start Time[/sec] 
+NEWT	087	  		1    308.722570    -4085.012687    1.621262    0.419385    0
+// NEWT: New Target #  88
+//Vessel ID	Vessel Type		X [m]           	Y [m]		  Vx_0[m/s]		 	Vy_0[m/s]  Start Time[/sec] 
+NEWT	088	  		3    2844.278907    -2084.296821    2.414134    3.857691    0
+// NEWT: New Target #  89
+//Vessel ID	Vessel Type		X [m]           	Y [m]		  Vx_0[m/s]		 	Vy_0[m/s]  Start Time[/sec] 
+NEWT	089	  		1    1947.521946    2580.992753    1.730569    2.621992    0
+// NEWT: New Target #  90
+//Vessel ID	Vessel Type		X [m]           	Y [m]		  Vx_0[m/s]		 	Vy_0[m/s]  Start Time[/sec] 
+NEWT	090	  		1    -123.962246    2689.582641    1.584027    1.091755    0
+// NEWT: New Target #  91
+//Vessel ID	Vessel Type		X [m]           	Y [m]		  Vx_0[m/s]		 	Vy_0[m/s]  Start Time[/sec] 
+NEWT	091	  		1    1732.949141    -704.355407    1.806957    2.439429    0
+// NEWT: New Target #  92
+//Vessel ID	Vessel Type		X [m]           	Y [m]		  Vx_0[m/s]		 	Vy_0[m/s]  Start Time[/sec] 
+NEWT	092	  		2    -1841.885617    2727.221309    2.785732    0.501329    0
+// NEWT: New Target #  93
+//Vessel ID	Vessel Type		X [m]           	Y [m]		  Vx_0[m/s]		 	Vy_0[m/s]  Start Time[/sec] 
+NEWT	093	  		2    2229.225247    312.092936    0.435272    2.527065    0
+// NEWT: New Target #  94
+//Vessel ID	Vessel Type		X [m]           	Y [m]		  Vx_0[m/s]		 	Vy_0[m/s]  Start Time[/sec] 
+NEWT	094	  		2    -3037.510777    -1825.202249    1.265716    0.870253    0
+// NEWT: New Target #  95
+//Vessel ID	Vessel Type		X [m]           	Y [m]		  Vx_0[m/s]		 	Vy_0[m/s]  Start Time[/sec] 
+NEWT	095	  		2    3929.224053    2032.232246    2.222952    0.737735    0
+// NEWT: New Target #  96
+//Vessel ID	Vessel Type		X [m]           	Y [m]		  Vx_0[m/s]		 	Vy_0[m/s]  Start Time[/sec] 
+NEWT	096	  		2    -1865.710101    -3337.964371    2.489989    3.951739    0
+// NEWT: New Target #  97
+//Vessel ID	Vessel Type		X [m]           	Y [m]		  Vx_0[m/s]		 	Vy_0[m/s]  Start Time[/sec] 
+NEWT	097	  		3    -2422.077494    -1032.006814    0.295979    2.736384    0
+// NEWT: New Target #  98
+//Vessel ID	Vessel Type		X [m]           	Y [m]		  Vx_0[m/s]		 	Vy_0[m/s]  Start Time[/sec] 
+NEWT	098	  		3    4828.352014    -978.160148    2.482688    0.617479    0
+// NEWT: New Target #  99
+//Vessel ID	Vessel Type		X [m]           	Y [m]		  Vx_0[m/s]		 	Vy_0[m/s]  Start Time[/sec] 
+NEWT	099	  		4    -3388.660282    2581.124313    3.484444    1.403107    0
+// NEWT: New Target #  100
+//Vessel ID	Vessel Type		X [m]           	Y [m]		  Vx_0[m/s]		 	Vy_0[m/s]  Start Time[/sec] 
+NEWT	100	  		2    -2058.513662    306.293039    3.329694    2.389961    0
