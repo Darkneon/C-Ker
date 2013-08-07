@@ -71,7 +71,7 @@ namespace Cker
             }
             catch (Exception e) 
             {
-                return -1;
+                return 1;
             }
 
             m_vesselsList = new List<Vessel>();
