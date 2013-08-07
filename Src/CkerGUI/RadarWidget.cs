@@ -554,7 +554,7 @@ namespace CkerGUI
                         #endregion
 
                         SolidColorBrush vesselColor = new SolidColorBrush();
-                        vesselColor.Color = Color.FromRgb(0, 255, 1);
+                        vesselColor.Color = Color.FromRgb(0, 0, 255); // Orange Scheme: (255, 170, 0), Green Scheme: (0, 255, 1), Blue Scheme: (0, 0, 255)
 
                         // Vessels are assigned different shapes according to their Type. Undefined vessel types are given a default shape.
                         // Vessel Type: Human

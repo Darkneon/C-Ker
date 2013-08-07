@@ -96,21 +96,21 @@
             <Ellipse Width="365" Height="365">
                 <Ellipse.Fill>
                     <LinearGradientBrush StartPoint="0.5,0" EndPoint="0.5,1">
-                        <GradientStop Color="#007700" Offset="0.0" />
-                        <GradientStop Color="#002900" Offset="1.0" />
+                        <GradientStop Color="#000078" Offset="0.0" /><!-- Orange Scheme: #785000, Green Scheme: #007700, Blue Scheme: #000078-->
+                        <GradientStop Color="#000029" Offset="1.0" /><!-- Orange Scheme: #291B00, Green Scheme: #002900, Blue Scheme: #000029-->
                     </LinearGradientBrush>
                 </Ellipse.Fill>
             </Ellipse>
             <!-- Outer Range Ring -->
-            <Ellipse Width="365" Height="365" StrokeThickness="1" Stroke="#00FF01"></Ellipse>
+            <Ellipse Width="365" Height="365" StrokeThickness="1" Stroke="#0000FF"></Ellipse><!-- Orange Scheme: #FFAA00, Green Scheme: #00FF01, Blue Scheme: #0000FF-->
             <!-- Middle Range Ring -->
-            <Ellipse Width="220" Height="220" StrokeThickness="1" Stroke="#00FF01"></Ellipse>
+            <Ellipse Width="220" Height="220" StrokeThickness="1" Stroke="#0000FF"></Ellipse><!-- Orange Scheme: #FFAA00, Green Scheme: #00FF01, Blue Scheme: #0000FF-->
             <!-- Inner Range Ring -->
-            <Ellipse Width="95" Height="95" StrokeThickness="1" Stroke="#00FF01"></Ellipse>
+            <Ellipse Width="95" Height="95" StrokeThickness="1" Stroke="#0000FF"></Ellipse><!-- Orange Scheme: #FFAA00, Green Scheme: #00FF01, Blue Scheme: #0000FF-->
             <!-- Horizontal Axis -->
-            <Line X1="152" Y1="184.5" X2="517" Y2="184.5" StrokeThickness="1" Stroke="#00FF01"></Line>
+            <Line X1="153" Y1="184.5" X2="518" Y2="184.5" StrokeThickness="1" Stroke="#0000FF"></Line><!-- Orange Scheme: #FFAA00, Green Scheme: #00FF01, Blue Scheme: #0000FF-->
             <!-- Vertical Axis -->
-            <Line X1="336" Y1="0" X2="336" Y2="365" StrokeThickness="1" Stroke="#00FF01"></Line>
+            <Line X1="336" Y1="0" X2="336" Y2="365" StrokeThickness="1" Stroke="#0000FF"></Line><!-- Orange Scheme: #FFAA00, Green Scheme: #00FF01, Blue Scheme: #0000FF-->
             <Canvas Name="radarCanvas">
                 <!-- Vessel object display done in code -->
             </Canvas>
