@@ -1,0 +1,27 @@
+// Version Number
+VSF	001
+
+//All time defined in seconds
+//Simulator start time
+STARTTIME  0
+// Targets will be reported to VMS in this time interval
+TIMESTEP  2
+// Total time
+TIME   500
+
+// Radar range defined in meters
+RANGE  5000
+
+// Vessel Type Definitions
+// 1 - Human (swimmer)
+// 2 - Speed Boat
+// 3 - Fishing Boat
+// 4 - Cargo Vessel
+// 5 - Passenger Vessel
+
+//		Vessel ID	Vessel Type		X [m]           	Y [m]		  Vx_0[m/s]		 	Vy_0[m/s]  Start Time[/sec]
+NEWT	 001	  		1			 0           		 0        		0			   	    0  		     0
+NEWT	 002	  		2			 0           	     0      		0			    	0  			 0
+NEWT	 003	  		3			 0           	     0      		0			    	0  			 0
+NEWT	 004	  		4			 0           	     0      		0			    	0  			 0
+NEWT	 005	  		5			 0           	     0      		0			    	0  			 0

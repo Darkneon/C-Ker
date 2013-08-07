@@ -43,11 +43,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AuthenticatorTest.cs" />
     <Compile Include="ParserTest.cs" />
+    <Compile Include="PresenterTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="VesselTest.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\Src\CkerAuthentication\CkerAuthentication.csproj">
+      <Project>{67e4c34d-ac4a-4197-a711-79eace3d1ef0}</Project>
+      <Name>CkerAuthentication</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\Src\CkerModels\CkerModels.csproj">
       <Project>{b246d76f-f1fb-4f4c-9710-6c8d93374414}</Project>
       <Name>CkerModels</Name>
@@ -56,8 +62,23 @@
       <Project>{123af260-fd4a-429d-ace0-6228e0ada60d}</Project>
       <Name>CkerParsing</Name>
     </ProjectReference>
+    <ProjectReference Include="..\..\Src\CkerPresenters\CkerPresenters.csproj">
+      <Project>{199e1fd0-5463-476f-b9eb-267d006f9cf0}</Project>
+      <Name>CkerPresenters</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Src\CkerSimulation\CkerSimulation.csproj">
+      <Project>{609df8eb-0705-43ec-b847-b0e2272f6da2}</Project>
+      <Name>CkerSimulation</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Assets\test_oneofeach.vsf" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>mkdir "$(TargetDir)Assets"
+xcopy "$(ProjectDir)Assets" "$(TargetDir)Assets" /E /Y</PostBuildEvent>
+  </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">

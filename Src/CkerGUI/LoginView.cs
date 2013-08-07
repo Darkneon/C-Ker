@@ -7,7 +7,7 @@ using System.Windows;
 using System.Windows.Input;
 using Cker.Authentication;
 using Cker.Models;
-using CkerPresenters;
+using Cker.Presenters;
 using SoftArcs.WPFSmartLibrary.MVVMCommands;
 using SoftArcs.WPFSmartLibrary.MVVMCore;
 using SoftArcs.WPFSmartLibrary.SmartUserControls;

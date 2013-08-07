@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using Cker.Authentication;
 using Cker.Models;
 
-namespace CkerPresenters
+namespace Cker.Presenters
 {
     /// <summary>
     /// Presenter allows the login view to get information needed to display.
@@ -14,8 +14,8 @@ namespace CkerPresenters
     public class LoginPresenter
     {
         // Paths to the user type display images.
-        private const string ADMIN_IMAGE_PATH = @"\Images\admin.png";
-        private const string OPERATOR_IMAGE_PATH = @"\Images\operator.png";
+        public const string ADMIN_IMAGE_PATH = @"\Images\admin.png";
+        public const string OPERATOR_IMAGE_PATH = @"\Images\operator.png";
 
         /// <summary>
         /// Authenticates the specified user with name and password.
