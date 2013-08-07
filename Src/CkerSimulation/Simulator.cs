@@ -63,9 +63,17 @@ namespace Cker
         // Public Methods
         //-------------------------------------------------------------------
 
-        public static void Start(string path, string filename) 
+        public static int Start(string path, string filename) 
         {
-            m_vesselsListOriginal = ScenarioParser.Parse(path, filename);
+            try
+            {
+                m_vesselsListOriginal = ScenarioParser.Parse(path, filename);
+            }
+            catch (Exception e) 
+            {
+                return -1;
+            }
+
             m_vesselsList = new List<Vessel>();
             AfterUpdate = delegate { };
             OnAlarm = delegate { };
@@ -84,6 +92,8 @@ namespace Cker
             timer.Interval = Simulator.TimeStep * 1000; //To milliseconds            
             timer.Enabled = true;
             timer.Start();
+
+            return 0;
         }
 
         public static void Stop() 
