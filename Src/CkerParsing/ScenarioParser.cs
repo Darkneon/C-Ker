@@ -29,6 +29,8 @@ namespace Cker
 
         public static List<Vessel> Parse(string path, string filename)
         {
+            Clear();
+
             List<Vessel> result = new List<Vessel>();
             string filepath = Path.Combine(path, filename);
 
@@ -60,6 +62,14 @@ namespace Cker
         //-------------------------------------------------------------------
         // Private Methods
         //-------------------------------------------------------------------
+
+        private static void Clear() 
+        {
+            Simulator.StartTime = 0.0f;
+            Simulator.TimeStep  = 0.0f;
+            Simulator.Time      = 0.0f;
+            Simulator.Range     = 0;
+        }
 
         private static Vessel ParseLine(string line)
         {
