@@ -83,7 +83,11 @@ namespace CkerGUI
         /// </summary>
         public void UpdateAlarms()
         {
-            foreach (var alarm in vesselPresenter.CurrentAlarms)
+            // Copy the alarms since CurrentAlarms are modified in VesselPresenter asynchronously
+            var alarms = new Cker.Simulator.OnAlarmEventArgs[vesselPresenter.CurrentAlarms.Count];
+            vesselPresenter.CurrentAlarms.CopyTo(alarms);
+
+            foreach (var alarm in alarms)   
             {
                 DrawAlarm(alarm.type, alarm.first);
                 DrawAlarm(alarm.type, alarm.second);
