@@ -87,6 +87,20 @@ namespace CkerGUI
             {
                 DrawAlarm(alarm.type, alarm.first);
                 DrawAlarm(alarm.type, alarm.second);
+
+                // Draw line connecting the two vessels, only if at least one of the vessel is displayed.
+                if (vesselPresenter.DisplayedVessels.Contains(alarm.first) || vesselPresenter.DisplayedVessels.Contains(alarm.second))
+                {
+                    Line alarmLine = new Line();
+                    alarmLine.X1 = ToPixelX(alarm.first.X);
+                    alarmLine.Y1 = ToPixelY(alarm.first.Y);
+                    alarmLine.X2 = ToPixelX(alarm.second.X);
+                    alarmLine.Y2 = ToPixelY(alarm.second.Y);
+                    alarmLine.Opacity = 0.75;
+                    alarmLine.StrokeThickness = 1.0;
+                    alarmLine.Stroke = new SolidColorBrush(alarm.type == Cker.Simulator.AlarmType.Low ? Colors.Yellow : Colors.Red);
+                    canvas.Children.Add(alarmLine);
+                }
             }
         }
 
