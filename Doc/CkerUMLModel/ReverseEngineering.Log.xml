@@ -1,0 +1,157 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml-stylesheet type="text/xsl" href="file:///C:/PROGRAM FILES (X86)/MICROSOFT VISUAL STUDIO 11.0/COMMON7/IDE/EXTENSIONS/MICROSOFT/ARCHITECTURE TOOLS/EXTENSIBILITY/Logging/ReverseEngineeringLog.xslt"?>
+<Log xmlns="http://schemas.microsoft.com/VisualStudio/2010/CodeGen.RE.Log" Label="Code Generation/Text Transformation Log">
+  <MessageClass Name="Message" Label="Message" Option="Show informational messages" />
+  <MessageClass Name="Warning" Label="Warning" Option="Show warnings" />
+  <MessageClass Name="Error" Label="Error" Option="Show errors" />
+  <MessageClass Name="Property" Label="Property" Option="Show metadata" />
+  <MessageClass Name="Diagnostic" Label="Message" Option="Show diagnostic messages" />
+  <Message Timestamp="2013-08-07T15:40:24" Importance="High" Text="Reverse Engineering Started." />
+  <Message Timestamp="2013-08-07T15:40:29" Importance="Diagnostic" Text="Element reverse engineered into the UML model: '3125455f-c4f5-40c4-a7df-e4b4eb7ffe79' -  (ClassifierTemplateParameter)" />
+  <Message Timestamp="2013-08-07T15:40:29" Importance="Diagnostic" Text="Element reverse engineered into the UML model: '876f4f02-97af-4d2d-80d7-c2203a605b4d' -  (ClassifierTemplateParameter)" />
+  <Message Timestamp="2013-08-07T15:40:29" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Boolean' -  (PrimitiveType)" />
+  <Message Timestamp="2013-08-07T15:40:29" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'CkerUMLModel::Cker' -  (Package)" />
+  <Message Timestamp="2013-08-07T15:40:29" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'CkerUMLModel::Cker::AlarmType' -  (Enumeration)   (partially reverse engineered - definition not updated) " />
+  <Message Timestamp="2013-08-07T15:40:29" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'CkerUMLModel::Cker::Models' -  (Package)" />
+  <Message Timestamp="2013-08-07T15:40:29" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'CkerUMLModel::Cker::Models::Vessel' -  (Class)   (partially reverse engineered - definition not updated) " />
+  <Message Timestamp="2013-08-07T15:40:29" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'CkerUMLModel::Cker::Presenters' -  (Package)" />
+  <Message Timestamp="2013-08-07T15:40:29" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'CkerUMLModel::Cker::Presenters::LoginPresenter' -  (Class)   (partially reverse engineered - definition not updated) " />
+  <Message Timestamp="2013-08-07T15:40:29" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'CkerUMLModel::Cker::Presenters::VesselPresenter' -  (Class)   (partially reverse engineered - definition not updated) " />
+  <Message Timestamp="2013-08-07T15:40:29" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'CkerUMLModel::CkerGUI' -  (Package)" />
+  <Message Timestamp="2013-08-07T15:40:29" Importance="Medium" Text="Element reverse engineered into the UML model: 'CkerUMLModel::CkerGUI::LoginView' -  (Class)" />
+  <Message Timestamp="2013-08-07T15:40:29" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'CkerUMLModel::CkerGUI::LoginView::AddLoginCompleteAction' -  (Operation)" />
+  <Message Timestamp="2013-08-07T15:40:29" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'CkerUMLModel::CkerGUI::LoginView::AddLoginCompleteAction::action' -  (Parameter)" />
+  <Message Timestamp="2013-08-07T15:40:29" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'CkerUMLModel::CkerGUI::LoginView::CanExecuteSubmit' -  (Operation)" />
+  <Message Timestamp="2013-08-07T15:40:29" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'CkerUMLModel::CkerGUI::LoginView::CanExecuteSubmit::commandParameter' -  (Parameter)" />
+  <Message Timestamp="2013-08-07T15:40:29" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'CkerUMLModel::CkerGUI::LoginView::ExecuteSubmit' -  (Operation)" />
+  <Message Timestamp="2013-08-07T15:40:29" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'CkerUMLModel::CkerGUI::LoginView::ExecuteSubmit::commandParameter' -  (Parameter)" />
+  <Message Timestamp="2013-08-07T15:40:29" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'CkerUMLModel::CkerGUI::LoginView::InitializeCommands' -  (Operation)" />
+  <Message Timestamp="2013-08-07T15:40:29" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'CkerUMLModel::CkerGUI::LoginView::loginCompleteAction' -  (Property)" />
+  <Message Timestamp="2013-08-07T15:40:29" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'CkerUMLModel::CkerGUI::LoginView::loginPresenter' -  (Property)" />
+  <Message Timestamp="2013-08-07T15:40:29" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'CkerUMLModel::CkerGUI::LoginView::LoginView' -  (Operation)" />
+  <Message Timestamp="2013-08-07T15:40:29" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'CkerUMLModel::CkerGUI::LoginView::PasswordField' -  (Property)" />
+  <Message Timestamp="2013-08-07T15:40:29" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'CkerUMLModel::CkerGUI::LoginView::SubmitCommand' -  (Property)" />
+  <Message Timestamp="2013-08-07T15:40:29" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'CkerUMLModel::CkerGUI::LoginView::UserImageSource' -  (Property)" />
+  <Message Timestamp="2013-08-07T15:40:29" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'CkerUMLModel::CkerGUI::LoginView::UserNameField' -  (Property)" />
+  <Message Timestamp="2013-08-07T15:40:29" Importance="Medium" Text="Element reverse engineered into the UML model: 'CkerUMLModel::CkerGUI::RadarWidget' -  (Class)" />
+  <Message Timestamp="2013-08-07T15:40:29" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'CkerUMLModel::CkerGUI::RadarWidget::CalculateCanvasProperties' -  (Operation)" />
+  <Message Timestamp="2013-08-07T15:40:29" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'CkerUMLModel::CkerGUI::RadarWidget::canvas' -  (Property)" />
+  <Message Timestamp="2013-08-07T15:40:29" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'CkerUMLModel::CkerGUI::RadarWidget::CanvasRatio' -  (Property)" />
+  <Message Timestamp="2013-08-07T15:40:29" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'CkerUMLModel::CkerGUI::RadarWidget::CenterX' -  (Property)" />
+  <Message Timestamp="2013-08-07T15:40:29" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'CkerUMLModel::CkerGUI::RadarWidget::CenterY' -  (Property)" />
+  <Message Timestamp="2013-08-07T15:40:29" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'CkerUMLModel::CkerGUI::RadarWidget::currentVessels' -  (Property)" />
+  <Message Timestamp="2013-08-07T15:40:29" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'CkerUMLModel::CkerGUI::RadarWidget::DrawAlarm' -  (Operation)" />
+  <Message Timestamp="2013-08-07T15:40:29" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'CkerUMLModel::CkerGUI::RadarWidget::DrawAlarm::type' -  (Parameter)" />
+  <Message Timestamp="2013-08-07T15:40:29" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'CkerUMLModel::CkerGUI::RadarWidget::DrawAlarm::vessel' -  (Parameter)" />
+  <Message Timestamp="2013-08-07T15:40:29" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'CkerUMLModel::CkerGUI::RadarWidget::DrawVessels' -  (Operation)" />
+  <Message Timestamp="2013-08-07T15:40:29" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'CkerUMLModel::CkerGUI::RadarWidget::DrawVessels::vessels' -  (Parameter)" />
+  <Message Timestamp="2013-08-07T15:40:29" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'CkerUMLModel::CkerGUI::RadarWidget::OnCanvasSizeChanged' -  (Operation)" />
+  <Message Timestamp="2013-08-07T15:40:29" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'CkerUMLModel::CkerGUI::RadarWidget::OnCanvasSizeChanged::e' -  (Parameter)" />
+  <Message Timestamp="2013-08-07T15:40:29" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'CkerUMLModel::CkerGUI::RadarWidget::OnCanvasSizeChanged::sender' -  (Parameter)" />
+  <Message Timestamp="2013-08-07T15:40:29" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'CkerUMLModel::CkerGUI::RadarWidget::OnSimulationUpdate' -  (Operation)" />
+  <Message Timestamp="2013-08-07T15:40:29" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'CkerUMLModel::CkerGUI::RadarWidget::PixelRange' -  (Property)" />
+  <Message Timestamp="2013-08-07T15:40:29" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'CkerUMLModel::CkerGUI::RadarWidget::RadarWidget' -  (Operation)" />
+  <Message Timestamp="2013-08-07T15:40:29" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'CkerUMLModel::CkerGUI::RadarWidget::RadarWidget::canvasRatio' -  (Parameter)" />
+  <Message Timestamp="2013-08-07T15:40:29" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'CkerUMLModel::CkerGUI::RadarWidget::RadarWidget::presenter' -  (Parameter)" />
+  <Message Timestamp="2013-08-07T15:40:29" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'CkerUMLModel::CkerGUI::RadarWidget::RadarWidget::radarCanvas' -  (Parameter)" />
+  <Message Timestamp="2013-08-07T15:40:29" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'CkerUMLModel::CkerGUI::RadarWidget::RadarWidget::range' -  (Parameter)" />
+  <Message Timestamp="2013-08-07T15:40:29" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'CkerUMLModel::CkerGUI::RadarWidget::Range' -  (Property)" />
+  <Message Timestamp="2013-08-07T15:40:29" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'CkerUMLModel::CkerGUI::RadarWidget::ToPixel' -  (Operation)" />
+  <Message Timestamp="2013-08-07T15:40:29" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'CkerUMLModel::CkerGUI::RadarWidget::ToPixel::vesselUnit' -  (Parameter)" />
+  <Message Timestamp="2013-08-07T15:40:29" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'CkerUMLModel::CkerGUI::RadarWidget::ToPixelX' -  (Operation)" />
+  <Message Timestamp="2013-08-07T15:40:29" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'CkerUMLModel::CkerGUI::RadarWidget::ToPixelX::vesselUnit' -  (Parameter)" />
+  <Message Timestamp="2013-08-07T15:40:29" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'CkerUMLModel::CkerGUI::RadarWidget::ToPixelY' -  (Operation)" />
+  <Message Timestamp="2013-08-07T15:40:29" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'CkerUMLModel::CkerGUI::RadarWidget::ToPixelY::vesselUnit' -  (Parameter)" />
+  <Message Timestamp="2013-08-07T15:40:29" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'CkerUMLModel::CkerGUI::RadarWidget::UpdateAlarms' -  (Operation)" />
+  <Message Timestamp="2013-08-07T15:40:29" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'CkerUMLModel::CkerGUI::RadarWidget::UpdateVessels' -  (Operation)" />
+  <Message Timestamp="2013-08-07T15:40:29" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'CkerUMLModel::CkerGUI::RadarWidget::vesselPresenter' -  (Property)" />
+  <Message Timestamp="2013-08-07T15:40:29" Importance="Medium" Text="Element reverse engineered into the UML model: 'CkerUMLModel::CkerGUI::TableWidget' -  (Class)" />
+  <Message Timestamp="2013-08-07T15:40:29" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'CkerUMLModel::CkerGUI::TableWidget::currentSortHeader' -  (Property)" />
+  <Message Timestamp="2013-08-07T15:40:29" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'CkerUMLModel::CkerGUI::TableWidget::displayedVessels' -  (Property)" />
+  <Message Timestamp="2013-08-07T15:40:29" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'CkerUMLModel::CkerGUI::TableWidget::OnColumnHeaderClick' -  (Operation)" />
+  <Message Timestamp="2013-08-07T15:40:29" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'CkerUMLModel::CkerGUI::TableWidget::OnColumnHeaderClick::e' -  (Parameter)" />
+  <Message Timestamp="2013-08-07T15:40:29" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'CkerUMLModel::CkerGUI::TableWidget::OnColumnHeaderClick::sender' -  (Parameter)" />
+  <Message Timestamp="2013-08-07T15:40:29" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'CkerUMLModel::CkerGUI::TableWidget::OnItemContainerStatusChanged' -  (Operation)" />
+  <Message Timestamp="2013-08-07T15:40:29" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'CkerUMLModel::CkerGUI::TableWidget::OnItemContainerStatusChanged::e' -  (Parameter)" />
+  <Message Timestamp="2013-08-07T15:40:29" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'CkerUMLModel::CkerGUI::TableWidget::OnItemContainerStatusChanged::sender' -  (Parameter)" />
+  <Message Timestamp="2013-08-07T15:40:29" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'CkerUMLModel::CkerGUI::TableWidget::OnSimulationUpdate' -  (Operation)" />
+  <Message Timestamp="2013-08-07T15:40:29" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'CkerUMLModel::CkerGUI::TableWidget::Reset' -  (Operation)" />
+  <Message Timestamp="2013-08-07T15:40:29" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'CkerUMLModel::CkerGUI::TableWidget::sortAscendingArrowDisplay' -  (Property)" />
+  <Message Timestamp="2013-08-07T15:40:29" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'CkerUMLModel::CkerGUI::TableWidget::sortDescendingArrowDisplay' -  (Property)" />
+  <Message Timestamp="2013-08-07T15:40:29" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'CkerUMLModel::CkerGUI::TableWidget::TableWidget' -  (Operation)" />
+  <Message Timestamp="2013-08-07T15:40:29" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'CkerUMLModel::CkerGUI::TableWidget::TableWidget::presenter' -  (Parameter)" />
+  <Message Timestamp="2013-08-07T15:40:29" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'CkerUMLModel::CkerGUI::TableWidget::TableWidget::sortAscendingDisplay' -  (Parameter)" />
+  <Message Timestamp="2013-08-07T15:40:29" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'CkerUMLModel::CkerGUI::TableWidget::TableWidget::sortDescendingDisplay' -  (Parameter)" />
+  <Message Timestamp="2013-08-07T15:40:29" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'CkerUMLModel::CkerGUI::TableWidget::TableWidget::tableContainer' -  (Parameter)" />
+  <Message Timestamp="2013-08-07T15:40:29" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'CkerUMLModel::CkerGUI::TableWidget::UpdateRowColours' -  (Operation)" />
+  <Message Timestamp="2013-08-07T15:40:29" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'CkerUMLModel::CkerGUI::TableWidget::UpdateVessels' -  (Operation)" />
+  <Message Timestamp="2013-08-07T15:40:29" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'CkerUMLModel::CkerGUI::TableWidget::vesselListContainer' -  (Property)" />
+  <Message Timestamp="2013-08-07T15:40:29" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'CkerUMLModel::CkerGUI::TableWidget::vesselPresenter' -  (Property)" />
+  <Message Timestamp="2013-08-07T15:40:29" Importance="Medium" Text="Element reverse engineered into the UML model: 'CkerUMLModel::CkerGUI::VesselView' -  (Class)" />
+  <Message Timestamp="2013-08-07T15:40:29" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'CkerUMLModel::CkerGUI::VesselView::OnCheckboxClick' -  (Operation)" />
+  <Message Timestamp="2013-08-07T15:40:29" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'CkerUMLModel::CkerGUI::VesselView::OnCheckboxClick::e' -  (Parameter)" />
+  <Message Timestamp="2013-08-07T15:40:29" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'CkerUMLModel::CkerGUI::VesselView::OnCheckboxClick::sender' -  (Parameter)" />
+  <Message Timestamp="2013-08-07T15:40:29" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'CkerUMLModel::CkerGUI::VesselView::radarWidget' -  (Property)" />
+  <Message Timestamp="2013-08-07T15:40:29" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'CkerUMLModel::CkerGUI::VesselView::Reset' -  (Operation)" />
+  <Message Timestamp="2013-08-07T15:40:29" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'CkerUMLModel::CkerGUI::VesselView::SetupFilteringCheckboxes' -  (Operation)" />
+  <Message Timestamp="2013-08-07T15:40:29" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'CkerUMLModel::CkerGUI::VesselView::SetupFilteringCheckboxes::checkboxContainer' -  (Parameter)" />
+  <Message Timestamp="2013-08-07T15:40:29" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'CkerUMLModel::CkerGUI::VesselView::SetupFilteringCheckboxes::toggleAllCheckbox' -  (Parameter)" />
+  <Message Timestamp="2013-08-07T15:40:29" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'CkerUMLModel::CkerGUI::VesselView::SetupRadarWidget' -  (Operation)" />
+  <Message Timestamp="2013-08-07T15:40:29" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'CkerUMLModel::CkerGUI::VesselView::SetupRadarWidget::radarContainer' -  (Parameter)" />
+  <Message Timestamp="2013-08-07T15:40:29" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'CkerUMLModel::CkerGUI::VesselView::SetupTableWidget' -  (Operation)" />
+  <Message Timestamp="2013-08-07T15:40:29" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'CkerUMLModel::CkerGUI::VesselView::SetupTableWidget::sortAscendingDisplay' -  (Parameter)" />
+  <Message Timestamp="2013-08-07T15:40:29" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'CkerUMLModel::CkerGUI::VesselView::SetupTableWidget::sortDescendingDisplay' -  (Parameter)" />
+  <Message Timestamp="2013-08-07T15:40:29" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'CkerUMLModel::CkerGUI::VesselView::SetupTableWidget::tableContainer' -  (Parameter)" />
+  <Message Timestamp="2013-08-07T15:40:29" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'CkerUMLModel::CkerGUI::VesselView::Start' -  (Operation)" />
+  <Message Timestamp="2013-08-07T15:40:29" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'CkerUMLModel::CkerGUI::VesselView::Start::file' -  (Parameter)" />
+  <Message Timestamp="2013-08-07T15:40:29" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'CkerUMLModel::CkerGUI::VesselView::tableWidget' -  (Property)" />
+  <Message Timestamp="2013-08-07T15:40:29" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'CkerUMLModel::CkerGUI::VesselView::UpdateVessels' -  (Operation)" />
+  <Message Timestamp="2013-08-07T15:40:29" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'CkerUMLModel::CkerGUI::VesselView::vesselFilterCheckboxes' -  (Property)" />
+  <Message Timestamp="2013-08-07T15:40:29" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'CkerUMLModel::CkerGUI::VesselView::vesselPresenter' -  (Property)" />
+  <Message Timestamp="2013-08-07T15:40:29" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'CkerUMLModel::CkerGUI::VesselView::vesselToggleAllCheckbox' -  (Property)" />
+  <Message Timestamp="2013-08-07T15:40:29" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'CkerUMLModel::CkerGUI::VesselView::VesselView' -  (Operation)" />
+  <Message Timestamp="2013-08-07T15:40:29" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'CkerUMLModel::SoftArcs' -  (Package)" />
+  <Message Timestamp="2013-08-07T15:40:29" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'CkerUMLModel::SoftArcs::WPFSmartLibrary' -  (Package)" />
+  <Message Timestamp="2013-08-07T15:40:29" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'CkerUMLModel::SoftArcs::WPFSmartLibrary::MVVMCore' -  (Package)" />
+  <Message Timestamp="2013-08-07T15:40:29" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'CkerUMLModel::SoftArcs::WPFSmartLibrary::MVVMCore::ViewModelBase' -  (Class)   (partially reverse engineered - definition not updated) " />
+  <Message Timestamp="2013-08-07T15:40:29" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'CkerUMLModel::System' -  (Package)" />
+  <Message Timestamp="2013-08-07T15:40:29" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'CkerUMLModel::System::Action' -  (Class)   (partially reverse engineered - definition not updated) " />
+  <Message Timestamp="2013-08-07T15:40:29" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'CkerUMLModel::System::Collections' -  (Package)" />
+  <Message Timestamp="2013-08-07T15:40:29" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'CkerUMLModel::System::Collections::Generic' -  (Package)" />
+  <Message Timestamp="2013-08-07T15:40:29" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'CkerUMLModel::System::Collections::Generic::IEnumerable' -  (Interface)   (partially reverse engineered - definition not updated) " />
+  <Message Timestamp="2013-08-07T15:40:29" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'CkerUMLModel::System::Collections::Generic::IEnumerable&lt;Vessel‎&gt;' -  (Interface)   (partially reverse engineered - definition not updated) " />
+  <Message Timestamp="2013-08-07T15:40:29" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'CkerUMLModel::System::Collections::Generic::List' -  (Class)   (partially reverse engineered - definition not updated) " />
+  <Message Timestamp="2013-08-07T15:40:29" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'CkerUMLModel::System::Collections::Generic::List&lt;CheckBox‎&gt;' -  (Class)   (partially reverse engineered - definition not updated) " />
+  <Message Timestamp="2013-08-07T15:40:29" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'CkerUMLModel::System::Collections::ObjectModel' -  (Package)" />
+  <Message Timestamp="2013-08-07T15:40:29" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'CkerUMLModel::System::Collections::ObjectModel::ObservableCollection' -  (Class)   (partially reverse engineered - definition not updated) " />
+  <Message Timestamp="2013-08-07T15:40:29" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'CkerUMLModel::System::Collections::ObjectModel::ObservableCollection&lt;Vessel‎&gt;' -  (Class)   (partially reverse engineered - definition not updated) " />
+  <Message Timestamp="2013-08-07T15:40:29" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'CkerUMLModel::System::Double' -  (Class)   (partially reverse engineered - definition not updated) " />
+  <Message Timestamp="2013-08-07T15:40:29" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'CkerUMLModel::System::EventArgs' -  (Class)   (partially reverse engineered - definition not updated) " />
+  <Message Timestamp="2013-08-07T15:40:29" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'CkerUMLModel::System::Object' -  (Class)   (partially reverse engineered - definition not updated) " />
+  <Message Timestamp="2013-08-07T15:40:29" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'CkerUMLModel::System::Windows' -  (Package)" />
+  <Message Timestamp="2013-08-07T15:40:29" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'CkerUMLModel::System::Windows::Controls' -  (Package)" />
+  <Message Timestamp="2013-08-07T15:40:29" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'CkerUMLModel::System::Windows::Controls::Canvas' -  (Class)   (partially reverse engineered - definition not updated) " />
+  <Message Timestamp="2013-08-07T15:40:29" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'CkerUMLModel::System::Windows::Controls::CheckBox' -  (Class)   (partially reverse engineered - definition not updated) " />
+  <Message Timestamp="2013-08-07T15:40:29" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'CkerUMLModel::System::Windows::Controls::GridViewColumnHeader' -  (Class)   (partially reverse engineered - definition not updated) " />
+  <Message Timestamp="2013-08-07T15:40:29" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'CkerUMLModel::System::Windows::Controls::ListView' -  (Class)   (partially reverse engineered - definition not updated) " />
+  <Message Timestamp="2013-08-07T15:40:29" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'CkerUMLModel::System::Windows::Controls::StackPanel' -  (Class)   (partially reverse engineered - definition not updated) " />
+  <Message Timestamp="2013-08-07T15:40:29" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'CkerUMLModel::System::Windows::DataTemplate' -  (Class)   (partially reverse engineered - definition not updated) " />
+  <Message Timestamp="2013-08-07T15:40:29" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'CkerUMLModel::System::Windows::Input' -  (Package)" />
+  <Message Timestamp="2013-08-07T15:40:29" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'CkerUMLModel::System::Windows::Input::ICommand' -  (Interface)   (partially reverse engineered - definition not updated) " />
+  <Message Timestamp="2013-08-07T15:40:29" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'CkerUMLModel::System::Windows::RoutedEventArgs' -  (Class)   (partially reverse engineered - definition not updated) " />
+  <Message Timestamp="2013-08-07T15:40:29" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'CkerUMLModel::System::Windows::SizeChangedEventArgs' -  (Class)   (partially reverse engineered - definition not updated) " />
+  <Message Timestamp="2013-08-07T15:40:29" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'f734bfa9-c48f-4bd9-9aa0-39e0bf5ba84b' -  (ClassifierTemplateParameter)" />
+  <Message Timestamp="2013-08-07T15:40:29" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'String' -  (PrimitiveType)" />
+  <Message Timestamp="2013-08-07T15:40:29" Importance="Diagnostic" Text="Relationship reverse engineered into the UML model: CkerUMLModel::CkerGUI::RadarWidget to CkerUMLModel::System::Double (Association)" />
+  <Message Timestamp="2013-08-07T15:40:29" Importance="Diagnostic" Text="Relationship reverse engineered into the UML model: CkerUMLModel::CkerGUI::RadarWidget to CkerUMLModel::System::Double (Association)" />
+  <Message Timestamp="2013-08-07T15:40:29" Importance="Diagnostic" Text="Relationship reverse engineered into the UML model: CkerUMLModel::CkerGUI::RadarWidget to CkerUMLModel::System::Double (Association)" />
+  <Message Timestamp="2013-08-07T15:40:29" Importance="Diagnostic" Text="Relationship reverse engineered into the UML model: CkerUMLModel::CkerGUI::RadarWidget to CkerUMLModel::System::Double (Association)" />
+  <Message Timestamp="2013-08-07T15:40:29" Importance="Diagnostic" Text="Relationship reverse engineered into the UML model: CkerUMLModel::CkerGUI::RadarWidget to CkerUMLModel::System::Double (Association)" />
+  <Message Timestamp="2013-08-07T15:40:29" Importance="Diagnostic" Text="Relationship reverse engineered into the UML model: CkerUMLModel::CkerGUI::LoginView to CkerUMLModel::System::Windows::Input::ICommand (Association)" />
+  <Message Timestamp="2013-08-07T15:40:29" Importance="Diagnostic" Text="Relationship reverse engineered into the UML model: CkerUMLModel::CkerGUI::LoginView to CkerUMLModel::SoftArcs::WPFSmartLibrary::MVVMCore::ViewModelBase (Generalization)" />
+  <Message Timestamp="2013-08-07T15:40:29" Importance="Diagnostic" Text="Relationship reverse engineered into the UML model: CkerUMLModel::System::Windows::SizeChangedEventArgs to CkerUMLModel::System::Windows::RoutedEventArgs (Generalization)" />
+  <Message Timestamp="2013-08-07T15:40:29" Importance="Diagnostic" Text="Relationship reverse engineered into the UML model: CkerUMLModel::System::Windows::RoutedEventArgs to CkerUMLModel::System::EventArgs (Generalization)" />
+  <Message Timestamp="2013-08-07T15:40:29" Importance="High" Text="(4) type(s) fully reverse engineered." />
+  <Message Timestamp="2013-08-07T15:40:29" Importance="High" Text="(24) type(s) partially reverse engineered.  These types were not included in the original selection so their full definitions are not reverse engineered.  Instead, this shallow operation has simply ensured these types exist in the UML model because they are needed in order to fully describe other elements." />
+  <Message Timestamp="2013-08-07T15:40:29" Importance="High" Text="The reverse engineering operation completed with (0) error(s), and (0) warning(s)." />
+</Log>
