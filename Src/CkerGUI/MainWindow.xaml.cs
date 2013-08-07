@@ -146,6 +146,10 @@ namespace CkerGUI
                     filteringOptionsPanel.Visibility = System.Windows.Visibility.Visible;
                 }
 
+                // Show radar range label
+                radarRangeLabel.Visibility = System.Windows.Visibility.Visible;
+                radarRangeLabel.Content = "RANGE  " + Cker.Simulator.Range;
+
                 // Hide stuff not needed.
                 HideFileSelectionOptions();
                 foreach (var column in vesselsGridView.Columns)

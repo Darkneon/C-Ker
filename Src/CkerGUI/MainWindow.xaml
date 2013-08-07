@@ -116,6 +116,12 @@
             </Canvas>
         </Grid>
 
+        <!-- Top right, show range of radar -->
+        <Label Name="radarRangeLabel" Grid.Column="4" 
+               HorizontalAlignment="Right" Visibility="Hidden"
+               Content="RANGE XXX" FontSize="16" Foreground="#FF494949">
+        </Label>
+        
         <!-- Bottom area display vessel information -->
         <Grid Name="vesselsGrid" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="5">
             <ListView Name="vesselsListView">
