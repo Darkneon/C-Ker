@@ -19,9 +19,9 @@ namespace Cker
 
         public class Simulator
         {
-            static public int StartTime { get; set; }
-            static public int TimeStep { get; set; }
-            static public int Time { get; set; }
+            static public float StartTime { get; set; }
+            static public float TimeStep { get; set; }
+            static public float Time { get; set; }
             static public int Range { get; set; }
         }
         
@@ -74,13 +74,13 @@ namespace Cker
                 switch (fields[0])
                 {
                     case StartTime:
-                        Simulator.StartTime = Convert.ToInt32(fields[1]);
+                        Simulator.StartTime = Convert.ToSingle(fields[1]);
                         break;
                     case TimeStep:
-                        Simulator.TimeStep = Convert.ToInt32(fields[1]);
+                        Simulator.TimeStep = Convert.ToSingle(fields[1]);
                         break;
                     case Time:
-                        Simulator.Time = Convert.ToInt32(fields[1]);
+                        Simulator.Time = Convert.ToSingle(fields[1]);
                         break;
                     case Range:
                         Simulator.Range = Convert.ToInt32(fields[1]);

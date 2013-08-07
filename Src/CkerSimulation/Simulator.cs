@@ -16,13 +16,13 @@ namespace Cker
         static public double ALARM_HIGH_DISTANCE = 50.0;
         static public double ALARM_LOW_DISTANCE  = 200.0;
 
-        static public int StartTime { get; set; }
-        static public int TimeStep { get; set; }
-        static public int Time { get; set; }
+        static public float StartTime { get; set; }
+        static public float TimeStep { get; set; }
+        static public float Time { get; set; }
         static public int Range { get; set; }
 
         private static Timer timer = new Timer();
-        private static int m_currentTime = 0;
+        private static float m_currentTime = 0;
 
         private static List<Vessel> m_vesselsList = new List<Vessel>();
         private static List<Vessel> m_vesselsListOriginal = new List<Vessel>();
@@ -128,7 +128,7 @@ namespace Cker
         // Private Methods
         //-------------------------------------------------------------------
 
-        private static int TimeRemaining()
+        private static float TimeRemaining()
         {
             return Simulator.Time - m_currentTime;
         }

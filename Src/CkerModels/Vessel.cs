@@ -59,7 +59,7 @@ namespace Cker.Models
             return Math.Sqrt(distance);
         }
 
-        public void UpdatePositions(int deltaTime)
+        public void UpdatePositions(float deltaTime)
         {
             X = X + VX_0 * deltaTime;
             Y = Y + VY_0 * deltaTime;
