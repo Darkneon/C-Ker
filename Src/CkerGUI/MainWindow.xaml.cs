@@ -27,6 +27,8 @@ namespace CkerGUI
             loginView = new LoginView();
             loginView.AddLoginCompleteAction(OnLoginComplete);
             DataContext = loginView;
+
+            vesselView = new VesselView();
         }
 
         private void InitializeScenarioFileList()
@@ -95,6 +97,9 @@ namespace CkerGUI
 
         private void OnFileBrowseButtonClick(object sender, RoutedEventArgs e)
         {
+            fileFormatErrorLabel.Visibility = System.Windows.Visibility.Hidden;
+
+            // Open the windows file browse dialog
             OpenFileDialog browseDialog = new OpenFileDialog();
             browseDialog.DefaultExt = ".vsf";
             browseDialog.Filter = "scenario files (*.vsf)|*vsf";
@@ -126,24 +131,31 @@ namespace CkerGUI
         private void OnScenarioFileSelected(string file)
         {
             // Setup simulation view
-            vesselView = new VesselView(file);
-            vesselView.SetupTableWidget(vesselsListView, (DataTemplate)Resources["ColumnHeaderArrowUp"], (DataTemplate)Resources["ColumnHeaderArrowDown"]);
-            vesselView.SetupRadarWidget(radarCanvas);
-            vesselView.SetupFilteringCheckboxes(toggleAllVesselCheckbox, individualVesselCheckboxes);
-            vesselView.UpdateVessels();
-
-            // Show filtering options if admin
-            User currentUser = Authenticator.CurrentUser;
-            if (currentUser.Type == UserType.Administrator)
+            if (vesselView.Start(file))
             {
-                filteringOptionsPanel.Visibility = System.Windows.Visibility.Visible;
+                vesselView.Reset();
+                vesselView.SetupTableWidget(vesselsListView, (DataTemplate)Resources["ColumnHeaderArrowUp"], (DataTemplate)Resources["ColumnHeaderArrowDown"]);
+                vesselView.SetupRadarWidget(radarCanvas);
+                vesselView.SetupFilteringCheckboxes(toggleAllVesselCheckbox, individualVesselCheckboxes);
+                vesselView.UpdateVessels();
+
+                // Show filtering options if admin
+                User currentUser = Authenticator.CurrentUser;
+                if (currentUser.Type == UserType.Administrator)
+                {
+                    filteringOptionsPanel.Visibility = System.Windows.Visibility.Visible;
+                }
+
+                // Hide stuff not needed.
+                HideFileSelectionOptions();
+                foreach (var column in vesselsGridView.Columns)
+                {
+                    column.HeaderTemplate = null;
+                }
             }
-
-            // Hide stuff not needed.
-            HideFileSelectionOptions();
-            foreach (var column in vesselsGridView.Columns)
+            else
             {
-                column.HeaderTemplate = null;
+                fileFormatErrorLabel.Visibility = System.Windows.Visibility.Visible;
             }
         }
 
@@ -167,6 +179,7 @@ namespace CkerGUI
             fileBrowseButton.Visibility = System.Windows.Visibility.Hidden;
             fileBrowseErrorLabel.Visibility = System.Windows.Visibility.Hidden;
             fileCancelButton.Visibility = System.Windows.Visibility.Hidden;
+            fileFormatErrorLabel.Visibility = System.Windows.Visibility.Hidden;
         }
     }
 }

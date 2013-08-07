@@ -28,14 +28,35 @@ namespace CkerGUI
         // Vessel presenter to get information from simulation.
         private VesselPresenter vesselPresenter;
 
+        public VesselView()
+        {
+            vesselPresenter = new VesselPresenter();
+        }
+
         /// <summary>
-        /// Must specify the scenario file to use
+        /// Must specify the scenario file to start
         /// </summary>
         /// <param name="file"></param>
-        public VesselView(string file)
+        /// <returns></returns>
+        public bool Start(string file)
         {
-            vesselPresenter = new VesselPresenter(file);
-            vesselPresenter.AddUpdateAction(OnServerUpdate);
+            bool isSuccessful = vesselPresenter.Start(file);
+            if (isSuccessful)
+            {
+                vesselPresenter.AddUpdateAction(OnServerUpdate);
+            }
+            return isSuccessful;
+        }
+
+        /// <summary>
+        /// Resets the view to be like the beginning.
+        /// </summary>
+        public void Reset()
+        {
+            if (tableWidget != null)
+            {
+                tableWidget.Reset();
+            }
         }
 
         /// <summary>

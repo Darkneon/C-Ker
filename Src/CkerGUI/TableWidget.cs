@@ -52,13 +52,22 @@ namespace CkerGUI
             vesselListContainer.ItemsSource = displayedVessels;
 
             // Register callback when a column header is clicked to do sorting.
-            tableContainer.AddHandler(GridViewColumnHeader.ClickEvent, new RoutedEventHandler(OnColumnHeaderClick));
+            vesselListContainer.AddHandler(GridViewColumnHeader.ClickEvent, new RoutedEventHandler(OnColumnHeaderClick));
 
             // Register callback when the simulation updates to refresh our list.
             vesselPresenter.AddUpdateAction(OnSimulationUpdate);
 
             // Register callback when item container status changes to be able to change style colors for alarms.
             vesselListContainer.ItemContainerGenerator.StatusChanged += new EventHandler(OnItemContainerStatusChanged);
+        }
+
+        /// <summary>
+        /// Reset the widget to be like at start.
+        /// </summary>
+        public void Reset()
+        {
+            vesselListContainer.RemoveHandler(GridViewColumnHeader.ClickEvent, new RoutedEventHandler(OnColumnHeaderClick));
+            vesselListContainer.ItemContainerGenerator.StatusChanged -= new EventHandler(OnItemContainerStatusChanged);
         }
 
         /// <summary>

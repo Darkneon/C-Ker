@@ -44,7 +44,7 @@
 
 
         <!-- Top left, simulation start button, and file selection -->
-        <Grid Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="1">
+        <Grid Grid.Row="0" Grid.RowSpan="2" Grid.Column="0" Grid.ColumnSpan="1">
             
             <Button Content="New Simulation" Focusable="False"
                     Height="40" Width="120" VerticalAlignment="Top" Margin="0,10,0,0"
@@ -77,6 +77,12 @@
             
             <Label Name="fileBrowseErrorLabel" 
                    Content="Please select a valid .vsf file."
+                   Height="40" VerticalAlignment="Top" Margin="0,324,0,0"
+                   Foreground="Red" Visibility="Hidden" >
+            </Label>
+
+            <Label Name="fileFormatErrorLabel" 
+                   Content="File has invalid formatting."
                    Height="40" VerticalAlignment="Top" Margin="0,324,0,0"
                    Foreground="Red" Visibility="Hidden" >
             </Label>

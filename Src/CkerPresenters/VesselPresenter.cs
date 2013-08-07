@@ -42,27 +42,30 @@ namespace Cker.Presenters
         private List<Vessel.TargetType> currentWantedTypes;
 
         /// <summary>
-        /// Must specify the scenario file to use, simply the filename "name.vsf" without the directory.
+        /// Must specify the scenario file to start, simply the filename "name.vsf" without the directory.
         /// </summary>
         /// <param name="scenarioFile"></param>
-        public VesselPresenter(string scenarioFile)
+        public bool Start(string scenarioFile)
         {
             // Starts the simulation here.
             Cker.Simulator.Stop();
-            Cker.Simulator.Start("Assets/", scenarioFile);
+            bool startSuccess = Cker.Simulator.Start("Assets/", scenarioFile) == 0;
+            if (startSuccess)
+            {
+                // Register event handlers.
+                AddUpdateAction(OnSimulationUpdateEvent);
+                AddAlarmAction(OnSimulationAlarmEvent);
 
-            // Register event handlers.
-            AddUpdateAction(OnSimulationUpdateEvent);
-            AddAlarmAction(OnSimulationAlarmEvent);
+                // Display all vessels at first.
+                DisplayedVessels = GetAllVesselsWithinRadarRange();
 
-            // Display all vessels at first.
-            DisplayedVessels = GetAllVesselsWithinRadarRange();
+                currentWantedTypes = null;
+                currentSortByAttribute = null;
+                CurrentSortDirection = SortDirection.Descending;
 
-            currentWantedTypes = null;
-            currentSortByAttribute = null;
-            CurrentSortDirection = SortDirection.Descending;
-
-            CurrentAlarms = new List<Simulator.OnAlarmEventArgs>();
+                CurrentAlarms = new List<Simulator.OnAlarmEventArgs>();
+            }
+            return startSuccess;
         }
 
         /// <summary>
