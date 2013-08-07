@@ -1,0 +1,756 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm4="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/LogicalClassDesigner"
+  dslVersion="1.0.0.0"
+  Id="6d1258b2-e6e9-4ef4-b429-c11b6b6a68ee"
+  name="Authentication"
+  visibility="Private" xmlns="http://schemas.microsoft.com/dsltools/ModelStore">
+  <referencesInternal>
+    <reference
+      Id="669460dd-3dbe-41c1-948c-419fbe7c5953"
+      handle="viewcode://./CodeSchema_Namespace?Namespace%3DCker.Authentication"
+      tag="ViewCode" />
+  </referencesInternal>
+  <packagedElements>
+    <packageHasNamedElement>
+      <class
+        Id="70d7b9cf-aefb-4f8c-8000-e457bf52c212"
+        name="Authenticator"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <referencesInternal>
+          <reference
+            Id="8c2eb0a5-d109-4d28-a0a3-ec512de379a6"
+            handle="viewcode://./CodeSchema_Class?Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FAsh%2FDocuments%2FGitHub%2FC-Ker%2FSrc%2FCkerAuthentication%2Fbin%2FDebug%2FCkerAuthentication.dll Namespace%3DCker.Authentication Type%3DAuthenticator"
+            tag="ViewCode" />
+        </referencesInternal>
+        <appliedStereotypesInternal>
+          <stereotypeInstance
+            Id="790743c9-022d-49fb-976f-605b918784cf"
+            name="class"
+            profile="CSharpProfile">
+            <propertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="590b1dd2-52d5-492f-afd8-e8f54ffadd61">
+                <propertyInstance
+                  Id="80e7ee95-3226-4514-8938-3e8b519fd1c1"
+                  name="ClrAttributes" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="3d5a3acc-3c1c-45f6-95c8-ebf8b4ee2b9e">
+                <propertyInstance
+                  Id="0bac4288-f948-4d3c-8154-9a8e09efed37"
+                  name="IsPartial"
+                  value="false" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="cb3cb473-af72-499a-863c-18b5218afcba">
+                <propertyInstance
+                  Id="beaa4682-4201-426c-b0b5-49b34d3c8b53"
+                  name="IsStatic"
+                  value="True" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="adb3ef0c-dfcd-4274-bbe5-b9ab923ee490">
+                <propertyInstance
+                  Id="89d2e9c7-87d1-4ec5-961e-6bece5a293f9"
+                  name="IsUnsafe"
+                  value="false" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="6c3e42d1-ab44-4c71-ba28-697242e2b08b">
+                <propertyInstance
+                  Id="3cc9b543-aad6-48bd-a137-f5c4c2ce56b1"
+                  name="PackageVisibility"
+                  value="internal" />
+              </stereotypeInstanceHasPropertyInstances>
+            </propertyInstances>
+          </stereotypeInstance>
+        </appliedStereotypesInternal>
+        <targetEnds>
+          <association
+            Id="5b90776d-1353-48a3-b2b2-1377083bcc9e"
+            isDerived="false"
+            sourceEndRoleName="Authenticator"
+            targetEndRoleName="CurrentUser"
+            isLeaf="false"
+            isAbstract="false">
+            <classMoniker
+              Id="4247a2a8-cf34-4016-9894-db33683c3169"
+              LastKnownName="User"
+              LastKnownLocation="Package4_1400.uml" />
+            <description>Property CurrentUser references type User.</description>
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="ac9c5926-3c4a-4448-8373-8e6a90f6de95"
+                  name="Authenticator"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false">
+                  <lowerValueInternal>
+                    <literalString
+                      Id="7a18cf38-fb4c-4433-a2a2-792add9d9ec3"
+                      name="Lower"
+                      value="*" />
+                  </lowerValueInternal>
+                  <upperValueInternal>
+                    <literalString
+                      Id="10705379-08db-4412-b2a0-469f9cc320b9"
+                      name="Upper"
+                      value="*" />
+                  </upperValueInternal>
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="fa3136f2-cc26-4cdb-9b9d-d11357bacdc3"
+                  name="CurrentUser"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false">
+                  <lowerValueInternal>
+                    <literalString
+                      Id="6b13ef2f-d0a9-433e-bcbc-a8de853bd1c9"
+                      name="Lower"
+                      value="1" />
+                  </lowerValueInternal>
+                  <upperValueInternal>
+                    <literalString
+                      Id="b48899dd-28b1-40b6-955a-c6a20be29433"
+                      name="Upper"
+                      value="1" />
+                  </upperValueInternal>
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+        </targetEnds>
+        <ownedAttributesInternal>
+          <property
+            Id="40f2aaf1-fb56-498a-ab47-0c5530bb2687"
+            name="CurrentUser"
+            isLeaf="false"
+            isStatic="true"
+            isReadOnly="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <referencesInternal>
+              <reference
+                Id="99b2d896-f19b-4224-8dfb-5e01f7541e20"
+                handle="viewcode://./CodeSchema_Property?Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FAsh%2FDocuments%2FGitHub%2FC-Ker%2FSrc%2FCkerAuthentication%2Fbin%2FDebug%2FCkerAuthentication.dll Namespace%3DCker.Authentication Type%3DAuthenticator Member%3DCurrentUser"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="1dcef1f7-e3a1-42e5-84c1-f2e3eb49658b"
+                name="property"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="9e44a530-d712-42c2-b08c-cc66a8939e14">
+                    <propertyInstance
+                      Id="73aef3c1-dab7-4492-a554-aa93178b2505"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="bb859288-a07b-4460-927b-ceb98eed8289">
+                    <propertyInstance
+                      Id="340a78f4-de60-4aa7-b111-a1340dfe88f5"
+                      name="Get"
+                      value="public" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="1b35358c-2eba-4c3a-aa1e-dde248024232">
+                    <propertyInstance
+                      Id="77494856-f6a7-42ab-a047-8367397ed23c"
+                      name="HasBody"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="d801180d-a590-469c-8a1a-d7e79b236d61">
+                    <propertyInstance
+                      Id="f5574fe8-255e-4214-9d85-7751db365930"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="9bc1991b-4a89-4674-b383-5c6d812d1e52">
+                    <propertyInstance
+                      Id="b16d1401-b93e-4e11-a729-96bb254f2f80"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="6a3a6f12-ca8e-4249-94db-4bdaa0cf66b6">
+                    <propertyInstance
+                      Id="d6583b66-dfb0-4b20-badd-6e1771c57bd9"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="4b8c7c4d-3f3a-4eab-839c-539e3d145688">
+                    <propertyInstance
+                      Id="dfeca831-1d46-4897-9ac7-f7c7bbafb94f"
+                      name="Set"
+                      value="public" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <type_NamedElement>
+              <classMoniker
+                Id="4247a2a8-cf34-4016-9894-db33683c3169"
+                LastKnownName="User"
+                LastKnownLocation="Package4_1400.uml" />
+            </type_NamedElement>
+          </property>
+          <property
+            Id="9053911f-4bb4-4b92-b45a-584d30f0ee6f"
+            name="validUsers"
+            visibility="Private"
+            isLeaf="false"
+            isStatic="true"
+            isReadOnly="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <referencesInternal>
+              <reference
+                Id="b03cd628-2ecd-4c90-acd8-784fcd3e81eb"
+                handle="viewcode://./CodeSchema_Field?Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FAsh%2FDocuments%2FGitHub%2FC-Ker%2FSrc%2FCkerAuthentication%2Fbin%2FDebug%2FCkerAuthentication.dll Namespace%3DCker.Authentication Type%3DAuthenticator Member%3DvalidUsers"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="da738829-3cb5-4dbe-b7cc-8a290e2e39ce"
+                name="field"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="0b450b5c-d44a-43b2-bf83-043215402c7f">
+                    <propertyInstance
+                      Id="41a34006-6ea2-430d-b3b9-05c09796e46e"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="21657756-0f69-43f7-87b7-2351573abde7">
+                    <propertyInstance
+                      Id="8930fcaf-ccae-444f-9417-013d22463fb7"
+                      name="IsConst"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="a8443a07-6a8c-4030-85c4-de1f677201d9">
+                    <propertyInstance
+                      Id="92bf4836-42cc-4dce-a33b-668f376f1c65"
+                      name="IsNullable"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="42d24a52-b50d-45d4-b3ed-7f0805201c7a">
+                    <propertyInstance
+                      Id="c5dfcd70-ac6e-41c7-b608-4b62242bbdba"
+                      name="IsVolatile"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="47009c11-6554-429b-bb45-53eb0799a902">
+                    <propertyInstance
+                      Id="16b51881-67cb-44a2-8f90-791373b8bc7d"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <type_NamedElement>
+              <classMoniker
+                Id="ceea0a79-42ae-40ba-bab4-3ae4465a39e0"
+                LastKnownName="List&lt;User‎&gt;"
+                LastKnownLocation="Package3_1400.uml" />
+            </type_NamedElement>
+          </property>
+        </ownedAttributesInternal>
+        <ownedOperationsInternal>
+          <operation
+            Id="04588d1a-7cb3-434e-9981-2b46cd069fb4"
+            name="static Authenticator"
+            visibility="Private"
+            isLeaf="false"
+            isStatic="true"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <referencesInternal>
+              <reference
+                Id="a95aaf38-9bc2-4a31-8d79-88bf5df70526"
+                handle="viewcode://./CodeSchema_Method?Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FAsh%2FDocuments%2FGitHub%2FC-Ker%2FSrc%2FCkerAuthentication%2Fbin%2FDebug%2FCkerAuthentication.dll Namespace%3DCker.Authentication Type%3DAuthenticator Member%3D.cctor"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="6c184ee5-fd31-450f-ba06-a24d8dcadf51"
+                name="method"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="ac5b0f08-7391-4a2c-aace-522cad5eb977">
+                    <propertyInstance
+                      Id="f2819bfd-cc96-4e45-994a-1fa3d315850a"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="a29a5d31-2f60-4a88-a416-6c7ad3e569d0">
+                    <propertyInstance
+                      Id="bb777417-2edd-4fce-b1ba-5d5144f15ebe"
+                      name="IsPartial"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="5815d6e1-027f-41d2-adcf-c66faac327a8">
+                    <propertyInstance
+                      Id="813ef490-9f5f-4bd5-ad9f-9efdfee017c7"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="c902d364-221c-4141-8a85-3126fee477ab">
+                    <propertyInstance
+                      Id="84dfe831-2a88-4441-87bd-f1463530a5b4"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="ccc25fa1-8c61-4e87-bf8d-7d3afaf3e3a8">
+                    <propertyInstance
+                      Id="9d000c84-9763-4510-87ad-9ffbb991c9e5"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="1e469a9a-0c62-4897-a47b-d21a008360b4">
+                    <propertyInstance
+                      Id="a461b4ec-7ebd-4acb-a3aa-e65e93e73385"
+                      name="params"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+          </operation>
+          <operation
+            Id="f933c757-7ae4-4de5-a5c1-626eb0b96cf9"
+            name="Login"
+            isLeaf="false"
+            isStatic="true"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <referencesInternal>
+              <reference
+                Id="12bfec50-810d-4f93-8752-0ff9576f00f7"
+                handle="viewcode://./CodeSchema_Method?Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FAsh%2FDocuments%2FGitHub%2FC-Ker%2FSrc%2FCkerAuthentication%2Fbin%2FDebug%2FCkerAuthentication.dll Namespace%3DCker.Authentication Type%3DAuthenticator Member%3D(Name%3DLogin OverloadingParameters%3D[(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.5%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DString)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.5%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DString)])"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="e8c198d9-692a-43ca-b956-efb01cc1bd72"
+                name="method"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="6074f6bf-1d97-4e93-9a06-3dc04ddcb285">
+                    <propertyInstance
+                      Id="844498e8-74aa-4f5b-81be-5866e9d3b82c"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="0cc5c521-42b3-4a92-84c6-166e575c07ea">
+                    <propertyInstance
+                      Id="561b9057-33b8-4ecb-9ee0-489b13fdf4cd"
+                      name="IsPartial"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="2b682b7c-3536-4327-a429-4d3e3dd90f0e">
+                    <propertyInstance
+                      Id="7745d4b3-1515-4f4e-a00c-99bea12fb16f"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="178834f2-eb87-41c8-8574-fb8bcbbe1bd0">
+                    <propertyInstance
+                      Id="2d76fbdf-ed61-4987-963c-33b3b2a2bc4d"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="216be51f-df51-48cd-8201-3c6fe3f0962c">
+                    <propertyInstance
+                      Id="1a5f85a5-8ba5-4c0b-b939-9272b278569a"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="a3ad5ddd-58ba-4df7-9f79-e85bb2a87d3c">
+                    <propertyInstance
+                      Id="3b4673da-e1dc-4b56-b584-68375740f49f"
+                      name="params"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="8dd68f25-e8f6-4ea1-8a8d-6dcea25794c8"
+                  direction="Return">
+                  <type_NamedElement>
+                    <primitiveTypeMoniker
+                      Id="8943dc84-709e-4f62-b15a-a3273aa6f165"
+                      LastKnownName="Boolean"
+                      LastKnownLocation="cker_uml_model.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="1914b012-3cce-4b7a-90d3-de5b1801a330"
+                  name="username"
+                  direction="In">
+                  <referencesInternal>
+                    <reference
+                      Id="9f701c8f-cd73-44c7-bc17-692e620a4b6d"
+                      handle="viewcode://./CodeSchema_Parameter?Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FAsh%2FDocuments%2FGitHub%2FC-Ker%2FSrc%2FCkerAuthentication%2Fbin%2FDebug%2FCkerAuthentication.dll Namespace%3DCker.Authentication Type%3DAuthenticator Member%3D(Name%3DLogin OverloadingParameters%3D[(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.5%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DString)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.5%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DString)]) ParameterIdentifier%3Dusername"
+                      tag="ViewCode" />
+                  </referencesInternal>
+                  <type_NamedElement>
+                    <primitiveTypeMoniker
+                      Id="59259974-6d55-42c6-b7bd-763d77ac8ef9"
+                      LastKnownName="String"
+                      LastKnownLocation="cker_uml_model.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="c918780a-c7e3-467a-b8fc-d169a2f7d836"
+                  name="password"
+                  direction="In">
+                  <referencesInternal>
+                    <reference
+                      Id="40e4dbdb-e385-440a-8b91-7e4899fc306c"
+                      handle="viewcode://./CodeSchema_Parameter?Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FAsh%2FDocuments%2FGitHub%2FC-Ker%2FSrc%2FCkerAuthentication%2Fbin%2FDebug%2FCkerAuthentication.dll Namespace%3DCker.Authentication Type%3DAuthenticator Member%3D(Name%3DLogin OverloadingParameters%3D[(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.5%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DString)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.5%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DString)]) ParameterIdentifier%3Dpassword"
+                      tag="ViewCode" />
+                  </referencesInternal>
+                  <type_NamedElement>
+                    <primitiveTypeMoniker
+                      Id="59259974-6d55-42c6-b7bd-763d77ac8ef9"
+                      LastKnownName="String"
+                      LastKnownLocation="cker_uml_model.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="00336dcb-202a-4cca-84d6-ab83df03d70b"
+            name="FindUser"
+            isLeaf="false"
+            isStatic="true"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <referencesInternal>
+              <reference
+                Id="9e9541e7-1f29-491a-a111-34401937bb7d"
+                handle="viewcode://./CodeSchema_Method?Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FAsh%2FDocuments%2FGitHub%2FC-Ker%2FSrc%2FCkerAuthentication%2Fbin%2FDebug%2FCkerAuthentication.dll Namespace%3DCker.Authentication Type%3DAuthenticator Member%3D(Name%3DFindUser OverloadingParameters%3D[(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.5%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DString)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.5%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DString)])"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="64c6463b-3595-4151-bf4f-4eed584e3e51"
+                name="method"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="fa5c0d61-1715-46d0-abe2-15f49c2529ca">
+                    <propertyInstance
+                      Id="13805150-e1c8-47bf-aee3-91c8775636e2"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="b4ee8f5e-27d9-47de-9442-0dd8b89751cf">
+                    <propertyInstance
+                      Id="ae1e0ad8-fcda-453e-bed2-b9caa43a2a66"
+                      name="IsPartial"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="c3a7ddf5-0ca5-4c54-b604-7672ae2d6b50">
+                    <propertyInstance
+                      Id="439edd9f-371b-47a7-bc48-3e5d5438bd63"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="d830705f-3aac-4345-8ccf-2ec8a6c46c6c">
+                    <propertyInstance
+                      Id="c3be1e41-ed5c-4151-8338-9a41b828aa30"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="1ab345a1-2793-426c-aff2-418785c990e2">
+                    <propertyInstance
+                      Id="9a7f9dff-0b93-440a-95b0-51ee0e9f8e2c"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="ad90070d-35db-4a2a-b478-dfa88a5606ff">
+                    <propertyInstance
+                      Id="bc79594f-c5e7-4364-b5f0-288813684940"
+                      name="params"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="ae0ab215-940c-496f-b7ee-844b549329c0"
+                  direction="Return">
+                  <type_NamedElement>
+                    <classMoniker
+                      Id="4247a2a8-cf34-4016-9894-db33683c3169"
+                      LastKnownName="User"
+                      LastKnownLocation="Package4_1400.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="6238db01-d966-4a81-b62a-770673315a80"
+                  name="username"
+                  direction="In">
+                  <referencesInternal>
+                    <reference
+                      Id="c596f725-6b8c-4bba-9382-588b7dad5799"
+                      handle="viewcode://./CodeSchema_Parameter?Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FAsh%2FDocuments%2FGitHub%2FC-Ker%2FSrc%2FCkerAuthentication%2Fbin%2FDebug%2FCkerAuthentication.dll Namespace%3DCker.Authentication Type%3DAuthenticator Member%3D(Name%3DFindUser OverloadingParameters%3D[(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.5%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DString)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.5%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DString)]) ParameterIdentifier%3Dusername"
+                      tag="ViewCode" />
+                  </referencesInternal>
+                  <type_NamedElement>
+                    <primitiveTypeMoniker
+                      Id="59259974-6d55-42c6-b7bd-763d77ac8ef9"
+                      LastKnownName="String"
+                      LastKnownLocation="cker_uml_model.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="0f00351d-bc43-4868-be64-83c4bdbafb82"
+                  name="password"
+                  direction="In">
+                  <referencesInternal>
+                    <reference
+                      Id="379f04e6-bdc0-4ac0-a3e0-9f9924e93fcc"
+                      handle="viewcode://./CodeSchema_Parameter?Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FAsh%2FDocuments%2FGitHub%2FC-Ker%2FSrc%2FCkerAuthentication%2Fbin%2FDebug%2FCkerAuthentication.dll Namespace%3DCker.Authentication Type%3DAuthenticator Member%3D(Name%3DFindUser OverloadingParameters%3D[(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.5%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DString)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.5%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DString)]) ParameterIdentifier%3Dpassword"
+                      tag="ViewCode" />
+                  </referencesInternal>
+                  <type_NamedElement>
+                    <primitiveTypeMoniker
+                      Id="59259974-6d55-42c6-b7bd-763d77ac8ef9"
+                      LastKnownName="String"
+                      LastKnownLocation="cker_uml_model.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="04e9bd38-1329-49c1-9b53-09b6e21f44f8"
+            name="FindUser"
+            isLeaf="false"
+            isStatic="true"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <referencesInternal>
+              <reference
+                Id="97eb2047-1025-4fd3-96c6-7f867f147e72"
+                handle="viewcode://./CodeSchema_Method?Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FAsh%2FDocuments%2FGitHub%2FC-Ker%2FSrc%2FCkerAuthentication%2Fbin%2FDebug%2FCkerAuthentication.dll Namespace%3DCker.Authentication Type%3DAuthenticator Member%3D(Name%3DFindUser OverloadingParameters%3D[(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.5%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DString)])"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="2c03b90b-efd9-4d92-9f0b-fc64defb305f"
+                name="method"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="83979be5-a81f-42f9-bee1-3d10fec06efd">
+                    <propertyInstance
+                      Id="a1a8c6c8-28fb-46d5-a7ab-6bb545eabcc2"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="32e125b5-6ae6-4f6a-82bf-60e727e72618">
+                    <propertyInstance
+                      Id="f5043a30-dc68-4526-bbba-c1fcf169654a"
+                      name="IsPartial"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="cb0b2a1e-e1c8-4ca8-8a1d-9c04f56679a5">
+                    <propertyInstance
+                      Id="de4c2096-75b4-4453-a622-d3109a504005"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="066fef33-317a-4a9b-89dc-098b24c04456">
+                    <propertyInstance
+                      Id="0dc3079d-0636-419f-8ef5-0f43279b7938"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="9324ca7e-a937-4720-8a32-b1ea8ba1b5f3">
+                    <propertyInstance
+                      Id="a2b5d2e2-3615-411d-ba52-45ac5d5299c1"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="00bdf472-1b30-499c-b8e5-c16c8fc63b78">
+                    <propertyInstance
+                      Id="ee6fe310-37ed-4dee-a1f1-316b20b26add"
+                      name="params"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="0c966a62-4f5d-4097-b314-cd22d6752db8"
+                  direction="Return">
+                  <type_NamedElement>
+                    <classMoniker
+                      Id="4247a2a8-cf34-4016-9894-db33683c3169"
+                      LastKnownName="User"
+                      LastKnownLocation="Package4_1400.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="3ccc3578-f9ee-483b-b3d9-ebf6830abdea"
+                  name="username"
+                  direction="In">
+                  <referencesInternal>
+                    <reference
+                      Id="b790cc69-e134-4c81-af0c-cb3661922309"
+                      handle="viewcode://./CodeSchema_Parameter?Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FAsh%2FDocuments%2FGitHub%2FC-Ker%2FSrc%2FCkerAuthentication%2Fbin%2FDebug%2FCkerAuthentication.dll Namespace%3DCker.Authentication Type%3DAuthenticator Member%3D(Name%3DFindUser OverloadingParameters%3D[(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.5%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DString)]) ParameterIdentifier%3Dusername"
+                      tag="ViewCode" />
+                  </referencesInternal>
+                  <type_NamedElement>
+                    <primitiveTypeMoniker
+                      Id="59259974-6d55-42c6-b7bd-763d77ac8ef9"
+                      LastKnownName="String"
+                      LastKnownLocation="cker_uml_model.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="6939c50b-a63f-421c-9aa0-d234628d6cce"
+            name="InitializeValidUsers"
+            visibility="Private"
+            isLeaf="false"
+            isStatic="true"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <referencesInternal>
+              <reference
+                Id="eb3c6690-dd0c-47b1-a147-75a29e1ec9da"
+                handle="viewcode://./CodeSchema_Method?Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FAsh%2FDocuments%2FGitHub%2FC-Ker%2FSrc%2FCkerAuthentication%2Fbin%2FDebug%2FCkerAuthentication.dll Namespace%3DCker.Authentication Type%3DAuthenticator Member%3DInitializeValidUsers"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="f6eb56ac-15fd-4a78-a916-2ce0e054ca77"
+                name="method"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="9484b097-e74e-48d3-a4bc-cd969b1430dd">
+                    <propertyInstance
+                      Id="2e4d177f-8333-45f1-ae86-4e86933e2bfc"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="687d5b1f-67f8-4990-a28f-18c4a765c5a7">
+                    <propertyInstance
+                      Id="c2ef49b8-6079-44d7-ad24-6c1da738b1f2"
+                      name="IsPartial"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="5b61d4e0-7848-4a75-9d2e-dadd09fb1d6c">
+                    <propertyInstance
+                      Id="f908c6b4-b9ae-48f4-afd5-0c654997bac5"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="dc58bda5-b3bc-4eb8-9d13-9fef25e56693">
+                    <propertyInstance
+                      Id="142e446f-9f35-4c45-9bc6-184b11ac7f3d"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="e5b7150b-6077-49fa-bab5-2cd7960e3bf7">
+                    <propertyInstance
+                      Id="9f7d9bd3-2737-4082-9486-7e4c555426b3"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="88de4344-9b86-4de2-9d73-1d07cc53b6ca">
+                    <propertyInstance
+                      Id="608461e4-ebc9-41b5-b518-6279a4809a92"
+                      name="params"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+          </operation>
+        </ownedOperationsInternal>
+      </class>
+    </packageHasNamedElement>
+  </packagedElements>
+</package>
