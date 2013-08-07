@@ -53,7 +53,8 @@ namespace Cker.Presenters
             if (startSuccess)
             {
                 // Register event handlers.
-                AddUpdateAction(OnSimulationUpdateEvent);
+                Cker.Simulator.BeforeUpdate += OnSimulationBeforeUpdateEvent;
+                AddUpdateAction(OnSimulationAfterUpdateEvent);
                 AddAlarmAction(OnSimulationAlarmEvent);
 
                 // Display all vessels at first.
@@ -196,11 +197,14 @@ namespace Cker.Presenters
             return vessels;
         }
 
-        private void OnSimulationUpdateEvent()
+        private void OnSimulationBeforeUpdateEvent()
         {
             // Clear current alarms every update.
             CurrentAlarms.Clear();
+        }
 
+        private void OnSimulationAfterUpdateEvent()
+        {
             // Refilter to eliminate vessels that moved out of range.
             if (currentWantedTypes != null)
             {
@@ -221,7 +225,10 @@ namespace Cker.Presenters
             CurrentAlarms.Add(alarm);
 
             // Keep only the high risk alarm if there is both a low and a high risk alarm for a vessel.
-            CurrentAlarms.RemoveAll(a1 => a1.type == Simulator.AlarmType.Low && CurrentAlarms.Exists(a2 => a2.type == Simulator.AlarmType.High && IsAlarmVesselShared(a1, a2)));
+            if (alarm.type == Simulator.AlarmType.High)
+            {
+                CurrentAlarms.RemoveAll(a1 => a1.type == Simulator.AlarmType.Low && IsAlarmVesselShared(a1, alarm));
+            }
         }
 
         // helper to get the name of a variable; 

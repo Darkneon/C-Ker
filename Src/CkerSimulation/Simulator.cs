@@ -52,6 +52,8 @@ namespace Cker
             }
         }
 
+        public delegate void BeforeUpdateEventHandler();
+        public static event BeforeUpdateEventHandler BeforeUpdate;
         public delegate void AfterUpdateEventHandler();
         public static event AfterUpdateEventHandler AfterUpdate;
 
@@ -69,7 +71,7 @@ namespace Cker
             {
                 m_vesselsListOriginal = ScenarioParser.Parse(path, filename);
             }
-            catch (Exception e) 
+            catch (Exception /*e*/) 
             {
                 return 1;
             }
@@ -77,6 +79,7 @@ namespace Cker
             if (ScenarioParser.Simulator.TimeStep == 0.0f) { return 1; }
 
             m_vesselsList = new List<Vessel>();
+            BeforeUpdate = delegate { };
             AfterUpdate = delegate { };
             OnAlarm = delegate { };
 
@@ -114,20 +117,24 @@ namespace Cker
 
             AddNewVessels();
 
+            if (BeforeUpdate != null)
+            {
+                BeforeUpdate();
+            }
+
             foreach (Vessel v in m_vesselsList)
             {
                 v.UpdatePositions(Simulator.TimeStep);
-            }
-            
-
-            if (AfterUpdate != null)
-            {
-                AfterUpdate();
             }
 
             if (OnAlarm != null)
             {
                 CheckCollisions();
+            }
+
+            if (AfterUpdate != null)
+            {
+                AfterUpdate();
             }
 
             if (TimeRemaining() <= 0)

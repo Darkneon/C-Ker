@@ -121,34 +121,39 @@ namespace CkerGUI
             // So in order to access container, we need this callback to know when it is created.
             if (vesselListContainer.ItemContainerGenerator.Status == GeneratorStatus.ContainersGenerated)
             {
-                // Loop through each item and see if the container is available and modify container styles.
-                int i = 0;
-                foreach (var vessel in vesselListContainer.Items)
-                {
-                    // Try to get container.
-                    var item = vesselListContainer.ItemContainerGenerator.ContainerFromItem(vessel) as ListViewItem;
-                    if (item != null)
-                    {
-                        // Alternate row colours.
-                        item.Background = (i & 1) == 0 ? Brushes.White : Brushes.AliceBlue;
+                UpdateRowColours();
+            }
+        }
 
-                        // Change colour if there is associated alarm with this vessel.
-                        var alarmMatch = vesselPresenter.CurrentAlarms.Find(alarm => alarm.first == vessel || alarm.second == vessel);
-                        if (alarmMatch.first != null && alarmMatch.second != null)
+        private void UpdateRowColours()
+        {
+            // Loop through each item and see if the container is available and modify container styles.
+            int i = 0;
+            foreach (var vessel in vesselListContainer.Items)
+            {
+                // Try to get container.
+                var item = vesselListContainer.ItemContainerGenerator.ContainerFromItem(vessel) as ListViewItem;
+                if (item != null)
+                {
+                    // Alternate row colours.
+                    item.Background = (i & 1) == 0 ? Brushes.White : Brushes.AliceBlue;
+
+                    // Change colour if there is associated alarm with this vessel.
+                    var alarmMatch = vesselPresenter.CurrentAlarms.Find(alarm => alarm.first == vessel || alarm.second == vessel);
+                    if (alarmMatch.first != null && alarmMatch.second != null)
+                    {
+                        // Red if high risk, yellow if low risk
+                        if (alarmMatch.type == Cker.Simulator.AlarmType.Low)
                         {
-                            // Red if high risk, yellow if low risk
-                            if (alarmMatch.type == Cker.Simulator.AlarmType.Low)
-                            {
-                                item.Background = Brushes.Yellow;
-                            }
-                            else if (alarmMatch.type == Cker.Simulator.AlarmType.High)
-                            {
-                                item.Background = Brushes.Red;
-                            }
+                            item.Background = Brushes.Yellow;
+                        }
+                        else if (alarmMatch.type == Cker.Simulator.AlarmType.High)
+                        {
+                            item.Background = Brushes.Red;
                         }
                     }
-                    ++i;
                 }
+                ++i;
             }
         }
 

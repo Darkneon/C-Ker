@@ -41,10 +41,6 @@ namespace CkerGUI
         public bool Start(string file)
         {
             bool isSuccessful = vesselPresenter.Start(file);
-            if (isSuccessful)
-            {
-                vesselPresenter.AddUpdateAction(OnServerUpdate);
-            }
             return isSuccessful;
         }
 
@@ -118,8 +114,8 @@ namespace CkerGUI
             // Update the table widget.
             tableWidget.UpdateVessels();
 
-            // Update vessel map display.
-            radarWidget.DrawVessels(vesselPresenter.DisplayedVessels);
+            // Update the radar widget.
+            radarWidget.UpdateVessels();
         }
 
         private void OnCheckboxClick(object sender, RoutedEventArgs e)
@@ -167,12 +163,6 @@ namespace CkerGUI
 
             // Update vessels now that filtering changed.
             UpdateVessels();
-        }
-
-        private void OnServerUpdate()
-        {
-            // Invoke update on the dispatcher thread to allow GUI operations.
-            Application.Current.Dispatcher.Invoke(UpdateVessels);
         }
     }
 }
