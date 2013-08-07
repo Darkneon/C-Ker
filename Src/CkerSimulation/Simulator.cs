@@ -74,7 +74,7 @@ namespace Cker
                 return 1;
             }
 
-            if (Simulator.TimeStep == 0.0f) { return 1; }
+            if (ScenarioParser.Simulator.TimeStep == 0.0f) { return 1; }
 
             m_vesselsList = new List<Vessel>();
             AfterUpdate = delegate { };
