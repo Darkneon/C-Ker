@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -17,23 +17,85 @@ namespace CKerTests
         /// <summary>
         /// Tests that login function works.
         /// </summary>
+
         [Test]
-        public void AuthenticatorTest_Authentication()
+        public void FindUser_InvalidUsername_ReturnsNull()
         {
-            // At first, no user is logged in yet.
-            Assert.IsNull(Authenticator.CurrentUser, "User logged in without logging in.");
+            string username = "InvalidUsername";
 
-            // If a login is unsuccessful, still no user logged in.
-            bool isLoggedIn = Authenticator.Login("fakefake", "fakefake");
-            Assert.IsFalse(isLoggedIn, "Login succeeded when using wrong info.");
-            Assert.IsNull(Authenticator.CurrentUser, "User logged in after fail login.");
+            User actual = Authenticator.FindUser(username);
 
-            // If a login is successful, then the user is logged in.
-            isLoggedIn = Authenticator.Login("admin", "fullaccess");
-            Assert.IsTrue(isLoggedIn, "Login failed when using corrent info.");
-            Assert.IsNotNull(Authenticator.CurrentUser, "User not logged in after login.");
-            Assert.AreEqual(Authenticator.CurrentUser.Name, "admin", "Current user info. does not match login info.");
+            Assert.IsNull(actual);
         }
 
+        [Test]
+        public void FindUser_ValidUsername_ReturnsInstanciatedUserObject()
+        {
+            string username = "admin";
+
+            User expected = new User();
+            expected.Name = username;            
+
+            User actual = Authenticator.FindUser(username);
+
+            Assert.AreEqual(expected.ToString(), actual.ToString());
+
+        }
+
+        [Test]
+        public void FindUser_InvalidUsernameAndPassword_ReturnsNull() 
+        {
+            string username = "InvalidUsername";
+            string password = "InvalidPassword";
+
+            User actual = Authenticator.FindUser(username, password);
+
+            Assert.IsNull(actual);
+        }
+
+        [Test]
+        public void FindUser_ValidUsernameAndPassword_ReturnsInstanciatedUserObject()
+        {
+            string username = "admin";
+            string password = "fullaccess";
+
+            User expected = new User();
+            expected.Name = username;
+            expected.Password = password;
+
+            User actual = Authenticator.FindUser(username, password);
+
+            Assert.AreEqual(expected.ToString(), actual.ToString());
+
+        }
+        
+        [Test]
+        public void Logout_AUserLoggedIn_ReturnsNull() 
+        {
+            Authenticator.Login("admin", "fullaccess");
+            Authenticator.Logout();
+            Assert.IsNull(Authenticator.CurrentUser);
+        }
+
+        [Test]
+        public void Login_ValidUser_ReturnsMatchingUsernameAndPassword()
+        {            
+            Authenticator.Login("admin", "fullaccess");            
+
+            string expected = "admin";
+            string actual = Authenticator.CurrentUser.Name;
+            Assert.AreEqual(expected, actual);
+
+            expected = "fullaccess";
+            actual = Authenticator.CurrentUser.Password;
+            Assert.AreEqual(expected, actual);
+        }
+
+        [Test]
+        public void Login_InvalidUser_ReturnsCurrentUserNull()
+        {
+            Authenticator.Login("adminfake", "fullaccessfake");
+            Assert.IsNull(Authenticator.CurrentUser);          
+        }   
     }
 }
