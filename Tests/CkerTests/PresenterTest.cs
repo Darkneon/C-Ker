@@ -30,6 +30,16 @@ namespace CKerTests
         }
 
         /// <summary>
+        /// Tests that the presenter knows the correct user type.
+        /// </summary>
+        [Test]
+        public void PresenterTest_UserType()
+        {
+            Assert.AreEqual(loginPresenter.GetUserImagePath("admin"), LoginPresenter.ADMIN_IMAGE_PATH);
+            Assert.AreEqual(loginPresenter.GetUserImagePath("operator"), LoginPresenter.OPERATOR_IMAGE_PATH);
+        }
+
+        /// <summary>
         /// Tests that the presenter vessel data matches actual simulator data.
         /// </summary>
         [Test]
