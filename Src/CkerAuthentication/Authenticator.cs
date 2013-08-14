@@ -54,6 +54,11 @@ namespace Cker.Authentication
             return validUsers.FirstOrDefault(user => user.Name.Equals(username));
         }
 
+        public static void Logout() 
+        {
+            CurrentUser = null;
+        }
+        
         private static void InitializeValidUsers()
         {
             // Place for implementation of code for retrieval of user data, ideally from a database.
